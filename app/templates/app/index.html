@@ -1,0 +1,302 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'app/content/cover.css' %}" />
+
+<script src="{% static 'app/js/splash.js' %}"></script>
+
+<div id="Scene1" class="body-content">
+
+  <div class="spacer"></div>
+
+  <div id="splashVideo">
+    <video id="my-video" class="video" muted loop>
+      <source src="//anthonyplummer.elementfx.com/wp-content/uploads/2017/10/splash2.mp4" type="video/mp4">
+      <source src="//anthonyplummer.elementfx.com/wp-content/uploads/2017/10/splash2.mp4" type="video/ogg">
+      <source src="//anthonyplummer.elementfx.com/wp-content/uploads/2017/10/splash2.mp4" type="video/webm">
+    </video>
+
+    <script>
+    var video = document.getElementById("my-video");
+
+    /**
+     * Check if video can play, and play it
+     */
+
+    video.play();
+
+    $('#splashVideo').fadeIn();
+
+    function myFunction() {
+      $('video').css('opacity','0');
+      $('#Scene1').css('background-image','url("http://anthonyplummer.elementfx.com/wp-content/uploads/2017/10/splash.jpg")');
+      $('#Scene1').show("slide", { direction: "left" }, 1000);
+      $('.jumbotron').css('border', '4px double #407B40');
+      $('.jumbotron h1').css('color', 'darkorange');
+      $('#splashCarousel').css('border', '3px double #407B40');
+      $('#updates').css('border', '3px double #407B40');
+      $('.article').css('border', '3px solid #3F4D1C');
+    };
+
+    function stretchScreen() {
+      $('.video').css('position', 'absolute');
+      $('#updates').css('height', '1200px');
+    }
+
+    function flushVideo() {
+      $('#my-video').css('width', '100%');
+    }
+
+    setTimeout(myFunction, 4775);
+    setTimeout(stretchScreen, 5000);
+    setTimeout(flushVideo, 8000);
+
+    </script>
+  </div>
+
+  <div class="jumbotron">
+      <h1>Projekt Phusion</h1>
+      <p class="lead">Leveraged Django to operate on MacOS w/ Microsoft Azure.</p>
+      <p>now <a href="#">Google Cloud</a> compliant.</p>
+  </div>
+
+  <div class="row">
+
+      <div id="splashCarousel" class="col-md-6">
+        <div class="card">
+
+          <hr>
+
+          <div class="card-header">
+            <h3>What does this do?</h3>
+          </div>
+          <hr>
+          <div class="card-body col-sm-8 trackpack">
+            <blockquote class="blockquote mb-0">
+              <p>"Facilitates ROI through real-time monitoring of pre-processed AI datapools, Demonstrates competitive advantage through a correlation of medium-high level risk frameworks and access control standards."</p>
+              <div class="blockquote-footer col-sm-8">- <i>Anthony T. Plummer &nbsp;<span id="profession">Foreman</span></i></div>
+            </blockquote>
+          </div>
+
+          <div class="card-body col-sm-4 blockChainButton">
+            <blockquote class="blockquote mb-1">
+              <cite title="Source Title"><a class="btn btn-default" href="{% url 'link' %}">Blockchain Automation</a></cite>
+            </blockquote>
+          </div>
+
+          <div class="col-md-12 btn-group social">
+            <label class="col-sm-4 btn-secondary active">
+              <input type="radio" name="options" id="option1" checked autocomplete="off"> Active <span>Account Needed</span>
+            </label>
+            <label class="col-sm-4 btn-secondary">
+              <input type="radio" name="options" id="option2" autocomplete="off"> Neutral
+            </label>
+            <label class="col-sm-4 btn-secondary">
+              <input type="radio" name="options" id="option3" autocomplete="off"> Passive
+            </label>
+
+            <div class="col-sm-12 btcDonate">
+            </div>
+
+          </div>
+
+
+
+        </div>
+      </div>
+
+      <div id="statusUpdates" class="col-md-4">
+        <div id="updates" data-spy="scroll" data-target="#navbar-example2" data-offset="0">
+          <div class="updateNavbarHeaderText">Status Updates</div>
+
+          {% for update in updates %}
+            <hr>
+            <div class="article">
+              <h4>{{ update.post_date }}</h4>
+              <p>{{ update.event }}</p>
+            </div>
+            <hr>
+          {% endfor %}
+
+        </div>
+      </div>
+
+      <div id="streamingVideo" class="col-md-4">
+        <p>This is how we do it</p>
+      </div>
+
+  </div>
+</div>
+
+<div id="Scene2">
+
+  <hr>
+
+  <div class="col-md-12">
+    <h2 class="center">Recent Samples</h2>
+  </div>
+
+  <div class="container-fluid">
+    <div id="TwitterBox" class="row">
+      {% for tweet in tweets1 %}
+      <div class="card border-dark col-md-3 mb-3">
+        <div class="card-header">Tweets</div>
+        <div class="card-body text-dark">
+          <h4 class="card-title">Created at: {{ tweet.created_at }}</h4>
+          <p class="card-text">{{ tweet.text }}</p>
+          <span>{{ tweet.id }}</span>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+</div>
+
+<div id="Scene3">
+
+    <hr>
+
+    <div class="row">
+      <div id="watson" class="col-md-12">
+        <h1>AI Data Reconstruction & KPI Analysis<h1>
+      </div>
+    </div>
+</div>
+
+
+<div id="Scene4">
+
+  <hr>
+
+  <div class="col-md-12">
+    <h2 class="center">Recent Samples</h2>
+  </div>
+
+  <div class="container-fluid">
+    <div id="watson" class="row">
+      <div id="profile1" class="col-md-6">
+        <div class="col-md-12">
+          <div id="name1">Name: {{ user1.name }}</div>
+          <div id="location1">Location: {{ user1.location }}</div>
+        </div>
+        <div id="user_1" class="col-md-12" style="background-color:#{{ user1.profile_background_color }}; background-image:url({{ user1.profile_banner_url }}); background-position: center; background-size: cover;">
+          <div>
+            <img id="userPicture" src="{{ user1.profile_image_url }}">
+          </div>
+        </div>
+        {% for data in user1_list %}
+        <div class="card border-light col-md-3 mb-3">
+          <div class="card-header">{{ data.0 }}</div>
+          <div class="card-body-0 text-dark">
+            <table class="card-table">
+              <tr>
+                <td class="score">{% widthratio data.1 1 100 %}%</td>
+              <tr>
+              <p class="card-text-1"></p>
+            </table>
+            <div id="slice" class="progress" style="height: 1px;">
+              <div class="progress-bar slice" role="progressbar" style="width: {% widthratio data.1 1 100 %}%;" aria-valuenow="{% widthratio data.1 1 100 %}" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="progress">
+              <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="{% widthratio data.1 1 100 %}" aria-valuemin="0" aria-valuemax="100" style="width: {% widthratio data.1 1 100 %}%"></div>
+            </div>
+            <table class="card-footer">
+              <tr>
+                &nbsp;
+              <tr>
+            </table>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+      <div id="profile2" class="col-md-6">
+        <div class="col-md-12">
+          <div id="name2">Name: {{ user2.name }}</div>
+          <div id="location2">Location: {{ user2.location }}</div>
+        </div>
+        <div id="user_1" class="col-md-12" style="background-color:#{{ user2.profile_background_color }}; background-image:url({{ user2.profile_banner_url }}); background-position: center; background-size: cover;">
+          <div>
+            <img id="userPicture" src="{{ user2.profile_image_url }}">
+          </div>
+        </div>
+        {% for data in user2_list %}
+        <div class="card border-light col-md-3 mb-3">
+          <div class="card-header">{{ data.0 }}</div>
+          <div class="card-body-0 text-dark">
+            <table class="card-table">
+              <tr>
+                <td class="score">{% widthratio data.1 1 100 %}%</td>
+              <tr>
+              <p class="card-text-1"></p>
+            </table>
+            <div id="slice" class="progress" style="height: 1px;">
+              <div class="progress-bar slice" role="progressbar" style="width: {% widthratio data.1 1 100 %}%;" aria-valuenow="{% widthratio data.1 1 100 %}" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="progress">
+              <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="{% widthratio data.1 1 100 %}" aria-valuemin="0" aria-valuemax="100" style="width: {% widthratio data.1 1 100 %}%"></div>
+            </div>
+            <table class="card-footer">
+              <tr>
+                &nbsp;
+              <tr>
+            </table>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div id="Scene5">
+
+    <hr>
+
+    <div class="row">
+      <div id="watson" class="col-md-10 col-md-offset-1">
+          <h2><u>Fusion Analysis</u></h2>
+          {% for category, metric in result.items %}
+          <div class="card result border-light col-md-12 mb-3">
+            <div class="card-header-results">{{ category }}</div>
+            <div class="card-body result text-dark">
+              <table class="card-table">
+                <p class="card-text-1"></p>
+              </table>
+              <div id="slice" class="progress" style="height: 1px;">
+                <div class="progress-bar slice" role="progressbar" style="width: {% widthratio metric 1 100 %}%;" aria-valuenow="{% widthratio metric 1 100 %}" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: {% widthratio metric 1 100 %}%;" aria-valuenow="{% widthratio metric 1 100 %}" aria-valuemin="0" aria-valuemax="100">{% widthratio metric 1 100 %}%</div>
+              </div>
+              <table class="card-footer">
+                <tr>
+                  &nbsp;
+                <tr>
+              </table>
+            </div>
+          </div>
+          {% endfor %}
+      </div>
+    </div>
+</div>
+
+<div id="Scene6">
+
+    <hr>
+
+    <div class="row">
+      <div id="watson" class="col-md-10 col-md-offset-1">
+          <h2><u>Post-analysis</u></h2>
+          <p>Thankfully, Watson was able to understand my request and responded with results. Whether or not they are favorable is irrelevant being that this is just a small sample. However, I am going to utilize external resources to collect more samples that will provide measure for the pre-existing KPI's.</p>
+      </div>
+    </div>
+</div>
+
+
+{% endblock %}

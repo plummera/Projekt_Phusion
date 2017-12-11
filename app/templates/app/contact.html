@@ -1,0 +1,20 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'app/content/cover.css' %}" />
+
+
+<h2>{{ title }}</h2>
+<h3>{{ message }}</h3>
+
+<address>
+    AP Engineering<br />
+    New York, NY 10001<br />
+    <email>aplummer@psda.com</email>
+    <abbr title="Phone">P:</abbr>
+    609.977.6955
+</address>
+
+{% endblock %}

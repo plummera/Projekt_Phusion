@@ -1,0 +1,25 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+{% load staticfiles %}
+<script src="{% static 'app/js/about.js' %}"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'app/content/cover.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'app/content/about.css' %}" />
+
+<h2>{{ title }}</h2>
+<h3>{{ message }}</h3>
+
+<p>
+  I hope this will automate some responsibilities that have been neglected in a seamless way
+  that will bridge the gap between data-mining and business intelligence.
+</p>
+
+<h3>Virtual Reality Simulations</h3>
+<p>
+  As modern developments in Artifical Intelligence and Virtual Machines dominate cyberspace it only makes sense to visualize the predicted IoT nodes where
+  metrics can be extracted and analyzed in a comphrehensive environment that
+  communicates effectively to promote decent transparency and infrastructural integrity.
+</p>
+
+{% endblock %}

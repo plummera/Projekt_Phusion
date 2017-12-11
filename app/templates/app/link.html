@@ -1,0 +1,73 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+  {% load staticfiles %}
+  <link rel="stylesheet" type="text/css" href="{% static 'app/content/cover.css' %}" />
+  <script src="{% static 'app/js/link.js' %}"></script>
+
+  <div class="container-liquid">
+    <div class="row">
+      <div class="col-md-12">
+        <h1><u>{{ link.name }}</u></h1>
+        <div class="info col-sm-9">
+          Host: {{ link.host }}
+        </div>
+
+        {% if link.connect_attempt == "HIT" %}
+          <div id="hit" class="col-sm-3">
+          </div>
+        {% else %}
+          <div id="miss" class="col-sm-3">
+          </div>
+        {% endif %}
+
+        <div class="info col-sm-9">
+          Port: {{ link.port }}
+        </div>
+
+        <div class="info-2 col-sm-3">
+          <button type="button" class="btn btn-success">Connect</button>
+          <button type="button" class="btn btn-danger">Disconnect</button>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="console col col-md-2">
+        <div id="attributes" class="container-fluid">
+          <div class="row">
+            <div id="divHeader" class="col-sm-12">
+              <h4><u>Attributes</u></h4>
+            </div>
+
+            <div class="col col-sm-auto justify-content-start attribute">
+              <p>Class</p>
+            </div>
+
+            <div class="col col-sm-auto value">
+              <p>{{ link.profession }}</p>
+            </div>
+
+            <div class="col col-sm-auto justify-content-start attribute">
+              <p>Level</p>
+            </div>
+
+            <div class="col col-sm-auto value">
+              <p>{{ link.level }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="console col-md-10" data-spy="scroll" data-target="#console">
+        <div id="console">
+          <ul id="portal" class="nav nav-tabs" role="tablist" data-spy="scroll" data-offset="50">
+            <li>{{ telnet }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+{% endblock %}
