@@ -23,13 +23,13 @@ def home(request):
     assert isinstance(request, HttpRequest)
 
     tweets1 = analyze("AnthonyTPlummer")
-    tweets2 = analyze("imagineeringdis")
+    tweets2 = analyze("BankOfAmerica")
 
     updates = Update.objects.all
     data1 = insight(tweets1)
     data2 = insight(tweets2)
     user1 = getUser("AnthonyTPlummer")
-    user2 = getUser("imagineeringdis")
+    user2 = getUser("BankOfAmerica")
     user1_list = []
     user2_list = []
 
@@ -84,16 +84,6 @@ def home(request):
     user2_list = zip(list3, list4)
 
     result = compare(data1[2], data2[2])
-
-    print ("")
-    print ("Here is the comparison results: ")
-    print (result)
-    print ("")
-
-    print ("HOLD UP:")
-    print ("*********")
-    print (user2_list)
-    print ("*********")
 
     return render(
         request,

@@ -269,8 +269,16 @@ body {
   border-right: 1px solid white;
 }
 
+#profile1 .card {
+  min-height: 25em;
+}
+
 #profile2 {
   border-left: 2px solid purple;
+}
+
+#profile2 .card {
+  min-height: 25em;
 }
 
 #Scene1 {
@@ -289,6 +297,10 @@ body {
 
 #Scene3 {
   background: forestgreen;
+}
+
+#Scene4 .card {
+  min-height: 12em;
 }
 
 #slice {
@@ -314,9 +326,30 @@ body {
   margin-right: 4%;
 }
 
+#theJob {
+  background: black;
+  border: 3px double skyblue;
+  border-radius: 15px;
+  margin: 5% 14.5% !important;
+  opacity: 0.6;
+  padding: 2em 2em;
+  transition-timing-function: ease;
+  transition: 5s;
+}
+
+#theJob h2 {
+  font-size: 50px;
+  color: gold;
+  text-shadow: green 2px 2px;
+}
+
 #TwitterBox {
   padding: 5% 0% 0%;
   margin: 2% 2% 0%;
+}
+
+#TwitterBox .card {
+  min-height: 15em;
 }
 
 #updates {
@@ -354,6 +387,13 @@ body {
   padding: 5% 0% 5% 0%;
 }
 
+#watson h2 {
+  border: 1px solid white;
+  font-size: 30px;
+  margin: 4em;
+  padding: 2em;
+}
+
 #watson {
   color: white;
   text-align: center;
@@ -368,11 +408,14 @@ body {
 }
 
 #watson .card-header-results {
-  padding: 1% 2%;
   background-color: crimson;
   border-radius: 115px 115px 0px 0px;
   border: 2px solid white;
-  margin: 0% 32%;
+  font-size: large;
+  font-family: monospace;
+  margin: 0% 0% 0% 0%;
+  min-height: 6em;
+  padding: 17% 15% 0% 15%;
 }
 
 .article {
@@ -433,7 +476,7 @@ body {
 }
 
 .card {
-  min-height: 25em;
+  min-height: 10em;
 }
 
 .card-body-0 {
@@ -499,6 +542,21 @@ body {
   transition: 5s;
 }
 
+.match-heavy {
+  background-color: green !important;
+  color: chartreuse;
+}
+
+.match-medium {
+  background-color: yellow !important;
+  color: blue;
+}
+
+.match-light {
+  background-color: red !important;
+  color: cornsilk;
+}
+
 .progress {
   border-radius: 0px 75px;
   margin: 15% 5% -10% 5%;
@@ -516,11 +574,19 @@ body {
 }
 
 .result .progress-bar {
-  background-color: gold;
+  background-color: dimgray;
+  color: greenyellow;
+  font-size: large;
+  padding: 2% 0% 0% 8%;
+  text-decoration: overline;
+  text-decoration-color: cornsilk;
+  text-decoration-style: dotted;
+  text-shadow: black 2px 2px;
 }
 
 .result .progress {
   margin: 0px;
+  height: 2.5em;
 }
 
 .score {

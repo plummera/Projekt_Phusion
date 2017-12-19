@@ -123,8 +123,20 @@
         </div>
       </div>
 
-      <div id="streamingVideo" class="col-md-4">
-        <p>This is how we do it</p>
+      <div id="theJob" class="col-md-4 col-md-offset-2">
+        <h2>Our Goal</h2>
+        <hr>
+        <p>
+         To consume high-volume yields of data exposing similarities in parallel using behavorial
+         patterns and trend analysis. The data is then parsed, reconfigured,
+         and prioritized to facilitate cooperative multi-layer clarity
+         in a virtualized environment. The fusion process integrates machine learning with
+         pre-existing templates for assessing endpoint productivity. This method simplifies
+         the extrapolation process, providing detailed evidence to maximize focus on service agreements and the
+         deliverables designed to streamline end-to-end data integrity throughout its entire lifecycle. The
+         intent is to leverage scripting and automation for the scalability to modulize
+         sanitary intelligence for enterprise solutions.
+        <p>
       </div>
 
   </div>
@@ -187,29 +199,48 @@
             <img id="userPicture" src="{{ user1.profile_image_url }}">
           </div>
         </div>
+
+        <div>
+          <p>
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample3" aria-expanded="false" aria-controls="multiCollapseExample3">Very Much Alike</button>
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Warmer</button>
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample1" aria-expanded="false" aria-controls="multiCollapseExample1">Not Even Close</button>
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2 multiCollapseExample3">View All</button>
+          </p>
+        </div>
+
         {% for data in user1_list %}
-        <div class="card border-light col-md-3 mb-3">
-          <div class="card-header">{{ data.0 }}</div>
-          <div class="card-body-0 text-dark">
-            <table class="card-table">
-              <tr>
-                <td class="score">{% widthratio data.1 1 100 %}%</td>
-              <tr>
-              <p class="card-text-1"></p>
-            </table>
-            <div id="slice" class="progress" style="height: 1px;">
-              <div class="progress-bar slice" role="progressbar" style="width: {% widthratio data.1 1 100 %}%;" aria-valuenow="{% widthratio data.1 1 100 %}" aria-valuemin="0" aria-valuemax="100"></div>
+        <div id="exampleAccordion1" class="col-md-3" data-children=".result-{{ forloop.counter0 }}">
+          <div class="item">
+            <a data-toggle="collapse" data-parent="#exampleAccordion2" href="#exampleAccordion1-{{ forloop.counter0 }}" aria-expanded="true" aria-controls="exampleAccordion1-{{ forloop.counter0 }}">
+              <div class="card-header result-{{ forloop.counter0 }}">{{ data.0 }}</div>
+            </a>
+            <div id="exampleAccordion1-{{ forloop.counter0 }}" class="collapse" role="tabpanel">
+              <div class="card border-light mb-3">
+                <div class="card-body-0 text-dark result-{{ forloop.counter0 }}">
+                  <table class="card-table">
+                    <tr>
+                      <td class="score">{% widthratio data.1 1 100 %}%</td>
+                    <tr>
+                    <p class="card-text-{{ forloop.counter0 }}"></p>
+                  </table>
+                  <div id="slice" class="progress" style="height: 1px;">
+                    <div class="progress-bar slice" role="progressbar" style="width: {% widthratio data.1 1 100 %}%;" aria-valuenow="{% widthratio data.1 1 100 %}" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="{% widthratio data.1 1 100 %}" aria-valuemin="0" aria-valuemax="100" style="width: {% widthratio data.1 1 100 %}%"></div>
+                  </div>
+                  <table class="card-footer">
+                    <tr>
+                      &nbsp;
+                    <tr>
+                  </table>
+                </div>
+              </div>
             </div>
-            <div class="progress">
-              <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="{% widthratio data.1 1 100 %}" aria-valuemin="0" aria-valuemax="100" style="width: {% widthratio data.1 1 100 %}%"></div>
-            </div>
-            <table class="card-footer">
-              <tr>
-                &nbsp;
-              <tr>
-            </table>
           </div>
         </div>
+
         {% endfor %}
       </div>
 
@@ -223,27 +254,45 @@
             <img id="userPicture" src="{{ user2.profile_image_url }}">
           </div>
         </div>
+
+        <div>
+          <p>
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample3" aria-expanded="false" aria-controls="multiCollapseExample3">Very Much Alike</button>
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Warmer</button>
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample1" aria-expanded="false" aria-controls="multiCollapseExample1">Not Even Close</button>
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2 multiCollapseExample3">View All</button>
+          </p>
+        </div>
+        
         {% for data in user2_list %}
-        <div class="card border-light col-md-3 mb-3">
-          <div class="card-header">{{ data.0 }}</div>
-          <div class="card-body-0 text-dark">
-            <table class="card-table">
-              <tr>
-                <td class="score">{% widthratio data.1 1 100 %}%</td>
-              <tr>
-              <p class="card-text-1"></p>
-            </table>
-            <div id="slice" class="progress" style="height: 1px;">
-              <div class="progress-bar slice" role="progressbar" style="width: {% widthratio data.1 1 100 %}%;" aria-valuenow="{% widthratio data.1 1 100 %}" aria-valuemin="0" aria-valuemax="100"></div>
+        <div id="exampleAccordion2" class="col-md-3" data-children=".result2-{{ forloop.counter0 }}">
+          <div class="item">
+            <a data-toggle="collapse" data-parent="#exampleAccordion2" href="#exampleAccordion2-{{ forloop.counter0 }}" aria-expanded="true" aria-controls="exampleAccordion2-{{ forloop.counter0 }}">
+              <div class="card-header result2-{{ forloop.counter0 }}">{{ data.0 }}</div>
+            </a>
+            <div id="exampleAccordion2-{{ forloop.counter0 }}" class="collapse" role="tabpanel">
+              <div class="card border-light mb-3">
+                <div class="card-body-0 text-dark result2-{{ forloop.counter0 }}">
+                  <table class="card-table">
+                    <tr>
+                      <td class="score">{% widthratio data.1 1 100 %}%</td>
+                    <tr>
+                    <p class="card-text-{{ forloop.counter0 }}"></p>
+                  </table>
+                  <div id="slice" class="progress" style="height: 1px;">
+                    <div class="progress-bar slice" role="progressbar" style="width: {% widthratio data.1 1 100 %}%;" aria-valuenow="{% widthratio data.1 1 100 %}" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="{% widthratio data.1 1 100 %}" aria-valuemin="0" aria-valuemax="100" style="width: {% widthratio data.1 1 100 %}%"></div>
+                  </div>
+                  <table class="card-footer">
+                    <tr>
+                      &nbsp;
+                    <tr>
+                  </table>
+                </div>
+              </div>
             </div>
-            <div class="progress">
-              <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="{% widthratio data.1 1 100 %}" aria-valuemin="0" aria-valuemax="100" style="width: {% widthratio data.1 1 100 %}%"></div>
-            </div>
-            <table class="card-footer">
-              <tr>
-                &nbsp;
-              <tr>
-            </table>
           </div>
         </div>
         {% endfor %}
@@ -260,30 +309,102 @@
     <div class="row">
       <div id="watson" class="col-md-10 col-md-offset-1">
           <h2><u>Fusion Analysis</u></h2>
-          {% for category, metric in result.items %}
-          <div class="card result border-light col-md-12 mb-3">
-            <div class="card-header-results">{{ category }}</div>
-            <div class="card-body result text-dark">
-              <table class="card-table">
-                <p class="card-text-1"></p>
-              </table>
-              <div id="slice" class="progress" style="height: 1px;">
-                <div class="progress-bar slice" role="progressbar" style="width: {% widthratio metric 1 100 %}%;" aria-valuenow="{% widthratio metric 1 100 %}" aria-valuemin="0" aria-valuemax="100"></div>
+
+          <p>
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample3" aria-expanded="false" aria-controls="multiCollapseExample3">Very Much Alike</button>
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Warmer</button>
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample1" aria-expanded="false" aria-controls="multiCollapseExample1">Not Even Close</button>
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2 multiCollapseExample3">View All</button>
+          </p>
+          <div class="row">
+
+              <div class="collapse multi-collapse" id="multiCollapseExample1">
+                {% for category, metric in result.items %}
+                {% if metric > .56 %}
+                <div class="card card-body col-md-3">
+                  <div class="card-header-results result-{{ forloop.counter0 }} match-light">{{ category }}</div>
+
+                  <div class="card-body result text-dark">
+                    <table class="card-table">
+                      <p class="card-text-1"></p>
+                    </table>
+                    <div id="slice" class="progress" style="height: 1px;">
+                      <div class="progress-bar slice" role="progressbar" style="width: {% widthratio metric 1 100 %}%;" aria-valuenow="{% widthratio metric 1 100 %}" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+
+                    <div class="progress">
+                      <div id="watson-result-{{ forloop.counter0 }}" class="progress-bar watson-results" role="progressbar" style="width: {% widthratio metric 1 100 %}%;" aria-valuenow="{% widthratio metric 1 100 %}" aria-valuemin="0" aria-valuemax="100">{% widthratio metric 1 100 %}%</div>
+                    </div>
+                    <table class="card-footer">
+                      <tr>
+                        &nbsp;
+                      <tr>
+                    </table>
+                  </div>
+                </div>
+                {% endif %}
+                {% endfor %}
               </div>
 
-              <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: {% widthratio metric 1 100 %}%;" aria-valuenow="{% widthratio metric 1 100 %}" aria-valuemin="0" aria-valuemax="100">{% widthratio metric 1 100 %}%</div>
+              <div class="collapse multi-collapse" id="multiCollapseExample2">
+                {% for category, metric in result.items %}
+                {% if .55 > metric and metric > .22 %}
+                <div class="card card-body col-md-3">
+                  <div class="card-header-results result-{{ forloop.counter0 }} match-medium">{{ category }}</div>
+
+                  <div class="card-body result text-dark">
+                    <table class="card-table">
+                      <p class="card-text-1"></p>
+                    </table>
+                    <div id="slice" class="progress" style="height: 1px;">
+                      <div class="progress-bar slice" role="progressbar" style="width: {% widthratio metric 1 100 %}%;" aria-valuenow="{% widthratio metric 1 100 %}" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+
+                    <div class="progress">
+                      <div id="watson-result-{{ forloop.counter0 }}" class="progress-bar watson-results" role="progressbar" style="width: {% widthratio metric 1 100 %}%;" aria-valuenow="{% widthratio metric 1 100 %}" aria-valuemin="0" aria-valuemax="100">{% widthratio metric 1 100 %}%</div>
+                    </div>
+                    <table class="card-footer">
+                      <tr>
+                        &nbsp;
+                      <tr>
+                    </table>
+                  </div>
+                </div>
+                {% endif %}
+                {% endfor %}
               </div>
-              <table class="card-footer">
-                <tr>
-                  &nbsp;
-                <tr>
-              </table>
-            </div>
+
+              <div class="collapse multi-collapse" id="multiCollapseExample3">
+                {% for category, metric in result.items %}
+                {% if metric < .22 %}
+                <div class="card card-body col-md-3">
+                  <div class="card-header-results result-{{ forloop.counter0 }} match-heavy">{{ category }}</div>
+
+                  <div class="card-body result text-dark">
+                    <table class="card-table">
+                      <p class="card-text-1"></p>
+                    </table>
+                    <div id="slice" class="progress" style="height: 1px;">
+                      <div class="progress-bar slice" role="progressbar" style="width: {% widthratio metric 1 100 %}%;" aria-valuenow="{% widthratio metric 1 100 %}" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+
+                    <div class="progress">
+                      <div id="watson-result-{{ forloop.counter0 }}" class="progress-bar watson-results" role="progressbar" style="width: {% widthratio metric 1 100 %}%;" aria-valuenow="{% widthratio metric 1 100 %}" aria-valuemin="0" aria-valuemax="100">{% widthratio metric 1 100 %}%</div>
+                    </div>
+                    <table class="card-footer">
+                      <tr>
+                        &nbsp;
+                      <tr>
+                    </table>
+                  </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+              </div>
+
           </div>
-          {% endfor %}
+        </div>
       </div>
-    </div>
 </div>
 
 <div id="Scene6">

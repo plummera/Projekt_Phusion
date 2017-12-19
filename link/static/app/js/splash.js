@@ -1,6 +1,44 @@
 $(document).ready(function() {
   console.log("Hello!");
 
+  var results1 = $('#profile1 .score');
+  var results2 = $('#profile2 .score');
+  var watson_results = $('.watson-results');
+
+  for (i=0; i < results1.length; i++) {
+    results1[i].outerText.replace('%', '');
+    console.log(parseFloat(results1[i].outerText));
+    if (parseFloat(results1[i].outerText) <= 50) {
+      $('#profile1 .result-' + i).css('border','2px solid red');
+    } else {
+      $('#profile1 .result-' + i).css('border','2px solid green');
+    };
+  };
+
+  for (i=0; i < results2.length; i++) {
+    results2[i].outerText.replace('%', '');
+    console.log(parseFloat(results2[i].outerText));
+    if (parseFloat(results2[i].outerText) <= 50) {
+      $('#profile2 .result2-' + i).css('border','2px solid red');
+    } else {
+      $('#profile2 .result2-' + i).css('border','2px solid green');
+    };
+  };
+  //
+  // for (i=0; i < watson_results.length; i++) {
+  //   watson_results[i].outerText.replace('%', '');
+  //   console.log(parseFloat(watson_results[i].outerText));
+  //   if (parseFloat(watson_results[i].outerText) > 50) {
+  //     p = $('.card-header-results')[i].className;
+  //     p = document.getElementsByClassName($('.card-header-results')[i].className);
+  //     $(p).css('background-color', 'red');
+  //   } else {
+  //     p = $('.card-header-results')[i].className;
+  //     p = document.getElementsByClassName($('.card-header-results')[i].className);
+  //     $(p).css('background-color', 'green');
+  //   };
+  // };
+
   function donateStream() {
 
     var doners = [
