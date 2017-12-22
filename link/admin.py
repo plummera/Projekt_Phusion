@@ -19,7 +19,7 @@ class UserMentionAdmin(admin.ModelAdmin):
     fields = ['ident', 'name', 'screen_name']
 
 class TweetAdmin(admin.ModelAdmin):
-    fields = ['created_at', 'description', 'favorites_count', 'followers_count', 'friends_count', 'ident', 'lang', 'location', 'name', 'profile_background_color', 'profile_background_image_url', 'profile_banner_url', 'profile_image_url', 'profile_link_color', 'profile_sidebar_fill_color', 'profile_text_color', 'protected', 'screen_name', 'status_count', 'time_zone', 'url', 'utc_offset', 'user_mentions']
+    fields = ['created_at', 'description', 'favorites_count', 'followers_count', 'friends_count', 'ident', 'lang', 'location', 'name', 'profile_background_color', 'profile_background_image_url', 'profile_banner_url', 'profile_image_url', 'profile_link_color', 'profile_sidebar_fill_color', 'profile_text_color', 'protected', 'status_count', 'time_zone', 'url', 'utc_offset']
 
 class TweetDefaultAdmin(admin.ModelAdmin):
     fields = ['created_at', 'hashtags', 'ident', 'id_str', 'lang', 'source', 'text', 'urls', 'user']

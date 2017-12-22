@@ -270,7 +270,7 @@ body {
 }
 
 #profile1 .card {
-  min-height: 25em;
+  min-height: 12em;
 }
 
 #profile2 {
@@ -278,7 +278,7 @@ body {
 }
 
 #profile2 .card {
-  min-height: 25em;
+  min-height: 12em;
 }
 
 #Scene1 {
@@ -346,6 +346,8 @@ body {
 #TwitterBox {
   padding: 5% 0% 0%;
   margin: 2% 2% 0%;
+  position: relative;
+  overflow-y: scroll;
 }
 
 #TwitterBox .card {
@@ -511,6 +513,19 @@ body {
   transition: 5s;
 }
 
+.feed {
+  position: relative;
+  height: 25rem;
+  overflow-y: scroll;
+  border: 4px solid;
+  padding: 1.5em;
+  margin: 1.5em;
+}
+
+.feed-pills {
+  padding-top: 5px;
+}
+
 .hidden {
   opacity: 0;
   transition: visibility 0s 2s, opacity 2s linear;
@@ -555,6 +570,32 @@ body {
 .match-light {
   background-color: red !important;
   color: cornsilk;
+}
+
+.nav-link {
+  padding: 0em 2em;
+  position: relative;
+  top: 0.8em;
+}
+
+.navbar-brand-s {
+  background-color: brown;
+  border-radius: 15px 0px 15px 0px;
+  float: initial;
+  font-family: serif;
+  font-size: 18px;
+  line-height: 20px;
+  margin: 0em 0em 0em 4em;
+  padding: 0.2em 51px;
+  position: relative;
+  text-decoration: underline;
+}
+
+.navbar-feed {
+  margin: 2em;
+  background-color: gray;
+  border: 4px solid white;
+  padding: 1em 2em;
 }
 
 .progress {

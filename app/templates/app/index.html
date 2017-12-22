@@ -151,17 +151,102 @@
   </div>
 
   <div class="container-fluid">
-    <div id="TwitterBox" class="row">
-      {% for tweet in tweets1 %}
-      <div class="card border-dark col-md-3 mb-3">
-        <div class="card-header">Tweets</div>
-        <div class="card-body text-dark">
-          <h4 class="card-title">Created at: {{ tweet.created_at }}</h4>
-          <p class="card-text">{{ tweet.text }}</p>
-          <span>{{ tweet.id }}</span>
+    <div class="row">
+      <div id="profile1" class="col-md-6">
+        <nav id="navbar-example2" class="navbar navbar-light bg-light navbar-feed">
+          <a class="navbar-brand navbar-brand-s" href="#">{{ user1.name }}'s AI Feed</a>
+          <ul class="nav nav-pills feed-pills">
+            <li class="nav-item">
+              <a class="nav-link" href="#FB">FaceBook</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#TW">Twitter</a>
+            </li>
+            <!-- <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#one">one</a>
+                <a class="dropdown-item" href="#two">two</a>
+                <div role="separator" class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#three">three</a>
+              </div>
+            </li> -->
+          </ul>
+        </nav>
+
+        <div data-spy="scroll" data-target="#navbar-example2" data-offset="0" class="feed">
+          <h4 id="FB">FaceBook</h4>
+          <p>...</p>
+          <h4 id="TW">Twitter</h4>
+          {% for tweet in tweets1 %}
+          <div class="card border-dark mb-3">
+            <div class="card-header">Tweets</div>
+            <div class="card-body text-dark">
+              <h4 class="card-title">Created at: {{ tweet.created_at }}</h4>
+              <p class="card-text">{{ tweet.text }}</p>
+              <span>{{ tweet.id }}</span>
+            </div>
+          </div>
+
+          <hr>
+          {% endfor %}
+          <h4 id="one">one</h4>
+          <p>...</p>
+          <h4 id="two">two</h4>
+          <p>...</p>
+          <h4 id="three">three</h4>
+          <p>...</p>
         </div>
       </div>
-      {% endfor %}
+
+      <div id="profile2" class="col-md-6">
+        <nav id="navbar-example2" class="navbar navbar-light bg-light navbar-feed">
+          <a class="navbar-brand navbar-brand-s" href="#">{{ user2.name }}'s AI Feed</a>
+          <ul class="nav nav-pills feed-pills">
+            <li class="nav-item">
+              <a class="nav-link" href="#FB2">FaceBook</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#TW2">Twitter</a>
+            </li>
+            <!-- <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#one">one</a>
+                <a class="dropdown-item" href="#two">two</a>
+                <div role="separator" class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#three">three</a>
+              </div>
+            </li> -->
+          </ul>
+        </nav>
+
+        <div data-spy="scroll" data-target="#navbar-example2" data-offset="0" class="feed">
+          <h4 id="FB2">FaceBook</h4>
+          <p>...</p>
+          <h4 id="TW2">Twitter</h4>
+          {% for tweet in tweets2 %}
+          <div class="card border-dark mb-3">
+            <div class="card-header">Tweets</div>
+            <div class="card-body text-dark">
+              <h4 class="card-title">Created at: {{ tweet.created_at }}</h4>
+              <p class="card-text">{{ tweet.text }}</p>
+              <span>{{ tweet.id }}</span>
+            </div>
+          </div>
+
+          <hr>
+          {% endfor %}
+          <h4 id="one">one</h4>
+          <p>...</p>
+          <h4 id="two">two</h4>
+          <p>...</p>
+          <h4 id="three">three</h4>
+          <p>...</p>
+        </div>
+
+      </div>
+
     </div>
   </div>
 
@@ -240,8 +325,10 @@
             </div>
           </div>
         </div>
-
         {% endfor %}
+
+
+
       </div>
 
       <div id="profile2" class="col-md-6">
@@ -263,7 +350,7 @@
             <button class="btn btn-primary" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2 multiCollapseExample3">View All</button>
           </p>
         </div>
-        
+
         {% for data in user2_list %}
         <div id="exampleAccordion2" class="col-md-3" data-children=".result2-{{ forloop.counter0 }}">
           <div class="item">

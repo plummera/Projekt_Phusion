@@ -10,9 +10,16 @@ $(document).ready(function() {
     console.log(parseFloat(results1[i].outerText));
     if (parseFloat(results1[i].outerText) <= 50) {
       $('#profile1 .result-' + i).css('border','2px solid red');
+      $('#profile1 .result-' + i).remove();
     } else {
       $('#profile1 .result-' + i).css('border','2px solid green');
     };
+
+    $(".result-" + i).hover(function(){
+      $(this).css("background-color", "green");
+      }, function(){
+      $(this).css("background-color", "cadetblue");
+    });
   };
 
   for (i=0; i < results2.length; i++) {
@@ -20,9 +27,16 @@ $(document).ready(function() {
     console.log(parseFloat(results2[i].outerText));
     if (parseFloat(results2[i].outerText) <= 50) {
       $('#profile2 .result2-' + i).css('border','2px solid red');
+      $('#profile2 .result2-' + i).remove();
     } else {
       $('#profile2 .result2-' + i).css('border','2px solid green');
     };
+
+    $(".result2-" + i).hover(function(){
+      $(this).css("background-color", "green");
+      }, function(){
+      $(this).css("background-color", "cadetblue");
+    });
   };
   //
   // for (i=0; i < watson_results.length; i++) {
