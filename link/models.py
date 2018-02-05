@@ -73,20 +73,6 @@ class Tweet(models.Model):
     def __str__(self):
         return self.name
 
-class TweetDefault(models.Model):
-    created_at = models.DateTimeField("Created at:")
-    hashtags = models.CharField(max_length=40, blank=True)
-    ident = models.IntegerField(blank=False, default=0000000000)
-    id_str = models.IntegerField(blank=False, default=0000000000)
-    lang = models.CharField(max_length=2, default="en")
-    source = models.CharField(max_length=500, blank=True)
-    text = models.CharField(max_length=900, blank=True)
-    urls = models.CharField(max_length=500, blank=True)
-    user = models.ForeignKey(Tweet, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.user.name
-
 class Update(models.Model):
     name = models.CharField(max_length=40)
     owner = models.CharField(max_length=60, blank=True)
@@ -103,6 +89,13 @@ class UserMention(models.Model):
     ident = models.IntegerField(blank=False, default=00000000)
     name = models.CharField(max_length=50, blank=True)
     screen_name = models.CharField(max_length=50, blank=True)
+
+    def __str__(self):
+        return self.name
+
+class FaceBookUser(models.Model):
+    name = models.CharField(max_length=40, blank=False)
+    id = models.BigIntegerField(blank=True, primary_key=True)
 
     def __str__(self):
         return self.name
