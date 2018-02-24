@@ -30,6 +30,7 @@ body {
   height: 100%;
   background-color: #333;
   background-repeat: no-repeat;
+  color: white;
 }
 
 span#netsplit {
@@ -782,6 +783,10 @@ span#netsplit {
   padding: 0em 2em;
   position: relative;
   top: 0.8em;
+}
+
+.navbar {
+  position: relative;
 }
 
 .navbar-brand-s {

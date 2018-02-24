@@ -19,6 +19,8 @@ urlpatterns = [
     # Examples:
 
     url(r'^$', home, name='home'),
+    url(r'^Staging_Area/$', staging, name='staging'),
+    url(r'^Blockchain/$', blockchain, name='blockchain'),
     url(r'^Links_AutoBot/$', link, name='link'),
     url(r'^contact/$', contact, name='contact'),
     url(r'^about/$', about, name='about'),

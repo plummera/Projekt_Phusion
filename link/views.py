@@ -22,102 +22,14 @@ def home(request):
     """
     assert isinstance(request, HttpRequest)
 
-    origin_FB = 'me'
-    destination_FB = 'monerocurrency'
-    origin_twitter = 'AnthonyTPlummer'
-    destination_twitter = 'MoneroAlert'
-
     # Update Object
     updates = Update.objects.all
-
-    # Getting the most Recent 200 Tweets from Twitter
-    tweets1 = getTwitterPosts(origin_twitter)
-    tweets2 = getTwitterPosts(destination_twitter)
-
-    #The IBM Watson Public Feed Analysis Results
-    data1 = insight(tweets1)
-    data2 = insight(tweets2)
-
-    # Creating Object for project deliverable
-    package1 = get_object_or_404(Intel)
-    package2 = get_object_or_404(Intel)
-
-    # Creating a place store the metrics returned and a column to classify them
-    # (for Profile #1)
-    package1.metric = []
-    package1.category = []
-
-    # Creating a place store the metrics returned and a column to classify them
-    # (for Profile #2)
-    package2.metric = []
-    package2.category = []
-
-    #Loop to populate categories returned from Watson
-    for a in data1[0]:
-        package1.category.append(a)
-    for a in data2[0]:
-        package2.category.append(a)
-
-    #Loop to populate metric percentages returned from Watson
-    for i in data1[1]:
-        package1.metric.append(i)
-    for i in data2[1]:
-        package2.metric.append(i)
-
-
-    user1_list = []
-    user2_list = []
-
-    user1_list = [None]*(len(package1.metric)+len(package1.category))
-    user1_list[::2] = package1.metric
-    user1_list[1::2] = package1.category
-
-
-    user2_list = [None]*(len(package2.metric)+len(package2.category))
-    user2_list[::2] = package2.metric
-    user2_list[1::2] = package2.category
-
-    user1_list = zip(package1.metric, package1.category)
-    user2_list = zip(package2.metric, package2.category)
-
-    result = compare(data1[2], data2[2])
-
-    # Getting Posts from FaceBook
-    post1 = getFBposts(origin_FB)
-    post2 = getFBposts(destination_FB)
-
-    # Getting FaceBook Profile Pic
-    FBProfilePic1 = getFBprofilePic(origin_FB)
-    FBProfilePic2 = getFBprofilePic(destination_FB)
-
-    # Getting Cover Picture from Facebook
-    FBCoverPic1 = getFBCoverPic(origin_FB)
-    FBCoverPic2 = getFBCoverPic(destination_FB)
-
-    # Getting User Information from Twitter Profile
-    user1 = getUser(origin_twitter)
-    user2 = getUser(destination_twitter)
 
     return render(
         request,
         'app/index.html',
         {
-            'FBProfilePic1': FBProfilePic1,
-            'FBProfilePic2': FBProfilePic2,
-            'FBCoverPic1': FBCoverPic1,
-            'FBCoverPic2': FBCoverPic2,
-            'package1': package1,
-            'package2': package2,
-            'post1': post1,
-            'post2': post2,
-            'result': result,
-            'tweets1': tweets1,
-            'tweets2': tweets2,
             'updates': updates,
-            'user1': user1,
-            'user2': user2,
-            'user1_list': user1_list,
-            'user2_list': user2_list,
         }
     )
 
@@ -141,7 +53,7 @@ def about(request):
         'app/about.html',
         {
             'title': 'What is this?',
-            'message': "This is a switching and control center for a guild of players operating in a virtual gaming environment.",
+            'message': "This is proof of concept maneuver to leverage C&C capabilities to amass distributed conncectivity and resource remote pools of processing power.",
         },
     )
 
@@ -162,6 +74,121 @@ def link(request):
             'host': link.host,
             'port': link.port,
             'telnet': telnet,
+        },
+    )
+
+def blockchain(request):
+    """
+    The Blockchain page
+    """
+    assert isinstance(request, HttpRequest)
+    blockcahin = get_object_or_404(Psychic, pk=1)
+
+    return render(
+        request,
+        'app/blockchain.html',
+        {
+            'ripple': "blockchain",
+            'title': "The Blockchain Mines",
+            'message': 'If you do not know what is happening here, remember you can ask.',
+        },
+    )
+
+def staging(request):
+    """
+    The Staging Staging Area
+    """
+    assert isinstance(request, HttpRequest)
+
+    origin_FB = 'me'
+    destination_FB = 'ripplepay'
+    origin_twitter = 'AnthonyTPlummer'
+    destination_twitter = 'ripple'
+
+    # Getting User Information from Twitter Profile
+    user1 = getUser(origin_twitter)
+    user2 = getUser(destination_twitter)
+
+    # Getting Posts from FaceBook
+    post1 = getFBposts(origin_FB)
+    post2 = getFBposts(destination_FB)
+
+    # Getting the most Recent 200 Tweets from Twitter
+    tweets1 = getTwitterPosts(origin_twitter)
+    tweets2 = getTwitterPosts(destination_twitter)
+
+    #The IBM Watson Public Feed Analysis Results
+    data1 = insight(tweets1)
+    data2 = insight(tweets2)
+
+    # Creating Object for project deliverable
+    package1 = get_object_or_404(Intel)
+    package2 = get_object_or_404(Intel)
+
+    # Creating a place store the metrics returned and a column to classify them
+    # (for Profile #1)
+    package1.metric = []
+    package1.category = []
+
+    # Creating a place store the metrics returned and a column to classify them
+    # (for Profile #2)
+    package2.metric = []
+    package2.category = []
+
+    user1_list = []
+    user2_list = []
+
+    user1_list = [None]*(len(package1.metric)+len(package1.category))
+    user1_list[::2] = package1.metric
+    user1_list[1::2] = package1.category
+
+
+    user2_list = [None]*(len(package2.metric)+len(package2.category))
+    user2_list[::2] = package2.metric
+    user2_list[1::2] = package2.category
+
+    user1_list = zip(package1.metric, package1.category)
+    user2_list = zip(package2.metric, package2.category)
+
+    #Loop to populate categories returned from Watson
+    for a in data1[0]:
+        package1.category.append(a)
+    for a in data2[0]:
+        package2.category.append(a)
+
+    #Loop to populate metric percentages returned from Watson
+    for i in data1[1]:
+        package1.metric.append(i)
+    for i in data2[1]:
+        package2.metric.append(i)
+
+    result = compare(data1[2], data2[2])
+
+    # Getting FaceBook Profile Pic
+    FBProfilePic1 = getFBprofilePic(origin_FB)
+    FBProfilePic2 = getFBprofilePic(destination_FB)
+
+    # Getting Cover Picture from Facebook
+    FBCoverPic1 = getFBCoverPic(origin_FB)
+    FBCoverPic2 = getFBCoverPic(destination_FB)
+
+    return render(
+        request,
+        'app/staging_area.html',
+        {
+            'post1': post1,
+            'post2': post2,
+            'result': result,
+            'user1': user1,
+            'user2': user2,
+            'tweets1': tweets1,
+            'tweets2': tweets2,
+            'user1_list': user1_list,
+            'user2_list': user2_list,
+            'FBProfilePic1': FBProfilePic1,
+            'FBProfilePic2': FBProfilePic2,
+            'FBCoverPic1': FBCoverPic1,
+            'FBCoverPic2': FBCoverPic2,
         },
     )
 
