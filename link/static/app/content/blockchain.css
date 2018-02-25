@@ -1,0 +1,92 @@
+div.footerblock {
+    width: 20%;
+    float: left;
+    padding: 0;
+    margin: auto;
+    font-family: 'CharlemagneBold', 'Helvetica', Arial, sans-serif !important;
+    color: #393235 !important;
+    text-shadow: none;
+    font-weight: normal !important;
+    text-transform: none;
+    letter-spacing: 0px;
+    font-size: 70px;
+    line-height: 60px;
+    margin: 0;
+    letter-spacing: 0px;
+    text-align: center;
+    color: #30292d;
+    padding-bottom: 100px;
+    padding-top: 100px;
+    -webkit-font-smoothing: antialiased !important;
+}
+
+#margin50 h2 {
+    font-family: 'CharlemagneBold', 'Helvetica', Arial, sans-serif !important;
+    color: #393235 !important;
+    text-shadow: none;
+    font-weight: normal !important;
+    text-transform: none;
+    letter-spacing: 0px;
+    font-size: 70px;
+    line-height: 60px;
+    margin: 0;
+    letter-spacing: 0px;
+    text-align: center;
+    color: #30292d;
+    padding-bottom: 100px;
+    padding-top: 100px;
+    -webkit-font-smoothing: antialiased !important;
+}
+
+#margin50 div.footerblock {
+    width: 20%;
+    float: left;
+    padding: 0;
+    margin: auto;
+}
+
+#footer {
+    z-index: 99;
+    color: #fff;
+    padding: 150px 0px 150px 0;
+    background: #161317;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: 'CharlemagneBold', 'Helvetica', Arial, sans-serif !important;
+}
+
+#scoreboard {
+  padding: 3rem;
+  background-color: cadetblue;
+  border-bottom: 2px solid white;
+  border-top: 2px solid white;
+  color: dimgray;
+  opacity: 0.9;
+}
+
+.cryptoplayer {
+  min-height: 22rem;
+  text-shadow: 1px 1px white;
+}
+
+.footer-logo {
+    width: 100%;
+    height: auto;
+    padding: 10rem;
+    position: relative;
+}
+
+#xrp {
+  border: 1px solid red;
+}
+
+#eth {
+  border: 1px solid white;
+}
+
+#btcoin {
+  border: 1px solid blue;
+}

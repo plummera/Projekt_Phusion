@@ -1,0 +1,45 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+{% load staticfiles %}
+<script src="{% static 'app/js/about.js' %}"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'app/content/cover.css' %}" />
+
+<h2>{{ title }}</h2>
+<h3>{{ message }}</h3>
+
+<p>
+  Active: 0
+</p>
+
+<h3>Scripts running: 0</h3>
+<p>
+  Blockchain networks: 3
+</p>
+
+<div id="scoreboard" class="container-liquid">
+  <div class="row">
+
+    <div id="xrp" class="col-md-4 cryptoplayer">
+      <h1>Ripple (XRP)</h1>
+      <h2>Market Cap: $38,806,008,888</h2>
+      <h3>Trading at: $0.992613</h3>
+    </div>
+
+    <div id="eth" class="col-md-4 cryptoplayer">
+      <h1>Ethereum (ETH)</h1>
+      <h2>Market Cap: $83,193,872,256</h2>
+      <h3>Trading at: $850.66</h3>
+    </div>
+
+    <div id="btcoin" class="col-md-4 cryptoplayer">
+      <h1>Bitcoin (BTC)</h1>
+      <h2>Market Cap: $$$$$$OMGZ</h2>
+      <h3>Trading at: srsly!!!</h3>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}

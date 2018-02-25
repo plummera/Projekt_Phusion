@@ -7,7 +7,15 @@
     {% load staticfiles %}
     <link rel="icon" href="{% static 'app/favicon.ico' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'app/content/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/blockchain.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/skin.css' %}" />
+
     <!-- <link rel="stylesheet" type="text/css" href="{% static 'app/content/site.css' %}" /> -->
+    <link rel="stylesheet" id="font-awesome-corp-styles-css" type="text/css" media="all" href="{% static 'app/content/font-awesome-corp.css' %}" />
+    <link rel="stylesheet" id="font-awesome-styles-css" type="text/css" media="all" href="{% static 'app/content/font-awesome.css' %}" />
+    <link rel="stylesheet" id="font-awesome-social-css" type="text/css" media="all" href="{% static 'app/content/font-awesome-social.css' %}" />
+    <link rel="stylesheet" id="font-awesome-ext-css" type="text/css" media="all" href="{% static 'app/content/font-awesome-ext.css' %}" />
+
     <script src="{% static 'app/js/jquery-1.10.2.min.js' %}"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=-1">
@@ -43,9 +51,44 @@
     {% endautoescape %}
 </body>
 
-<footer>
-    <p>&copy; {{ year }} - AP Engineering</p>
-</footer>
+<section id="footer">
+<div class="container-fluid ">
+<p class="lead">
+
+  <img src="http://ghost-official.com/ghost/wp-content/themes/wordpress-bootstrap-master-child/images/cross.png" class="footer-logo"></p>
+
+  <div class="margin50">
+    <div class="footerblock">
+      <h2>G</h2>
+    </div>
+    <div class="footerblock">
+      <h2>H</h2>
+    </div>
+    <div class="footerblock">
+      <h2>O</h2>
+    </div>
+    <div class="footerblock">
+      <h2>S</h2>
+    </div>
+    <div class="footerblock">
+      <h2>T</h2>
+    </div>
+
+    <div class="margin100">&nbsp;</div>
+    <div class="margin50">&nbsp;</div>
+    <div class="footerblock"><a href="https://www.facebook.com/anthony.terrell/" target="_blank"><i class="icon-facebook"></i></a></div>
+    <div class="footerblock"><a href="https://twitter.com/AnthonyTPlummer" target="_blank"><i class="icon-twitter"></i></a></div>
+    <div class="footerblock"><a href="#" target="_blank"><i class="icon-instagram"></i></a></div>
+    <div class="footerblock"><a href="#" target="_blank"><i class="icon-youtube-sign-more"></i></a></div>
+    <div class="footerblock"><a href="#" target="_blank"><i class="icon-spotify"></i></a></div>
+  </div>
+
+  <div class="margin100">&nbsp;</div>
+  <div class="margin50">&nbsp;</div>
+
+<div style="text-align:center;font-size:10px;color:#333;margin: 40px auto 10px;">Site maintained by <a href="http://anthonyplummer.elementfx.com/" target="_blank" style=" color: #333 !important;font-size: 10px;padding: 0;">Anthony (AP Engineering)</a>.<p></p>
+
+</div></div></section>
 
 {% block scripts %}{% endblock %}
 
