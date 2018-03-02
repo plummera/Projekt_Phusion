@@ -55,201 +55,211 @@
 
     </script>
   </div>
+</div>
 
-  <div class="jumbotron">
-      <h1>Projekt Phusion</h1>
-      <p class="lead">Utilizing automated KPI analysis in real-time integrated with machine-learning algorithms to facilitate situational clarity for enterprise data solutions.</p>
-      <span id="netsplit">netSplit v1.1</span>
-  </div>
+<div id="Scene2">
+
+  <hr>
 
   <div class="row">
+    <div class="col-md-12">
+      <div class="jumbotron">
+          <h1>Projekt Phusion</h1>
+          <p class="lead">Utilizing automated KPI analysis in real-time integrated with machine-learning algorithms to facilitate situational clarity for enterprise data solutions.</p>
+          <span id="netsplit">netSplit v1.1</span>
+      </div>
 
-      <div id="splashCarousel" class="col-md-6">
-        <div class="card">
+      <div class="row">
 
-          <hr>
+          <div id="splashCarousel" class="col-md-6">
+            <div class="card">
 
-          <div class="card-header">
-            <h3>What does this do?</h3>
-          </div>
+              <hr>
 
-          <div class="container-fluid">
-
-            <div id="giphy" class="col-md-12">
-              <div class="giphy">
-                  <img src="{% static 'app/photos/giphy.gif' %}">
+              <div class="card-header">
+                <h3>What does this do?</h3>
               </div>
+
+              <div class="container-fluid">
+
+                <div id="giphy" class="col-md-12">
+                  <div class="giphy">
+                      <img src="{% static 'app/photos/giphy.gif' %}">
+                  </div>
+                </div>
+              </div>
+
+              <hr>
+              <div class="card-body-header col-sm-8 trackpack">
+                <blockquote class="blockquote mb-0">
+                  <p>"Facilitates ROI through real-time monitoring of pre-processed AI datapools, Demonstrates competitive advantage through a correlation of medium-high level risk frameworks and access control standards."</p>
+                  <div class="blockquote-footer col-sm-8">- <i>Anthony T. Plummer &nbsp;<span id="profession">Foreman</span></i></div>
+                </blockquote>
+              </div>
+
+              <div class="card-body-header col-sm-4 blockChainButton">
+                <blockquote class="blockquote mb-1">
+                  <cite title="Source Title"><a class="btn btn-default" href="{% url 'link' %}">Blockchain Automation</a></cite>
+                </blockquote>
+              </div>
+
+              <div class="col-md-12 btn-group social">
+                <label class="col-sm-4 btn-secondary active">
+                  <input type="radio" name="options" id="option1" checked autocomplete="off"> Active <span>Account Needed</span>
+                </label>
+                <label class="col-sm-4 btn-secondary">
+                  <input type="radio" name="options" id="option2" autocomplete="off"> Neutral
+                </label>
+                <label class="col-sm-4 btn-secondary">
+                  <input type="radio" name="options" id="option3" autocomplete="off"> Passive
+                </label>
+
+                <div class="col-sm-12 btcDonate">
+                </div>
+
+                <div class="blender-footer">
+                  <p>&nbsp;</p>
+                </div>
+
+              </div>
+
+
+
             </div>
           </div>
 
-          <hr>
-          <div class="card-body-header col-sm-8 trackpack">
-            <blockquote class="blockquote mb-0">
-              <p>"Facilitates ROI through real-time monitoring of pre-processed AI datapools, Demonstrates competitive advantage through a correlation of medium-high level risk frameworks and access control standards."</p>
-              <div class="blockquote-footer col-sm-8">- <i>Anthony T. Plummer &nbsp;<span id="profession">Foreman</span></i></div>
-            </blockquote>
-          </div>
+          <div id="statusUpdates" class="col-md-4">
+            <div id="updates" data-spy="scroll" data-target="#navbar-example2" data-offset="0">
+              <div class="updateNavbarHeaderText">Status Updates</div>
 
-          <div class="card-body-header col-sm-4 blockChainButton">
-            <blockquote class="blockquote mb-1">
-              <cite title="Source Title"><a class="btn btn-default" href="{% url 'link' %}">Blockchain Automation</a></cite>
-            </blockquote>
-          </div>
+              {% for update in updates %}
+                <hr>
+                <div class="article">
+                  <h4>{{ update.post_date }}</h4>
+                  <p>{{ update.event }}</p>
+                </div>
+                <hr>
+              {% endfor %}
 
-          <div class="col-md-12 btn-group social">
-            <label class="col-sm-4 btn-secondary active">
-              <input type="radio" name="options" id="option1" checked autocomplete="off"> Active <span>Account Needed</span>
-            </label>
-            <label class="col-sm-4 btn-secondary">
-              <input type="radio" name="options" id="option2" autocomplete="off"> Neutral
-            </label>
-            <label class="col-sm-4 btn-secondary">
-              <input type="radio" name="options" id="option3" autocomplete="off"> Passive
-            </label>
-
-            <div class="col-sm-12 btcDonate">
             </div>
-
-            <div class="blender-footer">
-              <p>&nbsp;</p>
-            </div>
-
           </div>
 
-
-
-        </div>
-      </div>
-
-      <div id="statusUpdates" class="col-md-4">
-        <div id="updates" data-spy="scroll" data-target="#navbar-example2" data-offset="0">
-          <div class="updateNavbarHeaderText">Status Updates</div>
-
-          {% for update in updates %}
+          <div id="theJob" class="col-md-4 col-md-offset-2">
+            <h2>Our Goal</h2>
             <hr>
-            <div class="article">
-              <h4>{{ update.post_date }}</h4>
-              <p>{{ update.event }}</p>
+            <p>
+             To consume high-volume yields of data exposing similarities in parallel using behavorial
+             patterns and trend analysis. The data is then parsed, reconfigured,
+             and prioritized to facilitate cooperative multi-layer clarity
+             in a virtualized environment. The fusion process integrates machine learning with
+             pre-existing templates for assessing endpoint productivity. This method simplifies
+             the extrapolation process, providing detailed evidence to maximize focus on service agreements and the
+             deliverables designed to streamline end-to-end data integrity throughout its entire lifecycle. The
+             intent is to leverage scripting and automation for the scalability to modulize
+             sanitary intelligence for enterprise solutions.
+            <p>
+          </div>
+
+          <div id="facebookCheck" class="col-md-10 col-md-offset-1">
+            <script>
+              // This is called with the results from from FB.getLoginStatus().
+              function statusChangeCallback(response) {
+                console.log('statusChangeCallback');
+                console.log(response);
+                // The response object is returned with a status field that lets the
+                // app know the current login status of the person.
+                // Full docs on the response object can be found in the documentation
+                // for FB.getLoginStatus().
+                if (response.status === 'connected') {
+                  // Logged into your app and Facebook.
+                  testAPI();
+                } else {
+                  // The person is not logged into your app or we are unable to tell.
+                  document.getElementById('status').innerHTML = 'Please log ' +
+                    'into this app.';
+                }
+              }
+
+              // This function is called when someone finishes with the Login
+              // Button.  See the onlogin handler attached to it in the sample
+              // code below.
+              function checkLoginState() {
+                FB.getLoginStatus(function(response) {
+                  statusChangeCallback(response);
+                });
+              }
+
+              window.fbAsyncInit = function() {
+                FB.init({
+                  appId      : '470065853389318',
+                  cookie     : true,  // enable cookies to allow the server to access
+                                      // the session
+                  xfbml      : true,  // parse social plugins on this page
+                  version    : 'v2.12' // use graph api version 2.8
+                });
+
+                // Now that we've initialized the JavaScript SDK, we call
+                // FB.getLoginStatus().  This function gets the state of the
+                // person visiting this page and can return one of three states to
+                // the callback you provide.  They can be:
+                //
+                // 1. Logged into your app ('connected')
+                // 2. Logged into Facebook, but not your app ('not_authorized')
+                // 3. Not logged into Facebook and can't tell if they are logged into
+                //    your app or not.
+                //
+                // These three cases are handled in the callback function.
+
+                FB.getLoginStatus(function(response) {
+                  statusChangeCallback(response);
+                });
+
+              };
+
+              // Load the SDK asynchronously
+              (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "https://connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+              }(document, 'script', 'facebook-jssdk'));
+
+              // Here we run a very simple test of the Graph API after login is
+              // successful.  See statusChangeCallback() for when this call is made.
+              function testAPI() {
+                console.log('Welcome!  Fetching your information.... ');
+                FB.api('/me', function(response) {
+                  console.log('Successful login for: ' + response.name);
+                  document.getElementById('status').innerHTML =
+                    'Thanks for logging in, ' + response.name + '!';
+                });
+              }
+            </script>
+
+            <!--
+              Below we include the Login Button social plugin. This button uses
+              the JavaScript SDK to present a graphical Login button that triggers
+              the FB.login() function when clicked.
+            -->
+
+            <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+            </fb:login-button>
+
+            <div id="status">
             </div>
-            <hr>
-          {% endfor %}
+          </div>
 
-        </div>
+          <div id="deadline" class="col-md-10 col-md-offset-1 col-dark">
+            <H1>Project Complete in : <span><blink>12:00:00:00</blink></span></H1>
+          </div>
+
+
+
       </div>
-
-      <div id="theJob" class="col-md-4 col-md-offset-2">
-        <h2>Our Goal</h2>
-        <hr>
-        <p>
-         To consume high-volume yields of data exposing similarities in parallel using behavorial
-         patterns and trend analysis. The data is then parsed, reconfigured,
-         and prioritized to facilitate cooperative multi-layer clarity
-         in a virtualized environment. The fusion process integrates machine learning with
-         pre-existing templates for assessing endpoint productivity. This method simplifies
-         the extrapolation process, providing detailed evidence to maximize focus on service agreements and the
-         deliverables designed to streamline end-to-end data integrity throughout its entire lifecycle. The
-         intent is to leverage scripting and automation for the scalability to modulize
-         sanitary intelligence for enterprise solutions.
-        <p>
-      </div>
-
-      <div id="facebookCheck" class="col-md-10 col-md-offset-1">
-        <script>
-          // This is called with the results from from FB.getLoginStatus().
-          function statusChangeCallback(response) {
-            console.log('statusChangeCallback');
-            console.log(response);
-            // The response object is returned with a status field that lets the
-            // app know the current login status of the person.
-            // Full docs on the response object can be found in the documentation
-            // for FB.getLoginStatus().
-            if (response.status === 'connected') {
-              // Logged into your app and Facebook.
-              testAPI();
-            } else {
-              // The person is not logged into your app or we are unable to tell.
-              document.getElementById('status').innerHTML = 'Please log ' +
-                'into this app.';
-            }
-          }
-
-          // This function is called when someone finishes with the Login
-          // Button.  See the onlogin handler attached to it in the sample
-          // code below.
-          function checkLoginState() {
-            FB.getLoginStatus(function(response) {
-              statusChangeCallback(response);
-            });
-          }
-
-          window.fbAsyncInit = function() {
-            FB.init({
-              appId      : '470065853389318',
-              cookie     : true,  // enable cookies to allow the server to access
-                                  // the session
-              xfbml      : true,  // parse social plugins on this page
-              version    : 'v2.12' // use graph api version 2.8
-            });
-
-            // Now that we've initialized the JavaScript SDK, we call
-            // FB.getLoginStatus().  This function gets the state of the
-            // person visiting this page and can return one of three states to
-            // the callback you provide.  They can be:
-            //
-            // 1. Logged into your app ('connected')
-            // 2. Logged into Facebook, but not your app ('not_authorized')
-            // 3. Not logged into Facebook and can't tell if they are logged into
-            //    your app or not.
-            //
-            // These three cases are handled in the callback function.
-
-            FB.getLoginStatus(function(response) {
-              statusChangeCallback(response);
-            });
-
-          };
-
-          // Load the SDK asynchronously
-          (function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = "https://connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-          }(document, 'script', 'facebook-jssdk'));
-
-          // Here we run a very simple test of the Graph API after login is
-          // successful.  See statusChangeCallback() for when this call is made.
-          function testAPI() {
-            console.log('Welcome!  Fetching your information.... ');
-            FB.api('/me', function(response) {
-              console.log('Successful login for: ' + response.name);
-              document.getElementById('status').innerHTML =
-                'Thanks for logging in, ' + response.name + '!';
-            });
-          }
-        </script>
-
-        <!--
-          Below we include the Login Button social plugin. This button uses
-          the JavaScript SDK to present a graphical Login button that triggers
-          the FB.login() function when clicked.
-        -->
-
-        <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-        </fb:login-button>
-
-        <div id="status">
-        </div>
-      </div>
-
-      <div id="deadline" class="col-md-10 col-md-offset-1 col-dark">
-        <H1>Project Complete in : <span><blink>12:00:00:00</blink></span></H1>
-      </div>
-
-
-
+    </div>
   </div>
+
 </div>
 
 <div id="Scene3">
@@ -261,38 +271,6 @@
         <h1>AI Data Reconstruction & KPI Analysis<h1>
       </div>
     </div>
-</div>
-
-
-
-<div id="Scene6">
-
-    <hr>
-    <div class="margin50">
-<div class="footerblock">
-<h2>G</h2>
-</div>
-<div class="footerblock">
-<h2>H</h2>
-</div>
-<div class="footerblock">
-<h2>O</h2>
-</div>
-<div class="footerblock">
-<h2>S</h2>
-</div>
-<div class="footerblock">
-<h2>T</h2>
-</div>
-<div class="margin100">&nbsp;</div>
-<div class="margin50">&nbsp;</div>
-<div class="footerblock"><a href="#" target="_blank"><i class="icon-facebook"></i></a></div>
-<div class="footerblock"><a href="#" target="_blank"><i class="icon-twitter"></i></a></div>
-<div class="footerblock"><a href="#" target="_blank"><i class="icon-instagram"></i></a></div>
-<div class="footerblock"><a href="#" target="_blank"><i class="icon-youtube-sign-more"></i></a></div>
-<div class="footerblock"><a href="#" target="_blank"><i class="icon-spotify"></i></a></div>
-</div>
-
 </div>
 
 {% endblock %}
