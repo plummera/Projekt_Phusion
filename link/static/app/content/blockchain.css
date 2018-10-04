@@ -60,9 +60,9 @@ div.footerblock {
 
 #scoreboard {
   padding: 3rem;
-  background-color: cadetblue;
-  border-bottom: 2px solid white;
-  border-top: 2px solid white;
+  background-color: white;
+  border-bottom: 2px solid red;
+  border-top: 2px solid red;
   color: dimgray;
   opacity: 0.9;
 }
@@ -89,4 +89,17 @@ div.footerblock {
 
 #btcoin {
   border: 1px solid blue;
+}
+
+#blockchainTable {
+  position: relative;
+  left: 4rem;
+}
+
+#thedude2 {
+  height: 12rem;
+  position: relative;
+  right: 2rem;
+  bottom: 1rem;
+  display: -webkit-box;
 }

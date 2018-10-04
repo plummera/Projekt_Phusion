@@ -2,178 +2,80 @@
 
 {% block content %}
 
+{% load static %}
 {% load staticfiles %}
-<link rel="stylesheet" type="text/css" href="{% static 'app/content/cover.css' %}" />
-<link rel="stylesheet" type="text/css" href="{% static 'app/content/blockchain.css' %}" />
 
-<script src="{% static 'app/js/splash.js' %}"></script>
+<!-- Locally Distributed Dependencies -->
+<link rel="stylesheet" type="text/css" href="{% static 'app/content/staging_area.css' %}" />
 
-<div id="Scene2">
+<!-- Remotely Distributed Dependencies -->
+<!-- <link rel="stylesheet" type="text/css" href="https://s3.amazonaws.com/phusionfactory/content/staging_area.css" /> -->
 
-  <hr>
+{% if user.is_authenticated %}
 
-  <div class="container-fluid">
-    <div class="row">
-      <div id="profile1" class="col-md-5 col-md-offset-1">
-        <div id="user_1" class="col-md-12" style="background-color:#{{ user1.profile_background_color }}; background-image:url({{ FBCoverPic1.source }}); background-position: center; background-size: cover;">
-          <div>
-            <nav id="navbar-example2" class="navbar navbar-light bg-light navbar-feed">
-              <a class="navbar-brand navbar-brand-s" href="#">{{ user1.name }}'s AI Feed</a>
-              <img id="userPicture" src="{{ FBProfilePic1.url }}">
-              <ul class="nav nav-pills feed-pills">
-                <li class="nav-item">
-                  <a class="nav-link" href="#Facebook">FaceBook</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#Twitter">Twitter</a>
-                </li>
-                <!-- <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                  <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#one">one</a>
-                    <a class="dropdown-item" href="#two">two</a>
-                    <div role="separator" class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#three">three</a>
-                  </div>
-                </li> -->
-              </ul>
-            </nav>
-          </div>
-        </div>
+  <div id="Scene2">
 
-        <div data-spy="scroll" data-target="#navbar-example2" data-offset="0" class="feed">
-          <h4 id="Facebook">FaceBook</h4>
-          {% for post in post1 %}
-          <div class="card border-dark mb-3 container-fluid">
-            <div class="card-header card-header-facebook-posts">
-              <img src="http://anthonyplummer.elementfx.com/wp-content/uploads/2018/01/Facebookccccxz.png" height='75px' width='130px' />
-              {{ post.created_time }}
-            </div>
-            <div class="card-body card-body-{{ forloop.counter0 }} text-dark row">
+    <hr>
 
-              <div class="col-md-2 card-profile-photo">
-                <img src='{{ FBProfilePic1.url }}' height='{{ FBProfilePic1.height }}px' width='{{ FBProfilePic1.width }}px' />
-              </div>
+    <div>User ID: {{ profile.id }}</div>
+    <div>Name: {{ profile.name }}</div>
+    <div>Phone Number: {{ profile.phoneNumber }}01-000-010-0001</div>
+    <div>Email: {{ profile.email }}</div>
+    <div>Access Token: {{ profile.token }}</div>
+    <div>Refresh Interval: {{ profile.throwItInTheBag }}</div>
 
-              <div class="card-title col-md-10 card-profile-title">
-                {% if post.message %}
-                  <p class="card-text">{{ post.message }}</p>
-                {% else %}
-                  <a href="{{ post.permalink_url}}"><p class="card-text">{{ post.story }}</p></a>
-                {% endif %}
-              </div>
+    <hr>
 
-              {% if post.description %}
-                <div class="col-md-7 card-profile-description">
-                  {{ post.description }}
-                </div>
-              {% endif %}
-
-              {% if post.full_picture %}
-                <div class="col-md-5 card-profile-articlePhoto">
-                  <a href="{{ post.link }}">
-                      <a href="{{ post.permalink_url }}"><img src="{{ post.full_picture }}" height='150px' width='150px' /></a>
-                  </a>
-                </div>
-              {% endif %}
-
-              <div class="col-md-10 col-md-offset-1 card-profile-footer">
-                <span>ID#: {{ post.id }}</span>
-              </div>
-
+    <div class="container-fluid">
+      <div class="row">
+        <div id="profile1" class="col-md-5 col-md-offset-1">
+          <div id="user_1" class="col-md-12" style="background-color:#{{ user1.profile_background_color }}; background-image:url({{ FBCoverPic1.source }}); background-position: center; background-size: cover;">
+            <div>
+              <nav id="navbar-example2" class="navbar navbar-light bg-light navbar-feed">
+                <a class="navbar-brand navbar-brand-s" href="#">{{ user1.name }}'s AI Feed</a>
+                <img id="userPicture" src="{{ FBProfilePic1.url }}">
+                <ul class="nav nav-pills feed-pills">
+                  <li class="nav-item">
+                    <a class="nav-link" href="#Facebook">FaceBook</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#Twitter">Twitter</a>
+                  </li>
+                  <!-- <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" href="#one">one</a>
+                      <a class="dropdown-item" href="#two">two</a>
+                      <div role="separator" class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#three">three</a>
+                    </div>
+                  </li> -->
+                </ul>
+              </nav>
             </div>
           </div>
 
-          <hr>
-          {% endfor %}
-          <h4 id="Twitter">Twitter</h4>
-          {% for tweet in tweets1 %}
-          <div class="card border-dark mb-3">
-            <div class="card-header card-header-twitter-posts">Tweets</div>
-            <div class="card-body card-body-{{ forloop.counter0 }} text-dark row">
-              <div class="col-md-12">
-                <div class="card-title">
-                  {% if tweet.full_picture %}
-                    <img src="{{ post.full_picture }}">
-                  {% endif %}
-                </div>
+          <div data-spy="scroll" data-target="#navbar-example2" data-offset="0" class="feed">
+            <h4 id="Facebook">FaceBook</h4>
+            {% for post in post1 %}
+            <div class="card border-dark mb-3 container-fluid">
+              <div class="card-header card-header-facebook-posts">
+                <img src="http://anthonyplummer.elementfx.com/wp-content/uploads/2018/01/Facebookccccxz.png" height='75px' width='130px' />
+                {{ post.created_time }}
+              </div>
+              <div class="card-body card-body-{{ forloop.counter0 }} text-dark row">
 
-                <div class="col-md-3 card-profile-photo">
+                <div class="col-md-2 card-profile-photo">
                   <img src='{{ FBProfilePic1.url }}' height='{{ FBProfilePic1.height }}px' width='{{ FBProfilePic1.width }}px' />
                 </div>
 
-                <div class="col-md-9">
-                  {% if tweet.text %}
-                    <p class="card-text">{{ tweet.text }}</p>
+                <div class="card-title col-md-10 card-profile-title">
+                  {% if post.message %}
+                    <p class="card-text">{{ post.message }}</p>
                   {% else %}
-                    <p class="card-text">{{ tweet.text }}</p>
+                    <a href="{{ post.permalink_url}}"><p class="card-text">{{ post.story }}</p></a>
                   {% endif %}
-
-                  {% if tweet.link %}
-                    <a href="{{ post.link }}">{{ tweet.link }}</a>
-                  {% endif %}
-
-                  <p><span>ID#: {{ tweet.id }}</span> | Created at: {{ tweet.created_at }}</p>
                 </div>
-              </div>
-            </div>
-          </div>
-
-          <hr>
-          {% endfor %}
-
-        </div>
-      </div>
-
-      <div id="profile2" class="col-md-5">
-        <div id="user_2" class="col-md-12" style="background-color:#{{ user2.profile_background_color }}; background-image:url({{ FBCoverPic2.source }}); background-position: center; background-size: cover;">
-          <div>
-            <nav id="navbar-example2" class="navbar navbar-light bg-light navbar-feed">
-              <a class="navbar-brand navbar-brand-s" href="#">{{ user1.name }}'s AI Feed</a>
-              <img id="userPicture" src="{{ FBProfilePic2.url }}">
-              <ul class="nav nav-pills feed-pills">
-                <li class="nav-item">
-                  <a class="nav-link" href="#Facebook">FaceBook</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#Twitter">Twitter</a>
-                </li>
-                <!-- <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                  <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#one">one</a>
-                    <a class="dropdown-item" href="#two">two</a>
-                    <div role="separator" class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#three">three</a>
-                  </div>
-                </li> -->
-              </ul>
-            </nav>
-          </div>
-        </div>
-
-        <div data-spy="scroll" data-target="#navbar-example2" data-offset="0" class="feed">
-          <h4 id="FB2">FaceBook</h4>
-
-          {% for post in post2 %}
-          <div class="card border-dark mb-3">
-            <div class="card-header card-header-facebook-posts">
-              <img src="http://anthonyplummer.elementfx.com/wp-content/uploads/2018/01/Facebookccccxz.png" height='75px' width='130px' />
-              {{ post.created_time }}
-            </div>
-            <div class="card-body card-body-{{ forloop.counter0 }} text-dark row">
-
-              <div class="col-md-2 card-profile-photo">
-                <img src='{{ FBProfilePic2.url }}' height='{{ FBProfilePic2.height }}px' width='{{ FBProfilePic2.width }}px' />
-              </div>
-
-              <div class="card-title col-md-10 card-profile-title">
-                {% if post.message %}
-                  <p class="card-text">{{ post.message }}</p>
-                {% else %}
-                  <a href="{{ post.permalink_url}}"><p class="card-text">{{ post.story }}</p></a>
-                {% endif %}
-              </div>
 
                 {% if post.description %}
                   <div class="col-md-7 card-profile-description">
@@ -189,275 +91,412 @@
                   </div>
                 {% endif %}
 
-              <hr>
+                <div class="col-md-10 col-md-offset-1 card-profile-footer">
+                  <span>ID#: {{ post.id }}</span>
+                </div>
 
-              <div class="col-md-10 col-md-offset-1 card-profile-footer">
-                <span>ID#: {{ post.id }}</span>
               </div>
+            </div>
 
+            <hr>
+            {% endfor %}
+            <h4 id="Twitter">Twitter</h4>
+            {% for tweet in tweets1 %}
+            <div class="card border-dark mb-3">
+              <div class="card-header card-header-twitter-posts">Tweets</div>
+              <div class="card-body card-body-{{ forloop.counter0 }} text-dark row">
+                <div class="col-md-12">
+                  <div class="card-title">
+                    {% if tweet.full_picture %}
+                      <img src="{{ post.full_picture }}">
+                    {% endif %}
+                  </div>
+
+                  <div class="col-md-3 card-profile-photo">
+                    <img src='{{ FBProfilePic1.url }}' height='{{ FBProfilePic1.height }}px' width='{{ FBProfilePic1.width }}px' />
+                  </div>
+
+                  <div class="col-md-9">
+                    {% if tweet.text %}
+                      <p class="card-text">{{ tweet.text }}</p>
+                    {% else %}
+                      <p class="card-text">{{ tweet.text }}</p>
+                    {% endif %}
+
+                    {% if tweet.link %}
+                      <a href="{{ post.link }}">{{ tweet.link }}</a>
+                    {% endif %}
+
+                    <p><span>ID#: {{ tweet.id }}</span> | Created at: {{ tweet.created_at }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <hr>
+            {% endfor %}
+
+          </div>
+        </div>
+
+        <div id="profile2" class="col-md-5">
+          <div id="user_2" class="col-md-12" style="background-color:#{{ user2.profile_background_color }}; background-image:url({{ FBCoverPic2.source }}); background-position: center; background-size: cover;">
+            <div>
+              <nav id="navbar-example2" class="navbar navbar-light bg-light navbar-feed">
+                <a class="navbar-brand navbar-brand-s" href="#">{{ user1.name }}'s AI Feed</a>
+                <img id="userPicture" src="{{ FBProfilePic2.url }}">
+                <ul class="nav nav-pills feed-pills">
+                  <li class="nav-item">
+                    <a class="nav-link" href="#Facebook">FaceBook</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#Twitter">Twitter</a>
+                  </li>
+                  <!-- <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" href="#one">one</a>
+                      <a class="dropdown-item" href="#two">two</a>
+                      <div role="separator" class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#three">three</a>
+                    </div>
+                  </li> -->
+                </ul>
+              </nav>
             </div>
           </div>
 
-          <hr>
-          {% endfor %}
+          <div data-spy="scroll" data-target="#navbar-example2" data-offset="0" class="feed">
+            <h4 id="FB2">FaceBook</h4>
 
-          <h4 id="TW2">Twitter</h4>
-          {% for tweet in tweets2 %}
-          <div class="card border-dark mb-3">
-            <div class="card-header card-header-twitter-posts">Tweets</div>
-            <div class="card-body card-body-{{ forloop.counter0 }} text-dark row">
-              <div class="col-md-12">
-                <div class="card-title">
-                  {% if tweet.full_picture %}
-                    <img src="{{ post.full_picture }}">
-                  {% endif %}
-                </div>
+            {% for post in post2 %}
+            <div class="card border-dark mb-3">
+              <div class="card-header card-header-facebook-posts">
+                <img src="http://anthonyplummer.elementfx.com/wp-content/uploads/2018/01/Facebookccccxz.png" height='75px' width='130px' />
+                {{ post.created_time }}
+              </div>
+              <div class="card-body card-body-{{ forloop.counter0 }} text-dark row">
 
-                <div class="col-md-3 card-profile-photo">
+                <div class="col-md-2 card-profile-photo">
                   <img src='{{ FBProfilePic2.url }}' height='{{ FBProfilePic2.height }}px' width='{{ FBProfilePic2.width }}px' />
                 </div>
 
-                <div class="col-md-9">
-                  {% if tweet.text %}
-                    <p class="card-text">{{ tweet.text }}</p>
+                <div class="card-title col-md-10 card-profile-title">
+                  {% if post.message %}
+                    <p class="card-text">{{ post.message }}</p>
                   {% else %}
-                    <p class="card-text">{{ tweetext }}</p>
+                    <a href="{{ post.permalink_url}}"><p class="card-text">{{ post.story }}</p></a>
+                  {% endif %}
+                </div>
+
+                  {% if post.description %}
+                    <div class="col-md-7 card-profile-description">
+                      {{ post.description }}
+                    </div>
                   {% endif %}
 
-                  {% if tweet.link %}
-                    <a href="{{ post.link }}">{{ tweet.link }}</a>
+                  {% if post.full_picture %}
+                    <div class="col-md-5 card-profile-articlePhoto">
+                      <a href="{{ post.link }}">
+                          <a href="{{ post.permalink_url }}"><img src="{{ post.full_picture }}" height='150px' width='150px' /></a>
+                      </a>
+                    </div>
                   {% endif %}
 
-                  <p><span>ID#: {{ tweet.id }}</span> | Created at: {{ tweet.created_at }}</p>
+                <hr>
+
+                <div class="col-md-10 col-md-offset-1 card-profile-footer">
+                  <span>ID#: {{ post.id }}</span>
+                </div>
+
+              </div>
+            </div>
+
+            <hr>
+            {% endfor %}
+
+            <h4 id="TW2">Twitter</h4>
+            {% for tweet in tweets2 %}
+            <div class="card border-dark mb-3">
+              <div class="card-header card-header-twitter-posts">Tweets</div>
+              <div class="card-body card-body-{{ forloop.counter0 }} text-dark row">
+                <div class="col-md-12">
+                  <div class="card-title">
+                    {% if tweet.full_picture %}
+                      <img src="{{ post.full_picture }}">
+                    {% endif %}
+                  </div>
+
+                  <div class="col-md-3 card-profile-photo">
+                    <img src='{{ FBProfilePic2.url }}' height='{{ FBProfilePic2.height }}px' width='{{ FBProfilePic2.width }}px' />
+                  </div>
+
+                  <div class="col-md-9">
+                    {% if tweet.text %}
+                      <p class="card-text">{{ tweet.text }}</p>
+                    {% else %}
+                      <p class="card-text">{{ tweetext }}</p>
+                    {% endif %}
+
+                    {% if tweet.link %}
+                      <a href="{{ post.link }}">{{ tweet.link }}</a>
+                    {% endif %}
+
+                    <p><span>ID#: {{ tweet.id }}</span> | Created at: {{ tweet.created_at }}</p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <hr>
-          {% endfor %}
+            <hr>
+            {% endfor %}
+
+          </div>
 
         </div>
 
       </div>
-
     </div>
+
   </div>
 
-</div>
 
-
-<div id="Scene4">
-
-  <hr>
-
-  <div class="col-md-12">
-    <h2 class="center" style="color:white;">Recent Samples</h2>
-  </div>
-
-  <div class="container-fluid">
-    <div id="watson" class="row">
-      <div id="profile1" class="col-md-6">
-        <div class="col-md-12">
-          <div id="name1">Name: {{ user1.name }}</div>
-          <div id="location1">Location: {{ user1.location }}</div>
-        </div>
-        <div id="user_1" class="col-md-12" style="background-color:#{{ user1.profile_background_color }}; background-image:url({{ user1.profile_banner_url }}); background-position: center; background-size: cover;">
-          <div>
-            <img id="userPicture" src="{{ user1.profile_image_url }}">
-          </div>
-        </div>
-
-        {% for data in user1_list %}
-        <div id="exampleAccordion1" class="col-md-3" data-children=".result-{{ forloop.counter0 }}">
-          <div class="item">
-            <a data-toggle="collapse" data-parent="#exampleAccordion2" href="#exampleAccordion1-{{ forloop.counter0 }}" aria-expanded="true" aria-controls="exampleAccordion1-{{ forloop.counter0 }}">
-              <div class="card-header result result-{{ forloop.counter0 }}">{{ data.0 }}</div>
-            </a>
-            <div id="exampleAccordion1-{{ forloop.counter0 }}" class="collapse" role="tabpanel">
-              <div class="card border-light mb-3">
-                <div class="card-body-0 text-dark result-{{ forloop.counter0 }}">
-                  <table class="card-table">
-                    <tr>
-                      <td class="score">{% widthratio data.1 1 100 %}%</td>
-                    <tr>
-                    <p class="card-text-{{ forloop.counter0 }}"></p>
-                  </table>
-                  <div id="slice" class="progress" style="height: 1px;">
-                    <div class="progress-bar slice" role="progressbar" style="width: {% widthratio data.1 1 100 %}%;" aria-valuenow="{% widthratio data.1 1 100 %}" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <div class="progress">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="{% widthratio data.1 1 100 %}" aria-valuemin="0" aria-valuemax="100" style="width: {% widthratio data.1 1 100 %}%"></div>
-                  </div>
-                  <table class="card-footer">
-                    <tr>
-                      &nbsp;
-                    <tr>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        {% endfor %}
-
-
-
-      </div>
-
-      <div id="profile2" class="col-md-6">
-        <div class="col-md-12">
-          <div id="name2">Name: {{ user2.name }}</div>
-          <div id="location2">Location: {{ user2.location }}</div>
-        </div>
-        <div id="user_1" class="col-md-12" style="background-color:#{{ user2.profile_background_color }}; background-image:url({{ user2.profile_banner_url }}); background-position: center; background-size: cover;">
-          <div>
-            <img id="userPicture" src="{{ user2.profile_image_url }}">
-          </div>
-        </div>
-
-        {% for data in user2_list %}
-        <div id="exampleAccordion2" class="col-md-3" data-children=".result2-{{ forloop.counter0 }}">
-          <div class="item">
-            <a data-toggle="collapse" data-parent="#exampleAccordion2" href="#exampleAccordion2-{{ forloop.counter0 }}" aria-expanded="true" aria-controls="exampleAccordion2-{{ forloop.counter0 }}">
-              <div class="card-header result2 result2-{{ forloop.counter0 }}">{{ data.0 }}</div>
-            </a>
-            <div id="exampleAccordion2-{{ forloop.counter0 }}" class="collapse" role="tabpanel">
-              <div class="card border-light mb-3">
-                <div class="card-body-0 text-dark result2-{{ forloop.counter0 }}">
-                  <table class="card-table">
-                    <tr>
-                      <td class="score">{% widthratio data.1 1 100 %}%</td>
-                    <tr>
-                    <p class="card-text-{{ forloop.counter0 }}"></p>
-                  </table>
-                  <div id="slice" class="progress" style="height: 1px;">
-                    <div class="progress-bar slice" role="progressbar" style="width: {% widthratio data 1 100 %}%;" aria-valuenow="{% widthratio data 1 100 %}" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <div class="progress">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="{% widthratio data 1 100 %}" aria-valuemin="0" aria-valuemax="100" style="width: {% widthratio data 1 100 %}%"></div>
-                  </div>
-                  <table class="card-footer">
-                    <tr>
-                      &nbsp;
-                    <tr>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        {% endfor %}
-      </div>
-
-    </div>
-  </div>
-</div>
-
-<div id="Scene5">
+  <div id="Scene4">
 
     <hr>
 
-    <div class="row">
-      <div id="watson" class="col-md-10 col-md-offset-1">
-          <h2><u>Fusion Analysis</u></h2>
+    <div class="col-md-12">
+      <h2 class="center" style="color:white;">Recent Samples</h2>
+    </div>
 
-          <p>
-            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample3" aria-expanded="false" aria-controls="multiCollapseExample3">Very Much Alike</button>
-            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Warmer</button>
-            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample1" aria-expanded="false" aria-controls="multiCollapseExample1">Not Even Close</button>
-            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2 multiCollapseExample3">View All</button>
-          </p>
-          <div class="row">
-
-              <div class="collapse multi-collapse" id="multiCollapseExample1">
-                {% for category, metric in result.items %}
-                {% if metric > .56 %}
-                <div class="card card-body col-md-3">
-                  <div class="card-header-results result-{{ forloop.counter0 }} match-light">{{ category }}</div>
-
-                  <div class="card-body result text-dark">
-                    <table class="card-table">
-                      <p class="card-text-1"></p>
-                    </table>
-                    <div id="slice" class="progress" style="height: 1px;">
-                      <div class="progress-bar slice" role="progressbar" style="width: {% widthratio metric 1 100 %}%;" aria-valuenow="{% widthratio metric 1 100 %}" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-
-                    <div class="progress">
-                      <div id="watson-result-{{ forloop.counter0 }}" class="progress-bar watson-results" role="progressbar" style="width: {% widthratio metric 1 100 %}%;" aria-valuenow="{% widthratio metric 1 100 %}" aria-valuemin="0" aria-valuemax="100">{% widthratio metric 1 100 %}%</div>
-                    </div>
-                    <table class="card-footer">
-                      <tr>
-                        &nbsp;
-                      <tr>
-                    </table>
-                  </div>
-                </div>
-                {% endif %}
-                {% endfor %}
-              </div>
-
-              <div class="collapse multi-collapse" id="multiCollapseExample2">
-                {% for category, metric in result.items %}
-                {% if .55 > metric and metric > .22 %}
-                <div class="card card-body col-md-3">
-                  <div class="card-header-results result-{{ forloop.counter0 }} match-medium">{{ category }}</div>
-
-                  <div class="card-body result text-dark">
-                    <table class="card-table">
-                      <p class="card-text-1"></p>
-                    </table>
-                    <div id="slice" class="progress" style="height: 1px;">
-                      <div class="progress-bar slice" role="progressbar" style="width: {% widthratio metric 1 100 %}%;" aria-valuenow="{% widthratio metric 1 100 %}" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-
-                    <div class="progress">
-                      <div id="watson-result-{{ forloop.counter0 }}" class="progress-bar watson-results" role="progressbar" style="width: {% widthratio metric 1 100 %}%;" aria-valuenow="{% widthratio metric 1 100 %}" aria-valuemin="0" aria-valuemax="100">{% widthratio metric 1 100 %}%</div>
-                    </div>
-                    <table class="card-footer">
-                      <tr>
-                        &nbsp;
-                      <tr>
-                    </table>
-                  </div>
-                </div>
-                {% endif %}
-                {% endfor %}
-              </div>
-
-              <div class="collapse multi-collapse" id="multiCollapseExample3">
-                {% for category, metric in result.items %}
-                {% if metric < .22 %}
-                <div class="card card-body col-md-3">
-                  <div class="card-header-results result-{{ forloop.counter0 }} match-heavy">{{ category }}</div>
-
-                  <div class="card-body result text-dark match-heavy">
-                    <table class="card-table">
-                      <p class="card-text-1"></p>
-                    </table>
-                    <div id="slice" class="progress" style="height: 1px;">
-                      <div class="progress-bar slice" role="progressbar" style="width: {% widthratio metric 1 100 %}%;" aria-valuenow="{% widthratio metric 1 100 %}" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-
-                    <div class="progress">
-                      <div id="watson-result-{{ forloop.counter0 }}" class="progress-bar watson-results" role="progressbar" style="width: {% widthratio metric 1 100 %}%;" aria-valuenow="{% widthratio metric 1 100 %}" aria-valuemin="0" aria-valuemax="100">{% widthratio metric 1 100 %}%</div>
-                    </div>
-                    <table class="card-footer">
-                      <tr>
-                        &nbsp;
-                      <tr>
-                    </table>
-                  </div>
-                </div>
-                {% endif %}
-                {% endfor %}
-              </div>
-
+    <div class="container-fluid">
+      <div id="watson" class="row">
+        <div id="profile1" class="col-md-6">
+          <div class="col-md-12">
+            <div id="name1">Name: {{ user1.name }}</div>
+            <div id="location1">Location: {{ user1.location }}</div>
           </div>
+          <div id="user_1" class="col-md-12" style="background-color:#{{ user1.profile_background_color }}; background-image:url({{ user1.profile_banner_url }}); background-position: center; background-size: cover;">
+            <div>
+              <img id="userPicture" src="{{ user1.profile_image_url }}">
+            </div>
+          </div>
+
+          {% for data in user1_list %}
+          <div id="exampleAccordion1" class="col-md-3" data-children=".result-{{ forloop.counter0 }}">
+            <div class="item">
+              <a data-toggle="collapse" data-parent="#exampleAccordion2" href="#exampleAccordion1-{{ forloop.counter0 }}" aria-expanded="true" aria-controls="exampleAccordion1-{{ forloop.counter0 }}">
+                <div class="card-header result result-{{ forloop.counter0 }}">{{ data.0 }}</div>
+              </a>
+              <div id="exampleAccordion1-{{ forloop.counter0 }}" class="collapse" role="tabpanel">
+                <div class="card border-light mb-3">
+                  <div class="card-body-0 text-dark result-{{ forloop.counter0 }}">
+                    <table class="card-table">
+                      <tr>
+                        <td class="score">{% widthratio data.1 1 100 %}%</td>
+                      <tr>
+                      <p class="card-text-{{ forloop.counter0 }}"></p>
+                    </table>
+                    <div id="slice" class="progress" style="height: 1px;">
+                      <div class="progress-bar slice" role="progressbar" style="width: {% widthratio data.1 1 100 %}%;" aria-valuenow="{% widthratio data.1 1 100 %}" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <div class="progress">
+                      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="{% widthratio data.1 1 100 %}" aria-valuemin="0" aria-valuemax="100" style="width: {% widthratio data.1 1 100 %}%"></div>
+                    </div>
+                    <table class="card-footer">
+                      <tr>
+                        &nbsp;
+                      <tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+
+
+
+        </div>
+
+        <div id="profile2" class="col-md-6">
+          <div class="col-md-12">
+            <div id="name2">Name: {{ user2.name }}</div>
+            <div id="location2">Location: {{ user2.location }}</div>
+          </div>
+          <div id="user_1" class="col-md-12" style="background-color:#{{ user2.profile_background_color }}; background-image:url({{ user2.profile_banner_url }}); background-position: center; background-size: cover;">
+            <div>
+              <img id="userPicture" src="{{ user2.profile_image_url }}">
+            </div>
+          </div>
+
+          {% for data in user2_list %}
+          <div id="exampleAccordion2" class="col-md-3" data-children=".result2-{{ forloop.counter0 }}">
+            <div class="item">
+              <a data-toggle="collapse" data-parent="#exampleAccordion2" href="#exampleAccordion2-{{ forloop.counter0 }}" aria-expanded="true" aria-controls="exampleAccordion2-{{ forloop.counter0 }}">
+                <div class="card-header result2 result2-{{ forloop.counter0 }}">{{ data.0 }}</div>
+              </a>
+              <div id="exampleAccordion2-{{ forloop.counter0 }}" class="collapse" role="tabpanel">
+                <div class="card border-light mb-3">
+                  <div class="card-body-0 text-dark result2-{{ forloop.counter0 }}">
+                    <table class="card-table">
+                      <tr>
+                        <td class="score">{% widthratio data.1 1 100 %}%</td>
+                      <tr>
+                      <p class="card-text-{{ forloop.counter0 }}"></p>
+                    </table>
+                    <div id="slice" class="progress" style="height: 1px;">
+                      <div class="progress-bar slice" role="progressbar" style="width: {% widthratio data 1 100 %}%;" aria-valuenow="{% widthratio data 1 100 %}" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <div class="progress">
+                      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="{% widthratio data 1 100 %}" aria-valuemin="0" aria-valuemax="100" style="width: {% widthratio data 1 100 %}%"></div>
+                    </div>
+                    <table class="card-footer">
+                      <tr>
+                        &nbsp;
+                      <tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div id="Scene5">
+
+      <hr>
+
+      <div class="row">
+        <div id="watson" class="col-md-12">
+          <h1>AI Data Reconstruction & KPI Analysis<h1>
         </div>
       </div>
-</div>
 
+      <hr>
+
+      <div class="row">
+        <div id="watson" class="col-md-10 col-md-offset-1">
+            <h2><u>Fusion Analysis</u></h2>
+
+            <p>
+              <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample3" aria-expanded="false" aria-controls="multiCollapseExample3">Very Much Alike</button>
+              <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Warmer</button>
+              <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample1" aria-expanded="false" aria-controls="multiCollapseExample1">Not Even Close</button>
+              <button class="btn btn-primary" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2 multiCollapseExample3">View All</button>
+            </p>
+            <div class="row">
+
+                <div class="collapse multi-collapse" id="multiCollapseExample1">
+                  {% for category, metric in result.items %}
+                  {% if metric > .56 %}
+                  <div class="card card-body col-md-3">
+                    <div class="card-header-results result-{{ forloop.counter0 }} match-light">{{ category }}</div>
+
+                    <div class="card-body result text-dark">
+                      <table class="card-table">
+                        <p class="card-text-1"></p>
+                      </table>
+                      <div id="slice" class="progress" style="height: 1px;">
+                        <div class="progress-bar slice" role="progressbar" style="width: {% widthratio metric 1 100 %}%;" aria-valuenow="{% widthratio metric 1 100 %}" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+
+                      <div id="watson-result-{{ forloop.counter0 }}" class="watson-results" role="progressbar" style="width: 100%;">
+                        <p>NO</p>
+                      </div>
+
+                      <!-- <div class="progress">
+                        <div id="watson-result-{{ forloop.counter0 }}" class="progress-bar watson-results" role="progressbar" style="width: {% widthratio metric 1 100 %}%;" aria-valuenow="{% widthratio metric 1 100 %}" aria-valuemin="0" aria-valuemax="100">{% widthratio metric 1 100 %}%</div>
+                      </div> -->
+                      <table class="card-footer">
+                        <tr>
+                          &nbsp;
+                        <tr>
+                      </table>
+                    </div>
+                  </div>
+                  {% endif %}
+                  {% endfor %}
+                </div>
+
+                <div class="collapse multi-collapse" id="multiCollapseExample2">
+                  {% for category, metric in result.items %}
+                  {% if .55 > metric and metric > .22 %}
+                  <div class="card card-body col-md-3">
+                    <div class="card-header-results result-{{ forloop.counter0 }} match-medium">{{ category }}</div>
+
+                    <div class="card-body result text-dark">
+                      <table class="card-table">
+                        <p class="card-text-1"></p>
+                      </table>
+                      <div id="slice" class="progress" style="height: 1px;">
+                        <div class="progress-bar slice" role="progressbar" style="width: {% widthratio metric 1 100 %}%;" aria-valuenow="{% widthratio metric 1 100 %}" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+
+                      <div id="watson-result-{{ forloop.counter0 }}" class="watson-results" role="progressbar" style="width: 100%;">
+                        <p>Fair</p>
+                      </div>
+
+                      <!-- <div class="progress">
+                        <div id="watson-result-{{ forloop.counter0 }}" class="progress-bar watson-results" role="progressbar" style="width: {% widthratio metric 1 100 %}%;" aria-valuenow="{% widthratio metric 1 100 %}" aria-valuemin="0" aria-valuemax="100">{% widthratio metric 1 100 %}%</div>
+                      </div> -->
+                      <table class="card-footer">
+                        <tr>
+                          &nbsp;
+                        <tr>
+                      </table>
+                    </div>
+                  </div>
+                  {% endif %}
+                  {% endfor %}
+                </div>
+
+                <div class="collapse multi-collapse" id="multiCollapseExample3">
+                  {% for category, metric in result.items %}
+                  {% if metric < .22 %}
+                  <div class="card card-body col-md-3">
+                    <div class="card-header-results result-{{ forloop.counter0 }} match-heavy">{{ category }}</div>
+
+                    <div class="card-body result text-dark match-heavy">
+                      <table class="card-table">
+                        <p class="card-text-1"></p>
+                      </table>
+                      <div id="slice" class="progress" style="height: 1px;">
+                        <div class="progress-bar slice" role="progressbar" style="width: {% widthratio metric 1 100 %}%;" aria-valuenow="{% widthratio metric 1 100 %}" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+
+                      <div id="watson-result-{{ forloop.counter0 }}" class="watson-results" role="progressbar" style="width: 100%;">
+                        <p>VERY HIGH</p>
+                      </div>
+
+                      <!-- <div class="progress">
+                        <div id="watson-result-{{ forloop.counter0 }}" class="progress-bar watson-results" role="progressbar" style="width: {% widthratio metric 1 100 %}%;" aria-valuenow="{% widthratio metric 1 100 %}" aria-valuemin="0" aria-valuemax="100">{% widthratio metric 1 100 %}%</div>
+                      </div> -->
+                      <table class="card-footer">
+                        <tr>
+                          &nbsp;
+                        <tr>
+                      </table>
+                    </div>
+                  </div>
+                  {% endif %}
+                  {% endfor %}
+                </div>
+
+            </div>
+          </div>
+        </div>
+  </div>
+
+{% else %}
+
+  {% include "app/login-2.html" %}
+
+{% endif %}
 
 {% endblock %}

@@ -1,10 +1,6 @@
-{% extends "app/layout.html" %}
+{% load static %}
 
 {% block content %}
-
-{% load static %}
-{% load staticfiles %}
-
 <!-- Locally Distributed Dependencies -->
 <link rel="stylesheet" type="text/css" href="{% static 'app/content/cover.css' %}" />
 <link rel="stylesheet" type="text/css" href="{% static 'app/content/login.css' %}" />
@@ -15,7 +11,7 @@
 
 <script src="https://sdk.accountkit.com/en_US/sdk.js"></script>
 
-<form id="login_success" method="post" action="/login_success.php">
+<form id="login_success" method="post" action="app/login_success.php">
   <input id="csrf" type="hidden" name="csrf" />
   <input id="code" type="hidden" name="code" />
 </form>
@@ -30,17 +26,19 @@
   }
 </script>
 
+
+
 <div id="loginScreen" class="container-fluid">
-  <div id="greeting1" class="col-md-4 col-md-offset-1">
+  <div id="greeting2" class="col-md-3 col-md-offset-1">
     <h1>{{ title }}</h1>
   </div>
-  <div class="col-md-7">
-    <img id="sun" src="{% static 'app/photos/sun.png' %}" />
+  <div class="col-md-8">
+    <img id="sun" src="https://s3.amazonaws.com/phusionfactory/photos/sun.png" />
   </div>
   <div class="row">
       <div class="col-md-5 col-md-offset-1">
           <section id="loginForm">
-              <form action="#" method="post" role="form" class="form-horizontal" AUTOCOMPLETE = "off">
+              <form action="." method="post" class="form-horizontal">
                   {% csrf_token %}
                   <h4>Use a local account to log in.</h4>
                   <hr />
@@ -59,7 +57,7 @@
                   <div class="form-group">
                       <div class="col-md-offset-2 col-md-10">
                           <input type="hidden" name="next" value="/Staging_Area/" />
-                          <button id="valuser" type="submit" onclick="submitForm()" value="Log in" class="btn btn-default">Login</button>
+                          <input type="submit" onclick="submitForm()" value="Log in" class="btn btn-default" />
                       </div>
                   </div>
                   {% if form.errors %}
@@ -70,68 +68,9 @@
       </div>
       <div class="col-md-6">
           <section id="socialLoginForm"></section>
-          <img id="thedude" src="{% 'app/photos/praiseit2.png' %}" />
+          <img id="thedude" src="https://s3.amazonaws.com/phusionfactory/photos/praiseit2.png" />
       </div>
   </div>
 </div>
-
-<script>
-  // initialize Account Kit with CSRF protection
-  AccountKit_OnInteractive = function(){
-    AccountKit.init(
-      {
-        appId:"1624424920959023",
-        state:"NJ",
-        version:"v2.12",
-        fbAppEventsEnabled:true,
-        redirect:"http://34.238.123.147:8000/Staging_Area/"
-      }
-    );
-  };
-
-  // login callback
-  function loginCallback(response) {
-    if (response.status === "PARTIALLY_AUTHENTICATED") {
-      var code = response.code;
-      var csrf = response.state;
-      // Send code to server to exchange for access token
-    }
-    else if (response.status === "NOT_AUTHENTICATED") {
-      // handle authentication failure
-    }
-    else if (response.status === "BAD_PARAMS") {
-      // handle bad parameters
-    }
-  }
-
-  // phone form submission handler
-  function smsLogin() {
-    var countryCode = document.getElementById("country_code").value;
-    var phoneNumber = document.getElementById("phone_number").value;
-    AccountKit.login(
-      'PHONE',
-      {countryCode: countryCode, phoneNumber: phoneNumber}, // will use default values if not specified
-      loginCallback
-    );
-  }
-
-
-  // email form submission handler
-  function emailLogin() {
-    var emailAddress = document.getElementById("email").value;
-    AccountKit.login(
-      'EMAIL',
-      {emailAddress: emailAddress},
-      loginCallback
-    );
-  }
-</script>
-
-{% endblock %}
-
-{% block scripts %}
-
-{% load staticfiles %}
-<script src="{% static 'app/js/jquery.validate.min.js' %}"></script>
 
 {% endblock %}

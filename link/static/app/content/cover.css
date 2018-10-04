@@ -176,6 +176,11 @@ span#netsplit {
   width: 65px;
 }
 
+#connectx {
+  text-align: right;
+  padding: 3% 0;
+}
+
 #deadline {
   background: grey;
   border: 1px solid white;
@@ -195,6 +200,11 @@ span#netsplit {
   margin: 4px 8px;
 }
 
+#facebookCheck {
+  top: 1.6rem;
+  right: 1.5rem;
+}
+
 #giphy {
   border: 25px solid orange;
   padding: 1rem;
@@ -206,9 +216,7 @@ span#netsplit {
   -moz-border-radius: 60px;
   -webkit-border-radius: 60px;
   height: 38px;
-  margin: -5% 0%;
-  right: 18%;
-  width: 38px;
+  margin: 3% 0%;
 }
 
 #location1 {
@@ -235,9 +243,7 @@ span#netsplit {
   -moz-border-radius: 60px;
   -webkit-border-radius: 60px;
   height: 38px;
-  margin: -5% 0%;
-  right: 18%;
-  width: 38px;
+  margin: 3% 0%;
 }
 
 #my-video {
@@ -260,12 +266,20 @@ span#netsplit {
 }
 
 #console {
-  height: 30rem;
+  height: 45rem;
+  max-width: 75rem;
   width: 100%;
   background-color: gray;
   padding: 2rem;
   margin: 2rem 0rem;
   border: 2px solid gold;
+}
+
+#consoleContainer {
+  display: grid;
+  height: 100%;
+  max-width: 80%;
+  position: relative;
 }
 
 #divHeader {
@@ -337,13 +351,13 @@ span#netsplit {
   background-position: center;
   background-size: cover;
   color: #fff;
-  height: auto;
+  height: 100%;
   text-align: center;
   text-shadow: 0 .05rem .1rem rgba(0,0,0,.5);
 }
 
 #Scene2 {
-  background-color: lightslategrey;
+
 }
 
 #Scene2 h1 {
@@ -530,6 +544,18 @@ span#netsplit {
   width: 96.5%;
 }
 
+.blender-header {
+  background: orange;
+  border: 1px solid white;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  display: -webkite-inline-box;
+  display: inline-block;
+  height: 5rem;
+  margin-bottom: 4rem;
+  width: 96.5%;
+}
+
 .blockquote-footer {
   float: right;
   margin: 2rem -1rem 2rem;
@@ -541,7 +567,7 @@ span#netsplit {
 }
 
 .btcDonate {
-  opacity: 0;
+  opacity: 1;
   padding: 0% 2% 0 0;
   transition-timing-function: ease;
   transition: 5s;
@@ -556,6 +582,11 @@ span#netsplit {
 .btcDonate hr {
   margin-top: 5px;
   margin-bottom: 5px;
+}
+
+.btcDonate input {
+  height: 3.3rem;
+  vertical-align: middle;
 }
 
 .btn-secondary {
@@ -729,7 +760,7 @@ span#netsplit {
 
 .giphy img {
   width: 100%;
-  height: 10.5rem;
+  height: auto;
 }
 
 .hidden {
@@ -787,6 +818,7 @@ span#netsplit {
 
 .navbar {
   position: relative;
+  margin-bottom: 0px;
 }
 
 .navbar-brand-s {
@@ -892,6 +924,7 @@ span#netsplit {
   VIDEO
 ============================================================================= */
 .video {
+  height: 100%;
   position: fixed;
   top: 50%;
   left: 50%;

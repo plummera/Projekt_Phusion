@@ -5,20 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }} - Project Fusion</title>
     {% load staticfiles %}
-    <link rel="icon" href="{% static 'app/favicon.ico' %}">
+    {% load static %}
+
+    <link rel="icon" href="{% static 'app/favicon.ico' }%">
+
     <link rel="stylesheet" type="text/css" href="{% static 'app/content/bootstrap.min.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'app/content/blockchain.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'app/content/skin.css' %}" />
 
+    <!-- Locally Distributed Dependencies -->
     <!-- <link rel="stylesheet" type="text/css" href="{% static 'app/content/site.css' %}" /> -->
     <link rel="stylesheet" id="font-awesome-corp-styles-css" type="text/css" media="all" href="{% static 'app/content/font-awesome-corp.css' %}" />
     <link rel="stylesheet" id="font-awesome-styles-css" type="text/css" media="all" href="{% static 'app/content/font-awesome.css' %}" />
     <link rel="stylesheet" id="font-awesome-social-css" type="text/css" media="all" href="{% static 'app/content/font-awesome-social.css' %}" />
     <link rel="stylesheet" id="font-awesome-ext-css" type="text/css" media="all" href="{% static 'app/content/font-awesome-ext.css' %}" />
 
-    <script src="{% static 'app/js/jquery-1.10.2.min.js' %}"></script>
-    <script src="{% static 'app/js/jquery-1.10.2.intellisense.js' %}"></script>
-    <script src="{% static 'app/js/bootstrap.min.js' %}"></script>
+
+    <!-- Remotely Distributed Dependencies -->
+    <!-- <link rel="icon" href="https://s3.amazonaws.com/phusionfactory/favicon.ico"> -->
+
+    <!-- <link rel="stylesheet" type="text/css" href="https://s3.amazonaws.com/phusionfactory/content/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://s3.amazonaws.com/phusionfactory/content/blockchain.css" />
+    <link rel="stylesheet" type="text/css" href="https://s3.amazonaws.com/phusionfactory/content/skin.css" /> -->
+
+    <!-- <link rel="stylesheet" id="font-awesome-corp-styles-css" type="text/css" media="all" href="https://s3.amazonaws.com/phusionfactory/content/font-awesome-corp.css" />
+    <link rel="stylesheet" id="font-awesome-styles-css" type="text/css" media="all" href="https://s3.amazonaws.com/phusionfactory/content/font-awesome.css" />
+    <link rel="stylesheet" id="font-awesome-social-css" type="text/css" media="all" href="https://s3.amazonaws.com/phusionfactory/content/font-awesome-social.css" />
+    <link rel="stylesheet" id="font-awesome-ext-css" type="text/css" media="all" href="https://s3.amazonaws.com/phusionfactory/content/font-awesome-ext.css" /> -->
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
+    <!-- Locally Distributed Dependencies -->
+    <script type="text/javascript" src="{% static 'app/js/jquery.validate.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'app/js/jquery.validate-vsdoc.js' %}"></script>
+    <script type="text/javascript" src="{% static 'app/js/jquery.validate.unobtrusive.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'app/js/modernizr-2.6.2.js' %}"></script>
+    <script type="text/javascript" src="{% static 'app/js/respond.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'app/js/bootstrap.min.js' %}"></script>
+
+    <!-- Remotely Distributed Dependencies -->
+    <!-- <script type="text/javascript" src="{% static 'app/js/jquery-1.10.2.min.js' %}"></script> -->
+    <!-- <script type="text/javascript" src="https://s3.amazonaws.com/phusionfactory/js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="https://s3.amazonaws.com/phusionfactory/js/jquery.validate-vsdoc.js"></script>
+    <script type="text/javascript" src="https://s3.amazonaws.com/phusionfactory/js/jquery.validate.unobtrusive.min.js"></script>
+    <script type="text/javascript" src="https://s3.amazonaws.com/phusionfactory/js/modernizr-2.6.2.js"></script>
+    <script type="text/javascript" src="https://s3.amazonaws.com/phusionfactory/js/respond.min.js"></script>
+    <script type="text/javascript" src="https://s3.amazonaws.com/phusionfactory/js/bootstrap.min.js"></script> -->
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=-1">
 
@@ -36,8 +70,8 @@
 
     <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-            <li><a href="http://anthonyplummer.elementfx.com/">Home</a></li>
-            <li><a href="http://anthonyplummer.elementfx.com/#team">About</a></li>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
             <li><a href="{% url 'contact' %}">Contact</a></li>
             <li><a href="{% url 'link' %}">Link's AutoBot</a></li>
             <li><a href="{% url 'blockchain' %}">Blockchain</a></li>
@@ -54,9 +88,127 @@
 </body>
 
 <section id="footer">
+  <div class="container-fluid ">
 
+    <div class="margin20">
+      <div class="footerblock">
+        <h2>P</h2>
+      </div>
+      <div class="footerblock">
+        <h2>L</h2>
+      </div>
+      <div class="footerblock">
+        <h2>☆</h2>
+      </div>
+      <div class="footerblock">
+        <h2>M</h2>
+      </div>
+      <div class="footerblock">
+        <h2>R</h2>
+      </div>
+
+      <div class="margin100">&nbsp;</div>
+      <div class="margin50">&nbsp;</div>
+      <div class="footerblock"><a href="https://www.facebook.com/anthony.terrell/" target="_blank"><i class="icon-facebook"></i></a></div>
+      <div class="footerblock"><a href="https://twitter.com/AnthonyTPlummer" target="_blank"><i class="icon-twitter"></i></a></div>
+      <div class="footerblock"><a href="#" target="_blank"><i class="icon-spinner icon-spin icon-small"></i></a></div>
+      <div class="footerblock"><a href="#" target="_blank"><i class="icon-youtube-sign-more"></i></a></div>
+      <div class="footerblock"><a href="#" target="_blank"><i class="icon-spotify"></i></a></div>
+    </div>
+
+    <div class="margin100">&nbsp;</div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="col-sm-12 btcDonate"></div>
+          </div>
+        </div>
+      </div>
+    <div class="margin50">&nbsp;</div>
+
+    <div style="text-align:center;font-size:10px;color:#333;margin: 40px auto 10px;">Site maintained by <a href="http://anthonyplummer.elementfx.com/" target="_blank" style=" color: #333 !important;font-size: 10px;padding: 0;">Anthony (AP Engineering)</a>.
+      <p></p>
+    </div>
+
+  </div>
 </section>
 
 {% block scripts %}{% endblock %}
+
+<script>
+  // This is called with the results from from FB.getLoginStatus().
+  function statusChangeCallback(response) {
+    console.log('statusChangeCallback');
+    console.log(response);
+    // The response object is returned with a status field that lets the
+    // app know the current login status of the person.
+    // Full docs on the response object can be found in the documentation
+    // for FB.getLoginStatus().
+    if (response.status === 'connected') {
+      // Logged into your app and Facebook.
+      testAPI();
+    } else {
+      // The person is not logged into your app or we are unable to tell.
+      document.getElementById('status').innerHTML = 'Please log ' +
+        'into this app.';
+    }
+  }
+
+  // This function is called when someone finishes with the Login
+  // Button.  See the onlogin handler attached to it in the sample
+  // code below.
+  function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+  }
+
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1624424920959023',
+      cookie     : true,  // enable cookies to allow the server to access
+                          // the session
+      xfbml      : true,  // parse social plugins on this page
+      version    : 'v2.12' // use graph api version 2.8
+    });
+
+    // Now that we've initialized the JavaScript SDK, we call
+    // FB.getLoginStatus().  This function gets the state of the
+    // person visiting this page and can return one of three states to
+    // the callback you provide.  They can be:
+    //
+    // 1. Logged into your app ('connected')
+    // 2. Logged into Facebook, but not your app ('not_authorized')
+    // 3. Not logged into Facebook and can't tell if they are logged into
+    //    your app or not.
+    //
+    // These three cases are handled in the callback function.
+
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+
+  };
+
+  // Load the SDK asynchronously
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+  // Here we run a very simple test of the Graph API after login is
+  // successful.  See statusChangeCallback() for when this call is made.
+  function testAPI() {
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me', function(response) {
+      console.log('Successful login for: ' + response.name);
+      document.getElementById('status').innerHTML =
+        'Thanks for logging in, ' + response.name + '!';
+    });
+  }
+</script>
 
 </html>

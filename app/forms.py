@@ -17,6 +17,29 @@ class BootstrapAuthenticationForm(AuthenticationForm):
                                    'class': 'form-control',
                                    'placeholder':'Password'}))
 
+class BootstrapSignUpForm(AuthenticationForm):
+    """Signup form which uses boostrap CSS."""
+    signUpName = forms.CharField(max_length=254,
+                               widget=forms.TextInput({
+                                   'class': 'form-control',
+                                   'placeholder': 'User name'}))
+    signUpEmail = forms.CharField(max_length=254,
+                               widget=forms.TextInput({
+                                   'class': 'form-control',
+                                   'placeholder': 'Email'}))
+    signUpEmailAgain = forms.CharField(max_length=254,
+                               widget=forms.TextInput({
+                                   'class': 'form-control',
+                                   'placeholder': 'Email (confirm)'}))
+    signUpPassword = forms.CharField(label=_("Password"),
+                               widget=forms.PasswordInput({
+                                   'class': 'form-control',
+                                   'placeholder':'Password'}))
+    signUpPasswordAgain = forms.CharField(label=_("Password"),
+                               widget=forms.PasswordInput({
+                                   'class': 'form-control',
+                                   'placeholder':'Password Again'}))
+
 class DataForm(forms.Form):
     category = forms.CharField(max_length=100)
     metric = forms.CharField(max_length=3)

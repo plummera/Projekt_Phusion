@@ -209,6 +209,10 @@ body {
   text-decoration: underline;
 }
 
+#login-red {
+  height: 30px;
+}
+
 #miss {
   background: red;
   border-radius: 60px;
@@ -240,12 +244,21 @@ body {
 }
 
 #console {
-  height: 30rem;
+  height: 45rem;
+  max-width: 75rem;
   width: 100%;
   background-color: gray;
   padding: 2rem;
   margin: 2rem 0rem;
   border: 2px solid gold;
+}
+
+#consoleContainer {
+  display: grid;
+  height: 100%;
+  max-width: 80%;
+  position: relative;
+  top: 5%;
 }
 
 #divHeader {
@@ -256,9 +269,10 @@ body {
 
 #portal {
   height: 100%;
-  width: auto;
+  overflow-x: auto;
   overflow-y: scroll;
   white-space: pre;
+  word-wrap: break-word;
 }
 
 #profession {

@@ -48,3 +48,15 @@ function lightIndicator() {
 
 setInterval(updateScroll, 500);
 setInterval(lightIndicator, 500);
+
+$(document).ready(function() {
+  $(".btn-danger").click(function(){
+      $('#hit').before('<div id="miss" class="col-md-4">&nbsp;</div>');
+      $('#hit').remove();
+  });
+
+  $(".btn-success").click(function(){
+      $('#miss').before('<div id="hit" class="col-md-4">&nbsp;</div>');
+      $('#miss').remove();
+  });
+});

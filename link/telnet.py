@@ -2,7 +2,7 @@ import socket, select, string, sys
 from django.shortcuts import get_object_or_404, render
 from .models import Psychic
 
-def telnet(request):
+def telnet(request): 
     link = get_object_or_404(Psychic, pk=1)
     #main function
     host = link.host

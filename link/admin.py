@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 from django.contrib import admin
 
-from .models import Psychic, Update, UserMention, Tweet, Intel, FaceBookUser
+from .models import Psychic, Update, Tweet, Intel, FaceBookUser
 
 # Register your models here.
 class IntelAdmin(admin.ModelAdmin):
@@ -24,7 +24,9 @@ class TweetAdmin(admin.ModelAdmin):
 class FaceBookUserAdmin(admin.ModelAdmin):
     fields = ['name', 'id']
 
-admin.site.register(UserMention, UserMentionAdmin)
+class UserCreationFormAdmin(admin.ModelAdmin):
+    fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2']
+
 admin.site.register(Tweet, TweetAdmin)
 admin.site.register(Psychic, PsychicAdmin)
 admin.site.register(Update, UpdateAdmin)

@@ -60,42 +60,27 @@ $(document).ready(function() {
       "monero",
       "ripple",
     ];
+  };
 
-    function seriously() {
+  function seriously() {
+    var txt1 = [
+      '<div class="col-md-12">',
+      '<p>Help us make the internet a safe environment for everybody. Send  <img id="btc" src="//anthonyplummer.elementfx.com/wp-content/uploads/2017/10/btc-logo-1.png"> to: <a href="#"><span>1EXth6hM97rZAawuGo1CN9Qqc6CmYqgYSG</span></a></p>',
+      '</div>',
+    ];
 
-          var txt1 = [
-            '<div class="col-md-12">',
-            '<p>Help us make the internet a safe environment for everybody. Send  <img id="btc" src="//anthonyplummer.elementfx.com/wp-content/uploads/2017/10/btc-logo-1.png"> to: <a href="#"><span>1EXth6hM97rZAawuGo1CN9Qqc6CmYqgYSG</span></a></p>',
-            '</div>',
-          ];
-
-          var txt2 = [
-            '<div class="col-md-12">',
-            '<p>No <img id="btc" src="//anthonyplummer.elementfx.com/wp-content/uploads/2017/10/btc-logo-1.png">? Send <img id="ethereum" src="//anthonyplummer.elementfx.com/wp-content/uploads/2017/10/ethereum-1.png"> to : <span>0x21A9a2Bb60442f943D501b6445Cfd126EF782172</span></p>',
-            '</div>',
-          ];
-
-          function change() {
-            setInterval("$('.btcDonate').css('opacity', '1')", 1000);
-            $('.btcDonate').html(txt1);
-          }
-
-          txt1 = $('.btcDonate').html();
-          if (txt1.match(txt1)) {
-            setInterval("$('.btcDonate').css('opacity', '0')", 1000);
-            setInterval(change, 7000);
-          } else {
-            $('.btcDonate').html(txt2);
-          };
-
-          $('.btcDonate').css('opacity', '1');
-
-    };
+    var txt2 = [
+      '<div class="col-md-12">',
+      '<p>No <img id="btc" src="//anthonyplummer.elementfx.com/wp-content/uploads/2017/10/btc-logo-1.png">? Send <img id="ethereum" src="//anthonyplummer.elementfx.com/wp-content/uploads/2017/10/ethereum-1.png"> to : <span>0x21A9a2Bb60442f943D501b6445Cfd126EF782172</span></p>',
+      '</div>',
+    ];
 
     $('.btcDonate').css('opacity', '0');
-    $('footer').css('opacity','0');
-    setInterval(seriously, 7775);
+  };
 
+  function change() {
+    setInterval("$('.btcDonate').css('opacity', '1')", 1000);
+    $('.btcDonate').html(txt1);
   };
 
   function fadeInBTC() {
@@ -107,10 +92,22 @@ $(document).ready(function() {
 
   if ($(document).width() < 600) {
     $('html').removeClass('video');
-  }
+  };
 
   $(document).load(function () {
     $('html').removeAttr('loop');
   });
+
+  txt1 = $('.btcDonate').html();
+
+  if (txt1.match(txt1)) {
+    setInterval("$('.btcDonate').css('opacity', '0')", 1000);
+    setInterval(change, 7000);
+  } else {
+    $('.btcDonate').html(txt2);
+  };
+
+  $('.btcDonate').css('opacity', '1');
+  setInterval(seriously, 7775);
 
 });
