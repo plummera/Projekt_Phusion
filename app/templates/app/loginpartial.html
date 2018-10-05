@@ -20,8 +20,8 @@
 {% else %}
 
 <ul class="nav navbar-nav navbar-right">
-    <li><a href="{% url 'login' %}"><img id="login-red" class="login-red" scope="public_profile,email" onlogin="checkLoginState();" src="https://s3.amazonaws.com/phusionfactory/photos/login-red.png" /></a></li>
-    <li><a href="{% url 'signup' %}"><img id="login-red" class="login-red" src="https://s3.amazonaws.com/phusionfactory/photos/signup.png" /></a></li>
+    <li><a href="{% url 'login' %}"><img id="login-red" class="login-red" scope="public_profile,email" onlogin="checkLoginState();" src="{% static 'app/photos/login-red.png' %}" /></a></li>
+    <li><a href="{% url 'signup' %}"><img id="login-red" class="login-red" src="{% static 'app/photos/signup.png' %}" /></a></li>
 
     <li><div id="facebookCheck" class="col-md-10 col-md-offset-1">
 

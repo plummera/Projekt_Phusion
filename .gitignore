@@ -1,1 +1,8 @@
 watson.py
+/admin
+/migrations
+/rest_framework
+/env
+/node_modules
+/conf
+npm-debug.log
