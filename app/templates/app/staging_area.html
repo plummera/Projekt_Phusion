@@ -425,7 +425,7 @@
                 </div>
 
                 <div class="collapse multi-collapse" id="multiCollapseExample2">
-                  {% for category, metric in result.items %}
+                  {% for category, metric in analysis.items %}
                   {% if .55 > metric and metric > .22 %}
                   <div class="card card-body col-md-3">
                     <div class="card-header-results result-{{ forloop.counter0 }} match-medium">{{ category }}</div>
@@ -457,7 +457,7 @@
                 </div>
 
                 <div class="collapse multi-collapse" id="multiCollapseExample3">
-                  {% for category, metric in result.items %}
+                  {% for category, metric in analysis.items %}
                   {% if metric < .22 %}
                   <div class="card card-body col-md-3">
                     <div class="card-header-results result-{{ forloop.counter0 }} match-heavy">{{ category }}</div>
