@@ -155,9 +155,9 @@ def staging(request):
     login_form(request)
 
     origin_FB = 'me'
-    destination_FB = 'me'
+    destination_FB = 'ProjektPhusion'
     origin_twitter = 'AnthonyTPlummer'
-    destination_twitter = 'AnthonyTPlummer'
+    destination_twitter = 'Ripple'
 
     # Getting User Information from Twitter Profile
     user1 = getUser(origin_twitter)
@@ -181,6 +181,14 @@ def staging(request):
     # Creating Object for project deliverable
     package1 = get_object_or_404(Intel)
     package2 = get_object_or_404(Intel)
+
+    # Getting FaceBook Profile Pic
+    FBProfilePic1 = getFBprofilePic(origin_FB)
+    FBProfilePic2 = getFBprofilePic(destination_FB)
+
+    # Getting Cover Picture from Facebook
+    FBCoverPic1 = getFBCoverPic(origin_FB)
+    FBCoverPic2 = getFBCoverPic(destination_FB)
 
     # Creating a place store the metrics returned and a column to classify them
     # (for Profile #1)
@@ -219,17 +227,17 @@ def staging(request):
     for i in data2[1]:
         package2.metric.append(i)
 
-    result = compare(data1[2], data2[2])
+    analysis = compare(data1[2], data2[2])
 
-    # Getting FaceBook Profile Pic
-    FBProfilePic1 = getFBprofilePic(origin_FB)
-    FBProfilePic2 = getFBprofilePic(destination_FB)
-
-    # Getting Cover Picture from Facebook
-    FBCoverPic1 = getFBCoverPic(origin_FB)
-    FBCoverPic2 = getFBCoverPic(destination_FB)
+    print("")
+    print("FOR SERIOUS! " + str(data2[2]))
+    print("")
 
     if profile:
+
+        print("")
+        print("FOR FUN AND JOKES, DO NOT HATE THE HATER, HATE THE GAME! " + str(analysis))
+        print("")
 
         return render(
             request,
@@ -238,7 +246,7 @@ def staging(request):
                 'post1': post1,
                 'post2': post2,
                 'profile': profile,
-                'result': result,
+                'analysis': analysis,
                 'user1': user1,
                 'user2': user2,
                 'tweets1': tweets1,

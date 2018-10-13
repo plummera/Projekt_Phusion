@@ -53,7 +53,7 @@ class Psychic(models.Model):
         return self.name
 
 class Intel(models.Model):
-    category = models.CharField(max_length=40)
+    category = models.CharField(max_length=42)
     metric = models.FloatField(default=0)
 
     def __str__(self):
@@ -79,7 +79,7 @@ class Tweet(models.Model):
     protected = models.BooleanField(default=False)
     ScreenName = models.CharField(max_length=25, blank=True)
     status_count = models.IntegerField(blank=True, default=0)
-    time_zone = models.CharField(max_length=50, blank=True)
+    time_zone = models.CharField(max_length=40, blank=True)
     url = models.CharField(max_length=200, blank=True)
     utc_offset = models.IntegerField(blank=True, default=0)
     text = models.CharField(max_length=400, blank=True)
@@ -89,7 +89,7 @@ class Tweet(models.Model):
 
 class Update(models.Model):
     name = models.CharField(max_length=40)
-    owner = models.CharField(max_length=60, blank=True)
+    owner = models.CharField(max_length=40, blank=True)
     event = models.CharField(blank=True, max_length=5000)
     post_date = models.DateField("Date")
 
@@ -110,7 +110,7 @@ class FaceBookUser(models.Model):
         return self.name
 
 class Cryptocurrency(models.Model):
-    data = JSONField()
+    data = models.TextField()
 
 class UserCreationForm(forms.ModelForm):
     """

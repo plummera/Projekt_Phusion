@@ -3,7 +3,6 @@
 {% block content %}
 
 {% load static %}
-{% load staticfiles %}
 
 <!-- Locally Distributed Dependencies -->
 <link rel="stylesheet" type="text/css" href="{% static 'app/content/staging_area.css' %}" />
@@ -390,10 +389,11 @@
               <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample1" aria-expanded="false" aria-controls="multiCollapseExample1">Not Even Close</button>
               <button class="btn btn-primary" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2 multiCollapseExample3">View All</button>
             </p>
+
             <div class="row">
 
                 <div class="collapse multi-collapse" id="multiCollapseExample1">
-                  {% for category, metric in result.items %}
+                  {% for category, metric in analysis.items %}
                   {% if metric > .56 %}
                   <div class="card card-body col-md-3">
                     <div class="card-header-results result-{{ forloop.counter0 }} match-light">{{ category }}</div>
@@ -410,9 +410,9 @@
                         <p>NO</p>
                       </div>
 
-                      <!-- <div class="progress">
+                      <div class="progress">
                         <div id="watson-result-{{ forloop.counter0 }}" class="progress-bar watson-results" role="progressbar" style="width: {% widthratio metric 1 100 %}%;" aria-valuenow="{% widthratio metric 1 100 %}" aria-valuemin="0" aria-valuemax="100">{% widthratio metric 1 100 %}%</div>
-                      </div> -->
+                      </div>
                       <table class="card-footer">
                         <tr>
                           &nbsp;
@@ -442,9 +442,9 @@
                         <p>Fair</p>
                       </div>
 
-                      <!-- <div class="progress">
+                      <div class="progress">
                         <div id="watson-result-{{ forloop.counter0 }}" class="progress-bar watson-results" role="progressbar" style="width: {% widthratio metric 1 100 %}%;" aria-valuenow="{% widthratio metric 1 100 %}" aria-valuemin="0" aria-valuemax="100">{% widthratio metric 1 100 %}%</div>
-                      </div> -->
+                      </div>
                       <table class="card-footer">
                         <tr>
                           &nbsp;
@@ -474,9 +474,9 @@
                         <p>VERY HIGH</p>
                       </div>
 
-                      <!-- <div class="progress">
+                      <div class="progress">
                         <div id="watson-result-{{ forloop.counter0 }}" class="progress-bar watson-results" role="progressbar" style="width: {% widthratio metric 1 100 %}%;" aria-valuenow="{% widthratio metric 1 100 %}" aria-valuemin="0" aria-valuemax="100">{% widthratio metric 1 100 %}%</div>
-                      </div> -->
+                      </div>
                       <table class="card-footer">
                         <tr>
                           &nbsp;
@@ -500,3 +500,5 @@
 {% endif %}
 
 {% endblock %}
+
+<script src="{% static 'app/js/splash.js' %}"></script>
