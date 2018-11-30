@@ -155,7 +155,7 @@ def staging(request):
     login_form(request)
 
     origin_FB = 'me'
-    destination_FB = 'ProjektPhusion'
+    destination_FB = 'me'
     origin_twitter = 'AnthonyTPlummer'
     destination_twitter = 'Ripple'
 

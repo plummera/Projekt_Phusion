@@ -23,14 +23,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'uow$rx3nh(rljg^=%yt)kv=wgk$fp&sfaw@%rpb0wrge6*1_h_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
   '34.238.123.147',
-  'localhost'
+  'localhost',
+  '*'
 ]
-
-ALLOWED_HOSTS.append('localhost')
 
 # Application definition
 
@@ -41,8 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
     'link',
-    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -97,17 +96,23 @@ DATABASES = {
 #        'PASSWORD': 'a28e7b4cf3'
 #    }
 
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+# 	'OPTIONS': {
+# 		'sql_mode': 'traditional',
+# 	},
+#         'NAME': 'phusion',
+#         'HOST': '52.205.208.160',
+#         'PORT': '3306',
+#         'USER': 'anthony',
+#         'PASSWORD': 'bubblehash'
+#     }
+# }
+
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-	'OPTIONS': {
-		'sql_mode': 'traditional',
-	},
-        'NAME': 'phusion',
-        'HOST': '52.205.208.160',
-        'PORT': '3306',
-        'USER': 'anthony',
-        'PASSWORD': 'bubblehash'
-    }
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+	}
 }
 
 #EXAMPLE_DATABASES = {

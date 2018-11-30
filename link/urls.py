@@ -5,10 +5,10 @@ Definition of urls for DjangoApp.
 from datetime import datetime
 from django.conf.urls import url, include
 from link.forms import BootstrapAuthenticationForm, SignUpForm
-from link.views import *
+from link.views import home, tos, staging, blockchain, link, contact, about, signup_form, login_form
 from .registration import *
 # from django.contrib.auth.views import login
-from django.contrib.auth.views import logout
+from django.contrib.auth import logout
 
 
 # Uncomment the next lines to enable the admin:
