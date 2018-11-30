@@ -1,0 +1,11 @@
+#The Twitter API credentials
+twitter_consumer_key = 'xVeTCP9vMTnw4UM8BMTVTAMfn'
+twitter_consumer_secret = 'xjzRqRboONI5AG3TnBScpWcd3L0gTmRavX7WWopFy5EPMLSNT8'
+twitter_access_token = '24148996-ZJMOrfVkh88e8V7oaMmB8tSBhX9dGX7m0dshvDm53'
+twitter_access_secret = 'vzNf9qtd8XpHbxiY0tx3XBQ5rbgB8MiyXypG4NieMkUb7'
+
+#FB credentials
+facebook_client_ID = '1624424920959023'
+facebook_client_secret = 'd27bd15746a1a16b4dc9d962e752b4e3'
+
+graph_key = 'EAAXFZAZBZAgyC8BACOH47zvjUZAJCTLwZCXnfmBXss8nbXhodSzD4JTuCOPg9t0JSOVEUT2PZCTAIHZB7wXNgNOZBzkPZChcPj4jN785hc5qKLJOmZArtt4mrwZA0YnuMYWN2xTLq69OEkxeDAQhcifv7sZCt8mynIfcNuoZD'
