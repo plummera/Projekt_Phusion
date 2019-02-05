@@ -285,14 +285,14 @@
           <div id="exampleAccordion1" class="col-md-3" data-children=".result-{{ forloop.counter0 }}">
             <div class="item">
               <a data-toggle="collapse" data-parent="#exampleAccordion2" href="#exampleAccordion1-{{ forloop.counter0 }}" aria-expanded="true" aria-controls="exampleAccordion1-{{ forloop.counter0 }}">
-                <div class="card-header result result-{{ forloop.counter0 }}">{{ data.0 }}</div>
+                <div class="card-header result result-{{ forloop.counter0 }}">{{ data.1 }}</div>
               </a>
               <div id="exampleAccordion1-{{ forloop.counter0 }}" class="collapse" role="tabpanel">
                 <div class="card border-light mb-3">
                   <div class="card-body-0 text-dark result-{{ forloop.counter0 }}">
                     <table class="card-table">
                       <tr>
-                        <td class="score">{% widthratio data.1 1 100 %}%</td>
+                        <td class="score">{% widthratio data.0 1 100 %}%</td>
                       <tr>
                       <p class="card-text-{{ forloop.counter0 }}"></p>
                     </table>
@@ -314,8 +314,6 @@
           </div>
           {% endfor %}
 
-
-
         </div>
 
         <div id="profile2" class="col-md-6">
@@ -333,14 +331,14 @@
           <div id="exampleAccordion2" class="col-md-3" data-children=".result2-{{ forloop.counter0 }}">
             <div class="item">
               <a data-toggle="collapse" data-parent="#exampleAccordion2" href="#exampleAccordion2-{{ forloop.counter0 }}" aria-expanded="true" aria-controls="exampleAccordion2-{{ forloop.counter0 }}">
-                <div class="card-header result2 result2-{{ forloop.counter0 }}">{{ data.0 }}</div>
+                <div class="card-header result2 result2-{{ forloop.counter0 }}">{{ data.1 }}</div>
               </a>
               <div id="exampleAccordion2-{{ forloop.counter0 }}" class="collapse" role="tabpanel">
                 <div class="card border-light mb-3">
                   <div class="card-body-0 text-dark result2-{{ forloop.counter0 }}">
                     <table class="card-table">
                       <tr>
-                        <td class="score">{% widthratio data.1 1 100 %}%</td>
+                        <td class="score">{% widthratio data.0 1 100 %}%</td>
                       <tr>
                       <p class="card-text-{{ forloop.counter0 }}"></p>
                     </table>
@@ -393,8 +391,7 @@
             <div class="row">
 
                 <div class="collapse multi-collapse" id="multiCollapseExample1">
-                  {% for category, metric in analysis.items %}
-                  {% if metric > .56 %}
+                  {% for category,metric in similarityLow %}
                   <div class="card card-body col-md-3">
                     <div class="card-header-results result-{{ forloop.counter0 }} match-light">{{ category }}</div>
 
@@ -420,13 +417,11 @@
                       </table>
                     </div>
                   </div>
-                  {% endif %}
                   {% endfor %}
                 </div>
 
                 <div class="collapse multi-collapse" id="multiCollapseExample2">
-                  {% for category, metric in analysis.items %}
-                  {% if .55 > metric and metric > .22 %}
+                  {% for category,metric in similarityMedium %}
                   <div class="card card-body col-md-3">
                     <div class="card-header-results result-{{ forloop.counter0 }} match-medium">{{ category }}</div>
 
@@ -452,13 +447,11 @@
                       </table>
                     </div>
                   </div>
-                  {% endif %}
                   {% endfor %}
                 </div>
 
                 <div class="collapse multi-collapse" id="multiCollapseExample3">
-                  {% for category, metric in analysis.items %}
-                  {% if metric < .22 %}
+                  {% for category,metric in similarityVeryHigh %}
                   <div class="card card-body col-md-3">
                     <div class="card-header-results result-{{ forloop.counter0 }} match-heavy">{{ category }}</div>
 
@@ -484,7 +477,6 @@
                       </table>
                     </div>
                   </div>
-                  {% endif %}
                   {% endfor %}
                 </div>
 

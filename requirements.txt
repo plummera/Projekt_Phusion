@@ -1,3 +1,5 @@
+@angular/cli
+@angular/compiler-cli
 django
 django-heroku
 django_rest_framework

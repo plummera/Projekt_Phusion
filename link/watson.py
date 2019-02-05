@@ -30,14 +30,16 @@ class LazyEncoder(DjangoJSONEncoder):
 # Getting the most recent 200 Posts from Twitter
 def getTwitterPosts(handle):
     twitter_api = twitter.Api(consumer_key=twitter_consumer_key, consumer_secret=twitter_consumer_secret, access_token_key=twitter_access_token, access_token_secret=twitter_access_secret)
-    statuses = twitter_api.GetUserTimeline(screen_name=handle, count=200, include_rts=False)
+    statuses = twitter_api.GetUserTimeline(screen_name=handle, count=700, include_rts=False)
 
     return statuses
 
-def getFBCoverPic(handle):
-    pic = graph.request('/' + handle + '?fields=cover')
-
-    return pic['cover']
+# FACEBOOK IS LAME!!!!!! FOR This
+#
+# def getFBCoverPic(handle):
+#     pic = graph.request('/' + handle + '?fields=cover')
+#
+#     return pic['cover']
 
 def getFBprofilePic(handle):
     cover = graph.request('/' + handle + '?fields=picture')
@@ -55,11 +57,11 @@ def getFBPostPicture(handle):
     return picture['posts']['data']
 
 def getFBposts(handle):
-    posts = graph.request('/' + handle + '?fields=posts{message,picture,story,link,full_picture,created_time,description,permalink_url}')
+    posts = graph.request('/' + handle + '?fields=posts.limit(75){message,picture,story,link,full_picture,created_time,description,permalink_url}')
 
-    for post in posts['posts']['data']:
+    # for post in posts['posts']['data']:
         # post['created_time'] = datetime.strptime(post['created_time'], "%d-%M-%Y")
-        print(post['created_time'])
+
 
     return posts['posts']['data']
 
@@ -90,7 +92,7 @@ def insight(statuses):
     pi_username = "0fb3b935-6c02-47d6-a502-027cf7a47b8e"
     pi_password = "m7lYTjBbpZRN"
 
-    personality_insights = PersonalityInsights(version="2018-11-29",username=pi_username,password=pi_password)
+    personality_insights = PersonalityInsights(version="2016-10-19",username=pi_username,password=pi_password)
 
     personality_insights.set_detailed_response(False)
 
@@ -107,9 +109,11 @@ def insight(statuses):
     category = []
     result = []
 
-    for keys in data:
+    for keys in data['id']:
         category.append(keys)
-        result.append(data[keys])
+
+    for keys in data['percentile']:
+        result.append(keys)
 
     return result, category, data
 
@@ -117,49 +121,41 @@ def insight(statuses):
 #from the Watson PI API
 def flatten(orig):
     data = {}
+    data['id'] = []
+    data['percentile'] = []
 
-    for c in orig['tree']['children']:
-        if 'children' in c:
-            for c2 in c['children']:
-                if 'children' in c2:
-                    for c3 in c2['children']:
-                        if 'children' in c3:
-                            for c4 in c3['children']:
-                                if (c4['category'] == 'personality'):
-                                    data[c4['id']] = c4['percentage']
-                                    if 'children' not in c3:
-                                        if (c3['category'] == 'personality'):
-                                                data[c3['id']] = c3['percentage']
+    for personality in orig['personality']:
+        print("")
+        # print("Trait ID = " + str(personality['trait_id']))
+        print("Name = " + str(personality['name']))
+        data['id'].append(personality['name'])
+        # print("Category = " + str(personality['category']))
+        print("Percentile = " + str(personality['percentile']))
+        data['percentile'].append(personality['percentile'])
+        for children in personality['children']:
+            print("")
+            # print("Trait ID = " + str(children['trait_id']))
+            print("Name = " + str(children['name']))
+            data['id'].append(children['name'])
+            # print("Category = " + str(children['category']))
+            print("Percentile = " + str(children['percentile']))
+            data['percentile'].append(children['percentile'])
 
-    # for c in orig['needs']:
-    #     if 'category' in c:
-    #         for c2 in c['category']:
-    #             if 'category' in c2:
-    #                 for c3 in c2['category']:
-    #                     if 'category' in c3:
-    #                         for c4 in c3['category']:
-    #                             if (c4['category'] == 'personality'):
-    #                                 data[c3['id']] = c4['percentage']
-    #                                 if 'category' not in c3:
-    #                                     if (c3['category'] == 'personality'):
-    #                                         data[c3['id']] = c3['percentage']
-    #                                         print("Yahtzee!")
-
-    print("Ole!")
-    print(orig)
+    print("")
+    print("Yahtzee!")
+    print("")
     return data
 
 
 #This function is used to compare the results from
 #the Watson PI API
 def compare(dict1, dict2):
-    compared_data = {}
-    for keys in dict1:
-        if dict1[keys] != dict2[keys]:
-            compared_data[keys]=abs(dict1[keys] - dict2[keys])
+    compared_data = zip(dict1, dict2)
+    compared_results = []
+    for x,y in compared_data:
+        compared_results.append(abs(x - y))
 
-    return compared_data
-
+    return compared_results
 
 #The two Twitter handles
 user_handle = "AnthonyTPlummer"

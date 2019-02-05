@@ -52,8 +52,15 @@ class Psychic(models.Model):
     def __str__(self):
         return self.name
 
+class Analysis(models.Model):
+    category = models.CharField(max_length=120)
+    metric = models.FloatField(default=0)
+
+    def __str__(self):
+        return self.category
+
 class Intel(models.Model):
-    category = models.CharField(max_length=42)
+    category = models.CharField(max_length=120)
     metric = models.FloatField(default=0)
 
     def __str__(self):

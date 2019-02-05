@@ -7,11 +7,12 @@ from django.http import HttpRequest, HttpResponse
 from django.template import RequestContext
 from .forms import TwitterNameForm
 from link.forms import BootstrapAuthenticationForm, SignUpForm
-from .models import Psychic, Update, Tweet, Intel, Cryptocurrency
-from .watson import insight, compare, getUser, getFBfriends, getFBcomments, getFBCoverPic, getFBprofilePic, getFBposts, getTwitterPosts, getFBprofile
+from .models import Analysis, Psychic, Update, Tweet, Intel, Cryptocurrency
+from .watson import insight, compare, getUser, getFBfriends, getFBcomments, getFBprofilePic, getFBposts, getTwitterPosts, getFBprofile
 from .cryptocurrency import getBalance
 from django.contrib.auth import login, authenticate
 
+import decimal
 import datetime
 import os
 import telnetlib
@@ -157,7 +158,10 @@ def staging(request):
     origin_FB = 'me'
     destination_FB = 'me'
     origin_twitter = 'AnthonyTPlummer'
-    destination_twitter = 'Ripple'
+    destination_twitter = 'tamaradhia'
+
+    # WATSONS Analysis
+    analysis = get_object_or_404(Analysis)
 
     # Getting User Information from Twitter Profile
     user1 = getUser(origin_twitter)
@@ -187,8 +191,12 @@ def staging(request):
     FBProfilePic2 = getFBprofilePic(destination_FB)
 
     # Getting Cover Picture from Facebook
-    FBCoverPic1 = getFBCoverPic(origin_FB)
-    FBCoverPic2 = getFBCoverPic(destination_FB)
+    # FBCoverPic1 = getFBCoverPic(origin_FB)
+    # FBCoverPic2 = getFBCoverPic(destination_FB)
+
+    # Creating a place to store the analyzed metric Results
+    analysis.category = []
+    analysis.metric = []
 
     # Creating a place store the metrics returned and a column to classify them
     # (for Profile #1)
@@ -204,60 +212,81 @@ def staging(request):
     user2_list = []
 
     user1_list = [None]*(len(package1.metric)+len(package1.category))
-    user1_list[::2] = package1.metric
-    user1_list[1::2] = package1.category
+    user1_list[::2] = package1.category
+    user1_list[1::2] = package1.metric
 
 
     user2_list = [None]*(len(package2.metric)+len(package2.category))
-    user2_list[::2] = package2.metric
-    user2_list[1::2] = package2.category
+    user2_list[::2] = package2.category
+    user2_list[1::2] = package2.metric
 
     user1_list = zip(package1.metric, package1.category)
     user2_list = zip(package2.metric, package2.category)
 
     #Loop to populate categories returned from Watson
-    for a in data1[0]:
+    for a in data1[1]:
         package1.category.append(a)
-    for a in data2[0]:
+    for a in data2[1]:
         package2.category.append(a)
 
     #Loop to populate metric percentages returned from Watson
-    for i in data1[1]:
+    for i in data1[0]:
         package1.metric.append(i)
-    for i in data2[1]:
+    for i in data2[0]:
         package2.metric.append(i)
 
-    analysis = compare(data1[2], data2[2])
+    theproper = zip(package1.category,compare(package1.metric, package2.metric))
 
-    print("")
-    print("FOR SERIOUS! " + str(data2[2]))
-    print("")
 
     if profile:
 
         print("")
-        print("FOR FUN AND JOKES, DO NOT HATE THE HATER, HATE THE GAME! " + str(analysis))
+        print("FOR FUN AND JOKES, DO NOT HATE THE PLAYER, HATE THE GAME! ")
         print("")
+
+        similarityVeryHigh = []
+        similarityMedium = []
+        similarityLow = []
+
+        for x,y in theproper:
+            print("")
+            print("Category: " + str(x))
+            analysis.category.append(x)
+            print("Metric: " + str(y))
+            if y > decimal.Decimal(.52):
+                print("Very High Similarity Detected for : " + str(analysis.category))
+                similarityLow.append([x,y])
+            if y < decimal.Decimal(.55) and y > decimal.Decimal(.22):
+                print("Medium Similarity Detected for : " + str(analysis.category))
+                similarityMedium.append([x,y])
+            if y < decimal.Decimal(.22):
+                print("Low Similarity Detected for : " + str(analysis.category))
+                similarityVeryHigh.append([x,y])
 
         return render(
             request,
             'app/staging_area.html',
             {
+                'analysis': analysis,
+                'data1': data1,
+                'data2': data2,
+                'FBProfilePic1': FBProfilePic1,
+                'FBProfilePic2': FBProfilePic2,
+                # 'FBCoverPic1': FBCoverPic1,
+                # 'FBCoverPic2': FBCoverPic2,
+                'form': BootstrapAuthenticationForm,
                 'post1': post1,
                 'post2': post2,
                 'profile': profile,
-                'analysis': analysis,
-                'user1': user1,
-                'user2': user2,
+                'similarityLow': similarityLow,
+                'similarityMedium': similarityMedium,
+                'similarityVeryHigh': similarityVeryHigh,
                 'tweets1': tweets1,
                 'tweets2': tweets2,
+                'user1': user1,
+                'user2': user2,
                 'user1_list': user1_list,
                 'user2_list': user2_list,
-                'FBProfilePic1': FBProfilePic1,
-                'FBProfilePic2': FBProfilePic2,
-                'FBCoverPic1': FBCoverPic1,
-                'FBCoverPic2': FBCoverPic2,
-                'form': BootstrapAuthenticationForm,
             },
         )
 
