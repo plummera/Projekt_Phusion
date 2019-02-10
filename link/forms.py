@@ -38,6 +38,17 @@ class TwitterNameForm(forms.Form):
 class CryptoForm(forms.Form):
     url = forms.URLField()
 
+class User1Form(forms.Form):
+    user1 = forms.CharField(max_length=100,
+                            widget=forms.TextInput({
+                            'class': 'form-control',
+                            'placeholder': 'Enter User 1'}))
+class User2Form(forms.Form):
+    user2 = forms.CharField(max_length=100,
+                            widget=forms.TextInput({
+                            'class': 'form-control',
+                            'placeholder': 'Enter User 2'}))
+
 class SignUpForm(UserCreationForm):
     error_messages = {
         'password_mismatch': _("The two password fields didn't match."),

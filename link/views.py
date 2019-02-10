@@ -6,11 +6,11 @@ from django.shortcuts import get_object_or_404, render, redirect
 from django.http import HttpRequest, HttpResponse
 from django.template import RequestContext
 from .forms import TwitterNameForm
-from link.forms import BootstrapAuthenticationForm, SignUpForm
+from link.forms import BootstrapAuthenticationForm, SignUpForm, User1Form, User2Form
 from .models import Analysis, Psychic, Update, Tweet, Intel, Cryptocurrency
 from .watson import insight, compare, getUser, getFBfriends, getFBcomments, getFBprofilePic, getFBposts, getTwitterPosts, getFBprofile
 from .cryptocurrency import getBalance
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, logout, authenticate
 
 import decimal
 import datetime
@@ -126,6 +126,21 @@ def login_form(request):
 
     return render(request, 'app/login.html', {'form': form})
 
+def logout_form(request):
+    """
+    Renders the logout function for all logout requests.
+    """
+    if request.method == 'GET':
+        print("LOGGING OUT!")
+        logout(request)
+    else:
+        print("ALREADY LOGGED OUT!")
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'app/index.html',
+    )
+
 def signup_form(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
@@ -152,6 +167,21 @@ def staging(request):
     The Staging Staging Area
     """
     assert isinstance(request, HttpRequest)
+
+    if request.method == 'POST':
+        form1 = User1Form(request.POST)
+        if form.is_valid():
+            form.save()
+            user1 = form.cleaned_data.get('user1')
+            return redirect('home')
+        form2 = User2Form(request.POST)
+        if form.is_valid():
+            form.save()
+            user2 = form.cleaned_data.get('user2')
+            return redirect('home')
+    else:
+        form1 = User1Form()
+        form2 = User2Form()
 
     login_form(request)
 

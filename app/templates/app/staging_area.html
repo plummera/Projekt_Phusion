@@ -16,18 +16,49 @@
 
     <hr>
 
-    <div>User ID: {{ profile.id }}</div>
-    <div>Name: {{ profile.name }}</div>
-    <div>Phone Number: {{ profile.phoneNumber }}01-000-010-0001</div>
-    <div>Email: {{ profile.email }}</div>
-    <div>Access Token: {{ profile.token }}</div>
-    <div>Refresh Interval: {{ profile.throwItInTheBag }}</div>
+    <div id="userInfo">
+      <h4>User ID: {{ profile.id }}</h4>
+      <h4>Name: {{ profile.name }}</h4>
+      <h4>Phone Number: {{ profile.phoneNumber }}01-000-010-0001</h4>
+      <h4>Email: {{ profile.email }}</h4>
+      <h4>Access Token: {{ profile.token }}</h4>
+      <h4>Refresh Interval: {{ profile.throwItInTheBag }}</h4>
+    </div>
+
+    <hr>
+
+    <form action="#" method="post" role="form" class="form-horizontal" AUTOCOMPLETE = "off">
+        {% csrf_token %}
+        <h4>Use a local account to log in.</h4>
+        <hr />
+        <div class="form-group">
+            <label for="id_username" class="col-md-2 control-label">User 1</label>
+            <div class="col-md-3">
+                {{ form.username }}
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="id_password" class="col-md-2 control-label">User 2</label>
+            <div class="col-md-3">
+                {{ form.password }}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="hidden" name="next" value="/Staging_Area/" />
+                <button id="valuser" type="submit" onclick="submitForm()" value="Log in" class="btn btn-default">Login</button>
+            </div>
+        </div>
+        {% if form.errors %}
+        <p class="validation-summary-errors">Please enter a correct user name and password.</p>
+        {% endif %}
+    </form>
 
     <hr>
 
     <div class="container-fluid">
       <div class="row">
-        <div id="profile1" class="col-md-5 col-md-offset-1">
+        <div id="profile1" class="col-md-6">
           <div id="user_1" class="col-md-12" style="background-color:#{{ user1.profile_background_color }}; background-image:url({{ FBCoverPic1.source }}); background-position: center; background-size: cover;">
             <div>
               <nav id="navbar-example2" class="navbar navbar-light bg-light navbar-feed">
@@ -138,7 +169,7 @@
           </div>
         </div>
 
-        <div id="profile2" class="col-md-5">
+        <div id="profile2" class="col-md-6">
           <div id="user_2" class="col-md-12" style="background-color:#{{ user2.profile_background_color }}; background-image:url({{ FBCoverPic2.source }}); background-position: center; background-size: cover;">
             <div>
               <nav id="navbar-example2" class="navbar navbar-light bg-light navbar-feed">
@@ -297,10 +328,10 @@
                       <p class="card-text-{{ forloop.counter0 }}"></p>
                     </table>
                     <div id="slice" class="progress" style="height: 1px;">
-                      <div class="progress-bar slice" role="progressbar" style="width: {% widthratio data.1 1 100 %}%;" aria-valuenow="{% widthratio data.1 1 100 %}" aria-valuemin="0" aria-valuemax="100"></div>
+                      <div class="progress-bar slice" role="progressbar" style="width: {% widthratio data.0 1 100 %}%;" aria-valuenow="{% widthratio data.0 1 100 %}" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                     <div class="progress">
-                      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="{% widthratio data.1 1 100 %}" aria-valuemin="0" aria-valuemax="100" style="width: {% widthratio data.1 1 100 %}%"></div>
+                      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="{% widthratio data.0 1 100 %}" aria-valuemin="0" aria-valuemax="100" style="width: {% widthratio data.0 1 100 %}%"></div>
                     </div>
                     <table class="card-footer">
                       <tr>
@@ -343,10 +374,10 @@
                       <p class="card-text-{{ forloop.counter0 }}"></p>
                     </table>
                     <div id="slice" class="progress" style="height: 1px;">
-                      <div class="progress-bar slice" role="progressbar" style="width: {% widthratio data 1 100 %}%;" aria-valuenow="{% widthratio data 1 100 %}" aria-valuemin="0" aria-valuemax="100"></div>
+                      <div class="progress-bar slice" role="progressbar" style="width: {% widthratio data.0 1 100 %}%;" aria-valuenow="{% widthratio data.0 1 100 %}" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                     <div class="progress">
-                      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="{% widthratio data 1 100 %}" aria-valuemin="0" aria-valuemax="100" style="width: {% widthratio data 1 100 %}%"></div>
+                      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="{% widthratio data.0 1 100 %}" aria-valuemin="0" aria-valuemax="100" style="width: {% widthratio data.0 1 100 %}%"></div>
                     </div>
                     <table class="card-footer">
                       <tr>

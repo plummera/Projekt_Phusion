@@ -5,10 +5,10 @@ Definition of urls for DjangoApp.
 from datetime import datetime
 from django.conf.urls import url, include
 from link.forms import BootstrapAuthenticationForm, SignUpForm
-from link.views import home, tos, staging, blockchain, link, contact, about, signup_form, login_form
+from link.views import home, tos, staging, blockchain, link, contact, about, signup_form, login_form, logout_form
 from .registration import *
 # from django.contrib.auth.views import login
-from django.contrib.auth import logout
+# from django.contrib.auth import logout
 
 
 # Uncomment the next lines to enable the admin:
@@ -28,10 +28,7 @@ urlpatterns = [
     url(r'^about/$', about, name='about'),
     url(r'^signup/$', signup_form, name ='signup'),
     url(r'^login/$', login_form, name='login'),
-    url(r'^logout/$', logout, {
-            'next_page': '..'
-        },
-        name='logout'),
+    url(r'^logout/$', logout_form, name='logout'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

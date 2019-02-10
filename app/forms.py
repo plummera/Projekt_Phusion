@@ -43,3 +43,14 @@ class BootstrapSignUpForm(AuthenticationForm):
 class DataForm(forms.Form):
     category = forms.CharField(max_length=100)
     metric = forms.CharField(max_length=3)
+
+class User1Form(forms.Form):
+    user1 = forms.CharField(max_length=100,
+                            widget=forms.TextInput({
+                            'class': 'form-control',
+                            'placeholder': 'Enter User 1'}))
+class User2Form(forms.Form):
+    user2 = forms.CharField(max_length=100,
+                            widget=forms.TextInput({
+                            'class': 'form-control',
+                            'placeholder': 'Enter User 2'}))
