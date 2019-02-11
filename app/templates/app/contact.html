@@ -11,7 +11,18 @@
 <!-- <link rel="stylesheet" type="text/css" href="https://s3.amazonaws.com/phusionfactory/content/contact.css" /> -->
 
 <div class="container-fluid ">
-  <p class="lead"><img src="http://ghost-official.com/ghost/wp-content/themes/wordpress-bootstrap-master-child/images/cross.png" class="footer-logo"></p>
+  <div id="cross-photo" class="col-md-2">
+    <img src="{% static 'app/photos/cross.png' %}" class="footer-logo">
+  </div>
+
+  <div id="address" class="col-md-6">
+    <address>
+        AP Engineering<br />
+        New York, NY 10001<br />
+        <email>aplummer@psda.com</email>        
+    </address>
+  </div>
+
 </div>
 
 <h2>{{ title }}</h2>
@@ -25,7 +36,7 @@
 </style>
 </head>
 <body>
-<h3>My Last Whereabouts...</h3>
+<h3></h3>
 <div id="map"></div>
 <script>
   function initMap() {
@@ -43,14 +54,5 @@
 <script async defer
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCD1J0ahsgrLiikbm-5aSHNqhEE2G12TLw&callback=initMap">
 </script>
-
-
-<address>
-    AP Engineering<br />
-    New York, NY 10001<br />
-    <email>aplummer@psda.com</email>
-    <abbr title="Phone">P:</abbr>
-    609.977.6955
-</address>
 
 {% endblock %}

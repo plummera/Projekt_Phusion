@@ -1,7 +1,6 @@
-function updateScroll(){
-    var element = document.getElementById("portal");
-    element.scrollTop = element.scrollHeight;
-}
+$(document).ready(function({
+
+}));
 
 function navBarRelat(){
   var element = document.getElementById("dontClick");
@@ -50,6 +49,11 @@ setInterval(updateScroll, 500);
 setInterval(lightIndicator, 500);
 
 $(document).ready(function() {
+  function updateScroll(){
+      var element = document.getElementById("portal");
+      // element.scrollTop = element.scrollHeight;
+  };
+
   $(".btn-danger").click(function(){
       $('#hit').before('<div id="miss" class="col-md-4">&nbsp;</div>');
       $('#hit').remove();

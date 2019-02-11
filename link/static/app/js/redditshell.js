@@ -130,7 +130,7 @@ function streamPosts(path, sub) {
     });
     shell.set_prompt('');
     shell.resume();
-    clearTimeout(poll);
+    // clearTimeout(poll);
     poll = setTimeout(function() { streamPosts(path, sub); }, 15000);
   });
   setTimeout(function(){if (!success){term.resume();term.echo("<span class='err'>error fetching data from reddit</span>", {raw:true});}}, 10000);
@@ -267,7 +267,7 @@ var shell = $('#portal').terminal(function(cmd, term) {
       term.set_prompt(auth_user+'@/dev/iphone722/:~csh$ ');
       term.resume();
     });
-    clearTimeout(poll);
+    // clearTimeout(poll);
     setTimeout(function(){if (!success){term.resume();term.echo("<span class='err'>error fetching data from reddit</span>", {raw:true});}}, 10000);
   // LIST NEXT PAGE
   } else if (command[0] == "reddit" && command[1] == "list" && command[2] == "next" && !command[3]) {
@@ -335,7 +335,7 @@ var shell = $('#portal').terminal(function(cmd, term) {
       term.resume();
       ls_state = command.join(" ");
     });
-    clearTimeout(poll);
+    // clearTimeout(poll);
     setTimeout(function(){if (!success){term.resume();term.echo("<span class='err'>error fetching data from reddit</span>", {raw:true});}}, 10000);
   // LIST PREVIOUS PAGE
   } else if (command[0] == "reddit" && command[1] == "list" && command[2] == "previous" && !command[3]) {
@@ -403,7 +403,7 @@ var shell = $('#portal').terminal(function(cmd, term) {
       term.resume();
       ls_state = command.join(" ");
     });
-    clearTimeout(poll);
+    // clearTimeout(poll);
     setTimeout(function(){if (!success){term.resume();term.echo("<span class='err'>error fetching data from reddit</span>", {raw:true});}}, 10000);
   // LIST SUBREDDITS
   } else if (command[0] == "reddit" && command[1] == "list" && command[2] == "subreddits" && !command[3]) {
@@ -454,7 +454,7 @@ var shell = $('#portal').terminal(function(cmd, term) {
       term.resume();
       ls_state = command.join(" ");
     });
-    clearTimeout(poll);
+    // clearTimeout(poll);
     setTimeout(function(){if (!success){term.resume();term.echo("<span class='err'>error fetching data from reddit</span>", {raw:true});}}, 10000);
   // LIST SUBREDDITS NEXT
  } else if (command[0] == "reddit" && command[1] == "list" && command[2] == "subreddits" && command[3] == "next") {
@@ -501,7 +501,7 @@ var shell = $('#portal').terminal(function(cmd, term) {
       term.resume();
       ls_state = command.join(" ");
     });
-    clearTimeout(poll);
+    // clearTimeout(poll);
     setTimeout(function(){if (!success){term.resume();term.echo("<span class='err'>error fetching data from reddit</span>", {raw:true});}}, 10000);
   // LIST SUBREDDITS PREVIOUS
  } else if (command[0] == "reddit" && command[1] == "list" && command[2] == "subreddits" && command[3] == "previous") {
@@ -548,7 +548,7 @@ var shell = $('#portal').terminal(function(cmd, term) {
       term.resume();
       ls_state = command.join(" ");
     });
-    clearTimeout(poll);
+    // clearTimeout(poll);
     setTimeout(function(){if (!success){term.resume();term.echo("<span class='err'>error fetching data from reddit</span>", {raw:true});}}, 10000);
   // WATCH SUBREDDIT
   } else if (command[0] == "reddit" && command[1] == "watch" && command[2] && command[2] != "next" && command[2] != "previous" && !command[3] || command[0] == "reddit" && command[1] == "watch" && command[2] && command[2] != "next" && command[2] != "previous" && command[3] == "new" || command[0] == "reddit" && command[1] == "watch" && command[2] && command[2] != "next" && command[2] != "previous" && command[3] == "top" || command[0] == "reddit" && command[1] == "watch" && command[2] && command[2] != "next" && command[2] != "previous" && command[3] == "controversial" || command[0] == "reddit" && command[1] == "watch" && command[2] && command[2] != "next" && command[2] != "previous" && command[3] == "rising") {
@@ -588,7 +588,7 @@ var shell = $('#portal').terminal(function(cmd, term) {
       term.resume();
       streamPosts(streamPath, subreddit);
     });
-    clearTimeout(poll);
+    // clearTimeout(poll);
     setTimeout(function(){if (!success){term.resume();term.echo("<span class='err'>error fetching data from reddit</span>", {raw:true});}}, 10000);
   // LIST SUBREDDIT
   } else if (command[0] == "reddit" && command[1] == "list" && command[2] && command[2] != "next" && command[2] != "previous" && !command[3] || command[0] == "reddit" && command[1] == "list" && command[2] && command[2] != "next" && command[2] != "previous" && command[3] == "new" || command[0] == "reddit" && command[1] == "list" && command[2] && command[2] != "next" && command[2] != "previous" && command[3] == "top" || command[0] == "reddit" && command[1] == "list" && command[2] && command[2] != "next" && command[2] != "previous" && command[3] == "controversial" || command[0] == "reddit" && command[1] == "list" && command[2] && command[2] != "next" && command[2] != "previous" && command[3] == "rising") {
@@ -676,7 +676,7 @@ var shell = $('#portal').terminal(function(cmd, term) {
       term.set_prompt(auth_user+'@reddit:~/r/'+subreddit+'$ ');
       term.resume();
     });
-    clearTimeout(poll);
+    // clearTimeout(poll);
     setTimeout(function(){if (!success){term.resume();term.echo("<span class='err'>error fetching data from reddit</span>", {raw:true});}}, 10000);
   // LIST SUBREDDIT NEXT
   } else if (command[0] == "reddit" && command[1] == "list" && command[2] && command[3] == "next") {
@@ -743,7 +743,7 @@ var shell = $('#portal').terminal(function(cmd, term) {
       term.set_prompt(auth_user+'@reddit:~/r/'+subreddit+'$ ');
       term.resume();
     });
-    clearTimeout(poll);
+    // clearTimeout(poll);
     setTimeout(function(){if (!success){term.resume();term.echo("<span class='err'>error fetching data from reddit</span>", {raw:true});}}, 10000);
   // LIST SUBREDDIT PREVIOUS
   } else if (command[0] == "reddit" && command[1] == "list" && command[2] && command[3] == "previous") {
@@ -812,7 +812,7 @@ var shell = $('#portal').terminal(function(cmd, term) {
       term.set_prompt(auth_user+'@reddit:~/r/'+subreddit+'$ ');
       term.resume();
     });
-    clearTimeout(poll);
+    // clearTimeout(poll);
     setTimeout(function(){if (!success){term.resume();term.echo("<span class='err'>error fetching data from reddit</span>", {raw:true});}}, 10000);
   // VIEW THREAD
   } else if (posts.length !== 0 && command[0] == "reddit" && command[1] == "view" && command[2] == "comments" && command[3] !== "more") {
@@ -1021,7 +1021,7 @@ var shell = $('#portal').terminal(function(cmd, term) {
       term.set_prompt(auth_user+'@reddit:~'+pwd+'$ ');
       term.resume();
     });
-    clearTimeout(poll);
+    // clearTimeout(poll);
     setTimeout(function(){if (!success){term.resume();term.echo("<span class='err'>error fetching data from reddit</span>", {raw:true});}}, 10000);
   // VIEW MORE COMMENTS THREAD
   } else if (morelink != "" && command[0] == "reddit" && command[1] == "view" && command[2] == "comments" && command[3] == "more" && !command[4] || morelink != "" && command[0] == "reddit" && command[1] == "view" && command[2] == "more" && command[3] == "comments" && !command[4]) {
@@ -1092,7 +1092,7 @@ var shell = $('#portal').terminal(function(cmd, term) {
       term.set_prompt(auth_user+'@reddit:~'+pwd+'$ ');
       term.resume();
     });
-    clearTimeout(poll);
+    // clearTimeout(poll);
     setTimeout(function(){if (!success){term.resume();term.echo("<span class='err'>error fetching data from reddit</span>", {raw:true});}}, 10000);
   // VIEW MORE COMMENTS COMMENT
   } else if (comments.index != 0 && command[0] == "reddit" && command[1] == "view" && command[2] == "comments" && command[3] == "more" && command[4] || comments.index != 0 && command[0] == "reddit" && command[1] == "view" && command[2] == "more" && command[3] == "comments" && command[4]) {
@@ -1234,7 +1234,7 @@ var shell = $('#portal').terminal(function(cmd, term) {
       term.set_prompt(auth_user+'@reddit:~'+pwd+'$ ');
       term.resume();
     });
-    clearTimeout(poll);
+    // clearTimeout(poll);
     setTimeout(function(){if (!success){term.resume();term.echo("<span class='err'>error fetching data from reddit</span>", {raw:true});}}, 10000);
   // VIEW CONTENT
   } else if (posts.length !== 0 && command[0] == "reddit" && command[1] == "view" && command[2] == "content" && command[3]) {
@@ -1324,7 +1324,7 @@ var shell = $('#portal').terminal(function(cmd, term) {
       term.set_prompt(auth_user+'@reddit:~/search$ ');
       term.resume();
     });
-    clearTimeout(poll);
+    // clearTimeout(poll);
     setTimeout(function(){if (!success){term.resume();term.echo("<span class='err'>error fetching data from reddit</span>", {raw:true});}}, 10000);
   // SEARCH NEXT
   } else if (posts.length !== 0 && command[0] == "reddit" && command[1] == "search" && command[2] == "next" && !command[3]) {
@@ -1392,7 +1392,7 @@ var shell = $('#portal').terminal(function(cmd, term) {
       term.set_prompt(auth_user+'@reddit:~/search$ ');
       term.resume();
     });
-    clearTimeout(poll);
+    // clearTimeout(poll);
     setTimeout(function(){if (!success){term.resume();term.echo("<span class='err'>error fetching data from reddit</span>", {raw:true});}}, 10000);
   // SEARCH PREVIOUS
   } else if (posts.length !== 0 && command[0] == "reddit" && command[1] == "search" && command[2] == "previous" && !command[3]) {
@@ -1461,7 +1461,7 @@ var shell = $('#portal').terminal(function(cmd, term) {
       term.set_prompt(auth_user+'@reddit:~/search$ ');
       term.resume();
     });
-    clearTimeout(poll);
+    // clearTimeout(poll);
     setTimeout(function(){if (!success){term.resume();term.echo("<span class='err'>error fetching data from reddit</span>", {raw:true});}}, 10000);
   // USER OVERVIEW
   } else if (command[0] == "reddit" && command[1] == "user" && command[2] && !command[3]) {
@@ -1610,7 +1610,7 @@ var shell = $('#portal').terminal(function(cmd, term) {
       term.set_prompt(auth_user+'@reddit:~/user/'+author+'$ ');
       term.resume();
     });
-    clearTimeout(poll);
+    // clearTimeout(poll);
     setTimeout(function(){if (!success){term.resume();term.echo("<span class='err'>error fetching data from reddit</span>", {raw:true});}}, 10000);
   // USER OVERVIEW NEXT
   } else if (posts.length !== 0 && command[0] == "reddit" && command[1] == "user" && command[2] && command[3] == "next" || comments.length !== 0 && command[0] == "reddit" && command[1] == "user" && command[2] && command[3] == "next") {
@@ -1749,7 +1749,7 @@ var shell = $('#portal').terminal(function(cmd, term) {
       term.set_prompt(auth_user+'@reddit:~/user/'+author+'$ ');
       term.resume();
     });
-    clearTimeout(poll);
+    // clearTimeout(poll);
     setTimeout(function(){if (!success){term.resume();term.echo("<span class='err'>error fetching data from reddit</span>", {raw:true});}}, 10000);
     // USER OVERVIEW PREVIOUS
   } else if (posts.length !== 0 && command[0] == "reddit" && command[1] == "user" && command[2] && command[3] == "previous" || comments.length !== 0 && command[0] == "reddit" && command[1] == "user" && command[2] && command[3] == "previous") {
@@ -1888,7 +1888,7 @@ var shell = $('#portal').terminal(function(cmd, term) {
       term.set_prompt(auth_user+'@reddit:~/user/'+author+'$ ');
       term.resume();
     });
-    clearTimeout(poll);
+    // clearTimeout(poll);
     setTimeout(function(){if (!success){term.resume();term.echo("<span class='err'>error fetching data from reddit</span>", {raw:true});}}, 10000);
   // UPVOTE
   } else if (token !== false && fullnames.length !== 0 && command[0] == "reddit" && command[1] == "upvote" && command[2] && !command[3]) {
@@ -2100,7 +2100,7 @@ var shell = $('#portal').terminal(function(cmd, term) {
   } else {
     term.echo("command not recognized", {raw:true});
     term.resume();
-    clearTimeout(poll);
+    // clearTimeout(poll);
   }
 }, {
   name: 'Links Autobot',
@@ -2112,7 +2112,7 @@ var shell = $('#portal').terminal(function(cmd, term) {
   },
   onInit: function(term) {
     if (location.search.split('token=')[1]) {
-      token = location.search.split('token=')[1];
+      token = location.search.split('token=9N_AnfW2dtWFCC-epmd2LQwwepg')[1];
       $.ajax({
         url: 'https://oauth.reddit.com/api/v1/me.json',
         dataType: 'json',

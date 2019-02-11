@@ -33,6 +33,12 @@ body {
   color: white;
 }
 
+img.footer-logo {
+    transform: rotate(90deg);
+    margin: -3rem 0rem 0rem 9rem;
+    width: 45% !important;
+}
+
 span#netsplit {
   font-size: 12px;
   text-align: right;
@@ -166,6 +172,18 @@ span#netsplit {
 
 /* Custom Job */
 
+#address {
+  background: gray;
+  border: 1px solid white;
+  border-radius: 25px;
+  color: black;
+  font-size: 15px;
+  font-family: -webkit-body;
+  margin: -1rem 1rem 1rem 0rem;
+  padding: 1.5rem 0rem 0rem 2rem;
+  width: 22%;
+}
+
 #attributes {
   width: 100%;
 }
@@ -227,6 +245,10 @@ span#netsplit {
   text-align: left;
   text-align: -webkit-left;
   text-decoration: underline;
+}
+
+#map {
+  border-radius: 25px;
 }
 
 #miss {
@@ -787,6 +809,7 @@ span#netsplit {
 
 .navbar {
   position: relative;
+  padding-top: 1rem;
 }
 
 .navbar-brand-s {
@@ -808,6 +831,10 @@ span#netsplit {
   border: 4px solid white;
   opacity: 0;
   padding: 1em 2em;
+}
+
+.navbar-right {
+  margin-top: -0.5rem;
 }
 
 .progress {

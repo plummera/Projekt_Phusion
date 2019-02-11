@@ -215,8 +215,8 @@ span#netsplit {
   color: bisque;
   font-size: larger;
   padding: 0% 0% 5%;
-  text-align: right;
-  text-align: -webkit-right;
+  text-align: center;
+  text-align: -webkit-center;
   text-decoration: underline;
 }
 
@@ -224,8 +224,8 @@ span#netsplit {
   color: bisque;
   font-size: larger;
   padding: 0% 0% 5%;
-  text-align: left;
-  text-align: -webkit-left;
+  text-align: center;
+  text-align: -webkit-center;
   text-decoration: underline;
 }
 
@@ -248,15 +248,15 @@ span#netsplit {
 #name1 {
   color: cadetblue;
   font-size: x-large;
-  text-align: right;
-  text-align: -webkit-right;
+  text-align: center;
+  text-align: -webkit-center;
 }
 
 #name2 {
   color: cadetblue;
   font-size: x-large;
-  text-align: left;
-  text-align: -webkit-left;
+  text-align: center;
+  text-align: -webkit-center;
 }
 
 #console {
@@ -445,7 +445,7 @@ span#netsplit {
   border: 11px solid white;
   border-radius: 25px;
   background-color: firebrick;
-  margin: 0% 0% 8% 1%;
+  margin: 5% 0% 8% 13%;
   max-height: 25rem;
   max-width: 54rem;
   padding: 5% 0% 10% 0%;
@@ -455,7 +455,7 @@ span#netsplit {
   border: 11px solid white;
   border-radius: 25px;
   background-color: firebrick;
-  margin: 0% 0% 8% 1%;
+  margin: 5% 0% 8% 13%;
   max-height: 25rem;
   max-width: 54rem;
   padding: 5% 0% 5% 0%;
@@ -677,6 +677,10 @@ span#netsplit {
   word-wrap: break-word;
 }
 
+.card-table {
+  margin: 0 38%;
+}
+
 .center {
   text-align: center;
 }
@@ -697,6 +701,7 @@ span#netsplit {
 .feed {
   background-color: white;
   border: 4px solid black;
+  border-radius: 25px;
   height: 47rem;
   margin: 1.5em;
   overflow-y: scroll;
@@ -714,7 +719,7 @@ span#netsplit {
 
 .feed::-webkit-scrollbar-thumb {
   background-color: darkgrey;
-  border-radius: 2em 0 2em 0;
+  border-radius: 0 2em 0 2em;
   height: 4em;
   outline: black;
 }
@@ -855,6 +860,13 @@ span#netsplit {
 
 .spacer {
   height: 75px;
+}
+
+.text-dark {
+  height: 100%;
+  background: #555;
+  border: 3px solid white;
+  border-radius: 25px;
 }
 
 .trackpack p {

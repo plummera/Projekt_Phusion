@@ -266,7 +266,7 @@ span#netsplit {
 }
 
 #console {
-  height: 45rem;
+  height: 150rem;
   max-width: 75rem;
   width: 100%;
   background-color: gray;
@@ -276,7 +276,7 @@ span#netsplit {
 }
 
 #consoleContainer {
-  display: grid;
+  display: inline;
   height: 100%;
   max-width: 80%;
   position: relative;
@@ -292,7 +292,6 @@ span#netsplit {
   height: 100%;
   width: auto;
   overflow-y: scroll;
-  white-space: pre;
 }
 
 #profession {
