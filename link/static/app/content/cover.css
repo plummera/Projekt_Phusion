@@ -925,7 +925,7 @@ span#netsplit {
 .video {
   height: 100%;
   position: fixed;
-  top: 50%;
+  top: 28pc;
   left: 50%;
   z-index: 0;
   min-width: 100%;
