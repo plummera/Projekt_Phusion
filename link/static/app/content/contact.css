@@ -174,8 +174,8 @@ span#netsplit {
 
 #address {
   background: gray;
-  border: 1px solid white;
   border-radius: 25px;
+  border: 1px solid white;
   color: black;
   font-size: 15px;
   font-family: -webkit-body;
@@ -809,7 +809,6 @@ span#netsplit {
 
 .navbar {
   position: relative;
-  padding-top: 1rem;
 }
 
 .navbar-brand-s {
@@ -831,10 +830,6 @@ span#netsplit {
   border: 4px solid white;
   opacity: 0;
   padding: 1em 2em;
-}
-
-.navbar-right {
-  margin-top: -0.5rem;
 }
 
 .progress {

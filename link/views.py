@@ -8,7 +8,7 @@ from django.template import RequestContext
 from .forms import TwitterNameForm
 from link.forms import BootstrapAuthenticationForm, SignUpForm, User1Form, User2Form
 from .models import Analysis, Psychic, Update, Tweet, Intel, Cryptocurrency
-from .watson import insight, compare, getUser, getFBfriends, getFBcomments, getFBprofilePic, getFBposts, getTwitterPosts, getFBprofile
+from .watson import insight, compare, getUser, getFBfriends, getFBcomments, getFBprofilePic, getFBposts, getTwitterPosts, getFBprofile, end_result
 from .cryptocurrency import getBalance
 from django.contrib.auth import login, logout, authenticate
 
@@ -185,143 +185,34 @@ def staging(request):
 
     login_form(request)
 
-    origin_FB = 'me'
-    destination_FB = 'me'
-    origin_twitter = 'AnthonyTPlummer'
-    destination_twitter = 'tamaradhia'
+    return end_result()
 
-    # WATSONS Analysis
-    analysis = get_object_or_404(Analysis)
-
-    # Getting User Information from Twitter Profile
-    user1 = getUser(origin_twitter)
-    user2 = getUser(destination_twitter)
-
-    # Getting Posts from FaceBook
-    post1 = getFBposts(origin_FB)
-    post2 = getFBposts(destination_FB)
-
-    # Gettings Origin Profile from Facebook
-    profile = getFBprofile(origin_FB)
-
-    # Getting the most Recent 200 Tweets from Twitter
-    tweets1 = getTwitterPosts(origin_twitter)
-    tweets2 = getTwitterPosts(destination_twitter)
-
-    #The IBM Watson Public Feed Analysis Results
-    data1 = insight(tweets1)
-    data2 = insight(tweets2)
-
-    # Creating Object for project deliverable
-    package1 = get_object_or_404(Intel)
-    package2 = get_object_or_404(Intel)
-
-    # Getting FaceBook Profile Pic
-    FBProfilePic1 = getFBprofilePic(origin_FB)
-    FBProfilePic2 = getFBprofilePic(destination_FB)
-
-    # Getting Cover Picture from Facebook
-    # FBCoverPic1 = getFBCoverPic(origin_FB)
-    # FBCoverPic2 = getFBCoverPic(destination_FB)
-
-    # Creating a place to store the analyzed metric Results
-    analysis.category = []
-    analysis.metric = []
-
-    # Creating a place store the metrics returned and a column to classify them
-    # (for Profile #1)
-    package1.metric = []
-    package1.category = []
-
-    # Creating a place store the metrics returned and a column to classify them
-    # (for Profile #2)
-    package2.metric = []
-    package2.category = []
-
-    user1_list = []
-    user2_list = []
-
-    user1_list = [None]*(len(package1.metric)+len(package1.category))
-    user1_list[::2] = package1.category
-    user1_list[1::2] = package1.metric
-
-
-    user2_list = [None]*(len(package2.metric)+len(package2.category))
-    user2_list[::2] = package2.category
-    user2_list[1::2] = package2.metric
-
-    user1_list = zip(package1.metric, package1.category)
-    user2_list = zip(package2.metric, package2.category)
-
-    #Loop to populate categories returned from Watson
-    for a in data1[1]:
-        package1.category.append(a)
-    for a in data2[1]:
-        package2.category.append(a)
-
-    #Loop to populate metric percentages returned from Watson
-    for i in data1[0]:
-        package1.metric.append(i)
-    for i in data2[0]:
-        package2.metric.append(i)
-
-    theproper = zip(package1.category,compare(package1.metric, package2.metric))
-
-
-    if profile:
-
-        print("")
-        print("FOR FUN AND JOKES, DO NOT HATE THE PLAYER, HATE THE GAME! ")
-        print("")
-
-        similarityVeryHigh = []
-        similarityMedium = []
-        similarityLow = []
-
-        for x,y in theproper:
-            print("")
-            print("Category: " + str(x))
-            analysis.category.append(x)
-            print("Metric: " + str(y))
-            if y > decimal.Decimal(.52):
-                print("Very High Similarity Detected for : " + str(analysis.category))
-                similarityLow.append([x,y])
-            if y < decimal.Decimal(.55) and y > decimal.Decimal(.22):
-                print("Medium Similarity Detected for : " + str(analysis.category))
-                similarityMedium.append([x,y])
-            if y < decimal.Decimal(.22):
-                print("Low Similarity Detected for : " + str(analysis.category))
-                similarityVeryHigh.append([x,y])
-
-        return render(
-            request,
-            'app/staging_area.html',
-            {
-                'analysis': analysis,
-                'data1': data1,
-                'data2': data2,
-                'FBProfilePic1': FBProfilePic1,
-                'FBProfilePic2': FBProfilePic2,
-                # 'FBCoverPic1': FBCoverPic1,
-                # 'FBCoverPic2': FBCoverPic2,
-                'form': BootstrapAuthenticationForm,
-                'post1': post1,
-                'post2': post2,
-                'profile': profile,
-                'similarityLow': similarityLow,
-                'similarityMedium': similarityMedium,
-                'similarityVeryHigh': similarityVeryHigh,
-                'tweets1': tweets1,
-                'tweets2': tweets2,
-                'user1': user1,
-                'user2': user2,
-                'user1_list': user1_list,
-                'user2_list': user2_list,
-            },
-        )
-
-    else:
-        return render(request, 'app/login')
+    return render(
+        request,
+        'app/staging_area.html',
+        {
+            'analysis': analysis,
+            'data1': data1,
+            'data2': data2,
+            'FBProfilePic1': FBProfilePic1,
+            'FBProfilePic2': FBProfilePic2,
+            # 'FBCoverPic1': FBCoverPic1,
+            # 'FBCoverPic2': FBCoverPic2,
+            'form': BootstrapAuthenticationForm,
+            'post1': post1,
+            'post2': post2,
+            'profile': profile,
+            'similarityLow': similarityLow,
+            'similarityMedium': similarityMedium,
+            'similarityVeryHigh': similarityVeryHigh,
+            'tweets1': tweets1,
+            'tweets2': tweets2,
+            'user1': user1,
+            'user2': user2,
+            'user1_list': user1_list,
+            'user2_list': user2_list,
+        },
+    )
 
 def telnet():
 
