@@ -12,7 +12,7 @@ import telnetlib
 
 from datetime import datetime
 from django.http import JsonResponse
-from watson_developer_cloud import PersonalityInsightsV3 as PersonalityInsights
+from ibm_watson import PersonalityInsightsV3
 from django.utils.encoding import force_text
 from django.core.serializers.json import DjangoJSONEncoder
 from django.core import serializers
@@ -94,13 +94,9 @@ def insight(statuses):
     for status in statuses:
         text += status.text
 
-    #IBM credentials
-    pi_username = "0fb3b935-6c02-47d6-a502-027cf7a47b8e"
-    pi_password = "m7lYTjBbpZRN"
+    personality_insights = PersonalityInsightsV3(version="2016-10-19",username=pi_username,password=pi_password)
 
-    personality_insights = PersonalityInsights(version="2016-10-19",username=pi_username,password=pi_password)
-
-    personality_insights.set_detailed_response(False)
+    # personality_insights.set_detailed_response(False)
 
     pi_result = personality_insights.profile(
         text,
@@ -109,6 +105,10 @@ def insight(statuses):
         consumption_preferences=False,
         raw_scores=False
     )
+
+    print("\n--Here lies the bug--\n")
+    print(pi_result)
+    print("\n--END OF BUG--\n")
 
     data = flatten(pi_result)
 

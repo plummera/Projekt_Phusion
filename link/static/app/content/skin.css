@@ -1,4 +1,3 @@
-
 /* LayerSlider Dark Skin */
 
 
@@ -17,14 +16,14 @@
 	margin-left:-62px;
     margin-top: -100px;
     background-size: 100%;
-}   
+}
 }
 
 .ls-darkskin .ls-layer .ls-vpcontainer img {
 opacity: 0.3 !important;
 filter:alpha(opacity=30) !important; /* For IE8 and earlier */
--webkit-transition: opacity 0.5s ease !important;     
-    -moz-transition: opacity 0.5s ease !important;    
+-webkit-transition: opacity 0.5s ease !important;
+    -moz-transition: opacity 0.5s ease !important;
     -o-transition: opacity 0.5s ease !important;
     -ms-transition: opacity 0.5s ease !important;
     transition: opacity 0.5s ease !important;
@@ -33,8 +32,8 @@ filter:alpha(opacity=30) !important; /* For IE8 and earlier */
 .ls-darkskin .ls-layer .ls-vpcontainer:hover img {
 opacity: 1 !important;
 filter:alpha(opacity=100) !important; /* For IE8 and earlier */
--webkit-transition: opacity 0.5s ease !important;     
-    -moz-transition: opacity 0.5s ease !important;    
+-webkit-transition: opacity 0.5s ease !important;
+    -moz-transition: opacity 0.5s ease !important;
     -o-transition: opacity 0.5s ease !important;
     -ms-transition: opacity 0.5s ease !important;
     transition: opacity 0.5s ease !important;
@@ -49,7 +48,7 @@ filter:alpha(opacity=100) !important; /* For IE8 and earlier */
 .ls-darkskin .ls-layer:hover  h3 {
 opacity: 0 !important;
 filter:alpha(opacity=0) !important; /* For IE8 and earlier */
--webkit-transition: all 1s ease !important;          
+-webkit-transition: all 1s ease !important;
     -moz-transition: all 1s ease !important;
     -o-transition: all 1s ease !important;
     -ms-transition: all 1s ease !important;
@@ -67,6 +66,10 @@ filter:alpha(opacity=0) !important; /* For IE8 and earlier */
 }
 
 @media( max-width:460px ){
+
+div.footerblock {
+	font-size: 36px;
+}
 
 .ls-darkskin {
 	border: none;
@@ -93,19 +96,19 @@ filter:alpha(opacity=0) !important; /* For IE8 and earlier */
 .ls-darkskin .ls-nav-next,
 .ls-darkskin .ls-fullscreen,
 .ls-darkskin .ls-loading-container {
-	background-image: url(skin.png);	
+	background-image: url(skin.png);
 }
 
 .ls-darkskin .ls-playvideo {
-	background-image: url(play-button-huge.png);	    
+	background-image: url(play-button-huge.png);
 }
 
 .ls-darkskin .ls-vpcontainer .ls-playvideo {
 	background-position: 50% 50%;
 opacity: 0 !important;
 filter:alpha(opacity=0) !important; /* For IE8 and earlier */
--webkit-transition: all 0.5s ease !important;     
-    -moz-transition: all 0.5s ease !important;    
+-webkit-transition: all 0.5s ease !important;
+    -moz-transition: all 0.5s ease !important;
     -o-transition: all 0.5s ease !important;
     -ms-transition: all 0.5s ease !important;
     transition: all 0.5s ease !important;
@@ -115,8 +118,8 @@ filter:alpha(opacity=0) !important; /* For IE8 and earlier */
 	background-position: 50% 50%;
 opacity: 1 !important;
 filter:alpha(opacity=100) !important; /* For IE8 and earlier */
--webkit-transition: all 0.5s ease !important;     
-    -moz-transition: all 0.5s ease !important;    
+-webkit-transition: all 0.5s ease !important;
+    -moz-transition: all 0.5s ease !important;
     -o-transition: all 0.5s ease !important;
     -ms-transition: all 0.5s ease !important;
     transition: all 0.5s ease !important;
@@ -167,11 +170,11 @@ filter:alpha(opacity=100) !important; /* For IE8 and earlier */
 }
 
 .ls-darkskin .ls-nav-sideleft {
-	background-position: -150px -150px;	
+	background-position: -150px -150px;
 }
 
 .ls-darkskin .ls-nav-sideright {
-	background-position: -225px -150px;	
+	background-position: -225px -150px;
 }
 
 
@@ -182,16 +185,16 @@ filter:alpha(opacity=100) !important; /* For IE8 and earlier */
 	height: 75px;
 	z-index: 50;
 	top: 50%;
-	margin-top: -37px;	
+	margin-top: -37px;
 	position: absolute;
 }
 
 .ls-darkskin .ls-nav-prev {
-	left:15px;	
+	left:15px;
 }
 
 .ls-darkskin .ls-nav-next {
-	right: 13px;	
+	right: 13px;
 }
 
 
@@ -235,7 +238,7 @@ filter:alpha(opacity=100) !important; /* For IE8 and earlier */
 
 
 .ls-darkskin .ls-thumbnail-hover {
-	padding: 4px;	
+	padding: 4px;
 }
 
 .ls-darkskin .ls-thumbnail-hover {
@@ -289,14 +292,14 @@ filter:alpha(opacity=100) !important; /* For IE8 and earlier */
 	height: 40px;
 	margin-left: -20px;
 	margin-top: -20px;
-	background-position: -450px -150px;	
+	background-position: -450px -150px;
 }
 
 .ls-darkskin .ls-loading-indicator {
 	width: 22px;
 	height: 22px;
 	margin-top: 9px;
-	background-image: url(loading.gif);	
+	background-image: url(loading.gif);
 }
 
 

@@ -276,9 +276,9 @@ span#netsplit {
 }
 
 #consoleContainer {
-  display: inline;
-  height: 100%;
-  max-width: 80%;
+  display: block;
+  height: 125%;
+  max-width: 92%;
   position: relative;
 }
 
@@ -346,6 +346,7 @@ span#netsplit {
 }
 
 #Scene1 {
+  background-image: url(http://anthonyplummer.elementfx.com/wp-content/uploads/2017/10/splash.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -551,7 +552,7 @@ span#netsplit {
   display: -webkite-inline-box;
   display: inline-block;
   height: 5rem;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
   width: 96.5%;
 }
 
@@ -722,6 +723,10 @@ span#netsplit {
 .ethereumDonate {
   transition-timing-function: ease;
   transition: 5s;
+}
+
+.extendo {
+	max-height: 363px !important;
 }
 
 .feed {
@@ -923,9 +928,8 @@ span#netsplit {
   VIDEO
 ============================================================================= */
 .video {
-  height: 100%;
   position: fixed;
-  top: 28pc;
+  top: 50%;
   left: 50%;
   z-index: 0;
   min-width: 100%;
@@ -1000,7 +1004,7 @@ span {
 
   #splashCarousel {
     position: relative;
-    margin: 10rem 3rem 10rem 0rem;
+    margin: 2rem 3rem 2rem 0rem;
   }
 
   #statusUpdates {
@@ -1023,8 +1027,8 @@ span {
     border-bottom-right-radius: 10px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    padding: 3%;
-    width: 32%;
+    padding: 2%;
+    width: 100%;
   }
 
   .jumbotron {
@@ -1036,6 +1040,7 @@ span {
   .mb-1 {
     border: 2px double white;
     margin: 50px 0px 20px 20px;
+    text-align: center;
   }
 
   .navbar-brand-s {

@@ -15,52 +15,49 @@
 
 <div id="Scene1" class="body-content">
 
-  <div class="spacer"></div>
+  <video id="my-video" class="video" muted loop>
+    <source src="//anthonyplummer.elementfx.com/wp-content/uploads/2017/10/splash2.mp4" type="video/mp4">
+    <source src="//anthonyplummer.elementfx.com/wp-content/uploads/2017/10/splash2.mp4" type="video/ogg">
+    <source src="//anthonyplummer.elementfx.com/wp-content/uploads/2017/10/splash2.mp4" type="video/webm">
+  </video>
 
-  <div id="splashVideo">
-    <video id="my-video" class="video" muted loop>
-      <source src="//anthonyplummer.elementfx.com/wp-content/uploads/2017/10/splash2.mp4" type="video/mp4">
-      <source src="//anthonyplummer.elementfx.com/wp-content/uploads/2017/10/splash2.mp4" type="video/ogg">
-      <source src="//anthonyplummer.elementfx.com/wp-content/uploads/2017/10/splash2.mp4" type="video/webm">
-    </video>
+  <script>
+  var video = document.getElementById("my-video");
 
-    <script>
-    var video = document.getElementById("my-video");
+  /**
+   * Check if video can play, and play it
+   */
 
-    /**
-     * Check if video can play, and play it
-     */
+  video.play();
 
-    video.play();
+  $('#splashVideo').fadeIn();
 
-    $('#splashVideo').fadeIn();
+  function myFunction() {
+    $('video').css('opacity','0');
+    $('#Scene1').css('background-image','url("http://anthonyplummer.elementfx.com/wp-content/uploads/2017/10/splash.jpg")');
+    // $('#Scene1').show("slide", { direction: "left" }, 1000);
+    $('.jumbotron').css('border', '4px double #407B40');
+    $('.jumbotron h1').css('color', 'darkorange');
+    $('#splashCarousel').css('border', '3px double #407B40');
+    $('#updates').css('border', '3px double #407B40');
+    $('.article').css('border', '3px solid #3F4D1C');
+  };
 
-    function myFunction() {
-      $('video').css('opacity','0');
-      $('#Scene1').css('background-image','url("http://anthonyplummer.elementfx.com/wp-content/uploads/2017/10/splash.jpg")');
-      $('#Scene1').show("slide", { direction: "left" }, 1000);
-      $('.jumbotron').css('border', '4px double #407B40');
-      $('.jumbotron h1').css('color', 'darkorange');
-      $('#splashCarousel').css('border', '3px double #407B40');
-      $('#updates').css('border', '3px double #407B40');
-      $('.article').css('border', '3px solid #3F4D1C');
-    };
+  function stretchScreen() {
+    // $('.video').css('position', 'absolute');
+    $('#updates').css('height', '1200px');
+  }
 
-    function stretchScreen() {
-      $('.video').css('position', 'absolute');
-      $('#updates').css('height', '1200px');
-    }
+  function flushVideo() {
+    $('#my-video').css('width', '100%');
+  }
 
-    function flushVideo() {
-      $('#my-video').css('width', '100%');
-    }
+  setTimeout(myFunction, 4775);
+  setTimeout(stretchScreen, 5000);
+  setTimeout(flushVideo, 8000);
 
-    setTimeout(myFunction, 4775);
-    setTimeout(stretchScreen, 5000);
-    setTimeout(flushVideo, 8000);
+  </script>
 
-    </script>
-  </div>
 </div>
 
 <div id="Scene2">
@@ -113,15 +110,21 @@
                 <p>&nbsp;</p>
               </div>
 
-              <div class="col-sm-12 btcDonate">
-                <div class="col-md-12 btn-group social">
-                  <label class="col-sm-4 btn-secondary active">
+              <div class="btcDonate">
+                <div class="btn-group btn-secondary social active">
+                  <label class="btn-secondary">
                     <input type="radio" name="options" id="option1" checked autocomplete="off"> Active <span>Account Needed</span>
                   </label>
-                  <label class="col-sm-4 btn-secondary">
+                </div>
+
+                <div class="btn-group btn-secondary">
+                  <label class="btn-secondary">
                     <input type="radio" name="options" id="option2" autocomplete="off"> Neutral
                   </label>
-                  <label class="col-sm-4 btn-secondary">
+                </div>
+
+                <div class="btn-group btn-secondary">
+                  <label class="btn-secondary">
                     <input type="radio" name="options" id="option3" autocomplete="off"> Passive
                   </label>
                 </div>
