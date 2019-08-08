@@ -12,12 +12,12 @@
 
 {% if request.user.is_authenticated %}
   {% block launchpad %}
-    <!-- {% include "app/launchpad.html" %} -->
+    {% include "app/launchpad.html" %}
     Logged In
   {% endblock %}
 {% else %}
   {% block login %}
-    <!-- {% include "app/login-2.html" %} -->
+    {% include "app/login-2.html" %}
     Logged Out
   {% endblock %}
 {% endif %}

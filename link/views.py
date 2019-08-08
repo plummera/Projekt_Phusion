@@ -168,6 +168,8 @@ def staging(request):
     """
     assert isinstance(request, HttpRequest)
 
+    form = BootstrapAuthenticationForm()
+
     if request.method == 'POST':
         form1 = User1Form(request.POST)
         if form.is_valid():
@@ -185,7 +187,25 @@ def staging(request):
 
     login_form(request)
 
-    return end_result()
+    stats = end_result()
+
+    analysis            = stats[0]
+    data1               = stats[1]
+    data2               = stats[2]
+    FBProfilePic1       = stats[3]
+    FBProfilePic2       = stats[4]
+    post1               = stats[5]
+    post2               = stats[6]
+    profile             = stats[7]
+    similarityLow       = stats[8]
+    similarityMedium    = stats[9]
+    similarityVeryHigh  = stats[10]
+    tweets1             = stats[11]
+    tweets2             = stats[12]
+    user1               = stats[13]
+    user2               = stats[14]
+    user1_list          = stats[15]
+    user2_list          = stats[16]
 
     return render(
         request,

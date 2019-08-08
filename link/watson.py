@@ -130,6 +130,8 @@ def flatten(orig):
     data['id'] = []
     data['percentile'] = []
 
+    orig = orig.get_result()
+
     for personality in orig['personality']:
         print("")
         # print("Trait ID = " + str(personality['trait_id']))
@@ -277,6 +279,8 @@ def end_result():
             if y < decimal.Decimal(.22):
                 print("Low Similarity Detected for : " + str(analysis.category))
                 similarityVeryHigh.append([x,y])
+
+    return [analysis, data1, data2, FBProfilePic1, FBProfilePic2, post1, post2, profile, similarityLow, similarityMedium, similarityVeryHigh, tweets1, tweets2, user1, user2, user1_list, user2_list]
 
 
 #Flatten the results received from the Watson PI API
