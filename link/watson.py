@@ -65,8 +65,8 @@ def getFBPostPicture(handle):
 def getFBposts(handle):
     posts = graph.request('/' + handle + '?fields=posts.limit(75){message,picture,story,link,full_picture,created_time,description,permalink_url}')
 
-    # for post in posts['posts']['data']:
-        # post['created_time'] = datetime.strptime(post['created_time'], "%d-%M-%Y")
+    for post in posts['posts']['data']:
+        post['created_time'] = datetime.strptime(post['created_time'], "%d-%M-%Y")
 
 
     return posts['posts']['data']
@@ -105,10 +105,6 @@ def insight(statuses):
         consumption_preferences=False,
         raw_scores=False
     )
-
-    print("\n--Here lies the bug--\n")
-    print(pi_result)
-    print("\n--END OF BUG--\n")
 
     data = flatten(pi_result)
 

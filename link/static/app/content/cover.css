@@ -552,7 +552,6 @@ span#netsplit {
   display: -webkite-inline-box;
   display: inline-block;
   height: 5rem;
-  margin-bottom: 2rem;
   width: 96.5%;
 }
 
@@ -562,8 +561,7 @@ span#netsplit {
 }
 
 .blockChainButton {
-  margin-top: 2%;
-  margin-left: -7%;
+  top: 0.7rem;
 }
 
 .btcDonate {
@@ -589,11 +587,18 @@ span#netsplit {
   vertical-align: middle;
 }
 
+.btn-group {
+  border-radius: 1rem;
+  display: inline-block;
+  height: 4rem;
+  margin: 0.7rem;
+  padding: 0.5rem 2rem;
+  position: relative;
+  vertical-align: middle;
+  width: 30.5%;
+}
+
 .btn-secondary {
-  margin: 0 0.1em 12px 0;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  width: 32%;
   z-index: 5;
 }
 

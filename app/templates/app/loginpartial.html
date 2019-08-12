@@ -23,7 +23,8 @@
     <li><a href="{% url 'login' %}"><img id="login-red" class="login-red" scope="public_profile,email" onlogin="checkLoginState();" src="{% static 'app/photos/login-red.png' %}" /></a></li>
     <li><a href="{% url 'signup' %}"><img id="login-red" class="login-red" src="{% static 'app/photos/signup.png' %}" /></a></li>
 
-    <li><div id="facebookCheck" class="col-md-10 col-md-offset-1">
+    <li>
+      <div id="facebookCheck" class="col-md-10 col-md-offset-1">
 
         <!--
           Below we include the Login Button social plugin. This button uses
@@ -31,9 +32,8 @@
           the FB.login() function when clicked.
         -->
 
-        <div id="status">
-        </div>
-      </div></li>
+      </div>
+    </li>
 </ul>
 
 {% endif %}
