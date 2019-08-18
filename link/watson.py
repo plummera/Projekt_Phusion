@@ -6,16 +6,13 @@ import twitter
 import facebook
 import requests
 import decimal
-import datetime
 import os
 import telnetlib
 
-from datetime import datetime
 from django.http import JsonResponse
 from ibm_watson import PersonalityInsightsV3
 from django.utils.encoding import force_text
 from django.core.serializers.json import DjangoJSONEncoder
-from django.core import serializers
 from django.shortcuts import get_object_or_404, render, redirect
 from .credentials import *
 from .models import Analysis, Psychic, Update, Tweet, Intel, Cryptocurrency
@@ -65,8 +62,8 @@ def getFBPostPicture(handle):
 def getFBposts(handle):
     posts = graph.request('/' + handle + '?fields=posts.limit(75){message,picture,story,link,full_picture,created_time,description,permalink_url}')
 
-    for post in posts['posts']['data']:
-        post['created_time'] = datetime.strptime(post['created_time'], "%d-%M-%Y")
+#    for post in posts['posts']['data']:
+#        post['created_time'] = datetime.strptime(post['created_time'], "%d-%M-%Y")
 
 
     return posts['posts']['data']

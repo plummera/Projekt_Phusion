@@ -2,7 +2,6 @@
 Definition of urls for DjangoApp.
 """
 
-from datetime import datetime
 from django.conf.urls import url, include
 from link.forms import BootstrapAuthenticationForm, SignUpForm
 from link.views import home, tos, staging, blockchain, link, contact, about, signup_form, login_form, logout_form
@@ -12,7 +11,6 @@ from .registration import *
 
 
 # Uncomment the next lines to enable the admin:
-from django.conf.urls import include
 from django.contrib import admin
 
 urlpatterns = [

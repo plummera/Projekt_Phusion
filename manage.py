@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 # USE PYTHON3 OH MY GOSH!!! SRSLY
-
+import django
 import os
 import sys
 

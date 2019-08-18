@@ -157,7 +157,7 @@ def signup_form(request):
     else:
         form = SignUpForm()
 
-    title = "You need to login"
+    title = 'You need to login'
     year = datetime.date.year
 
     return render(request, 'app/signup.html', {'form': form, 'title': title, 'year': year})
