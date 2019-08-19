@@ -53,21 +53,31 @@ def blockchain(request):
 
         count += 1
 
+    title = "Distributed Ledger Technology"
+
     return render(request, 'app/blockchain.html', {
         'message': currencies['Message'],
         'embed': currencies['Data'].items,
         'currencies': currencies['Data'],
         'totalBlockchains': count,
+        'title': title,
     })
 
 def contact(request):
     """
     Renders the contact page.
     """
+    title = '- Contact Me -'
+    message = "Welcome Visitor!"
+
     assert isinstance(request, HttpRequest)
     return render(
         request,
         'app/contact.html',
+        {
+            'title': title,
+            'message': message,
+        }
     )
 
 def home(request):
@@ -124,7 +134,9 @@ def login_form(request):
     else:
         form = BootstrapAuthenticationForm()
 
-    return render(request, 'app/login.html', {'form': form})
+    title = 'You need to login'
+
+    return render(request, 'app/login.html', {'form': form, 'login': login})
 
 def logout_form(request):
     """
@@ -169,6 +181,8 @@ def staging(request):
     assert isinstance(request, HttpRequest)
 
     form = BootstrapAuthenticationForm()
+
+    title = "The Staging Area"
 
     if request.method == 'POST':
         form1 = User1Form(request.POST)
@@ -225,6 +239,7 @@ def staging(request):
             'similarityLow': similarityLow,
             'similarityMedium': similarityMedium,
             'similarityVeryHigh': similarityVeryHigh,
+            'title': title,
             'tweets1': tweets1,
             'tweets2': tweets2,
             'user1': user1,

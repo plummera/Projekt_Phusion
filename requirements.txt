@@ -3,7 +3,6 @@ django-heroku
 django_rest_framework
 facebook-py
 krakenex
-psycopg2
 psycopg2-binary
 python-twitter
 requests
