@@ -10,15 +10,17 @@
 <!-- Remotely Distributed Dependencies -->
 <!-- <link rel="stylesheet" type="text/css" href="https://s3.amazonaws.com/phusionfactory/content/staging_area.css" /> -->
 
-{% if request.user.is_authenticated %}
-  {% block launchpad %}
-    {% include "app/launchpad.html" %}
-    Logged In
-  {% endblock %}
-{% else %}
+{% if request.user.is_authenticated is not True %}
   {% block login %}
     {% include "app/login-2.html" %}
     Logged Out
+  {% endblock %}
+{% endif %}
+
+{% if request.user.is_authenticated is True %}
+  {% block launchpad %}
+    {% include "app/launchpad.html" %}
+    Logged In
   {% endblock %}
 {% endif %}
 

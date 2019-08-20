@@ -178,76 +178,86 @@ def staging(request):
     """
     The Staging Staging Area
     """
-    assert isinstance(request, HttpRequest)
+    if request.user.is_authenticated == True:
+        assert isinstance(request, HttpRequest)
+        title = "The Staging Area"
+        if request.method == 'POST':
+            form1 = User1Form(request.POST)
+            if form.is_valid():
+                form.save()
+                user1 = form.cleaned_data.get('user1')
+                return redirect('home')
+            form2 = User2Form(request.POST)
+            if form.is_valid():
+                form.save()
+                user2 = form.cleaned_data.get('user2')
+                return redirect('home')
+        else:
+            form1 = User1Form()
+            form2 = User2Form()
 
-    form = BootstrapAuthenticationForm()
+        stats = end_result()
 
-    title = "The Staging Area"
+        analysis            = stats[0]
+        data1               = stats[1]
+        data2               = stats[2]
+        FBProfilePic1       = stats[3]
+        FBProfilePic2       = stats[4]
+        post1               = stats[5]
+        post2               = stats[6]
+        profile             = stats[7]
+        similarityLow       = stats[8]
+        similarityMedium    = stats[9]
+        similarityVeryHigh  = stats[10]
+        tweets1             = stats[11]
+        tweets2             = stats[12]
+        user1               = stats[13]
+        user2               = stats[14]
+        user1_list          = stats[15]
+        user2_list          = stats[16]
 
-    if request.method == 'POST':
-        form1 = User1Form(request.POST)
-        if form.is_valid():
-            form.save()
-            user1 = form.cleaned_data.get('user1')
-            return redirect('home')
-        form2 = User2Form(request.POST)
-        if form.is_valid():
-            form.save()
-            user2 = form.cleaned_data.get('user2')
-            return redirect('home')
+        return render(
+            request,
+            'app/staging_area.html',
+            {
+                'analysis': analysis,
+                'data1': data1,
+                'data2': data2,
+                'FBProfilePic1': FBProfilePic1,
+                'FBProfilePic2': FBProfilePic2,
+                # 'FBCoverPic1': FBCoverPic1,
+                # 'FBCoverPic2': FBCoverPic2,
+                'form': BootstrapAuthenticationForm,
+                'post1': post1,
+                'post2': post2,
+                'profile': profile,
+                'similarityLow': similarityLow,
+                'similarityMedium': similarityMedium,
+                'similarityVeryHigh': similarityVeryHigh,
+                'title': title,
+                'tweets1': tweets1,
+                'tweets2': tweets2,
+                'user1': user1,
+                'user2': user2,
+                'user1_list': user1_list,
+                'user2_list': user2_list,
+            },
+        )
     else:
-        form1 = User1Form()
-        form2 = User2Form()
+        assert isinstance(request, HttpRequest)
+        form = BootstrapAuthenticationForm()
+        title = "The Staging Area"
+        login_form(request)
 
-    login_form(request)
+        return render(
+            request,
+            'app/staging_area.html',
+            {
+                'form': BootstrapAuthenticationForm,
+                'title': title,
+            },
+        )
 
-    stats = end_result()
-
-    analysis            = stats[0]
-    data1               = stats[1]
-    data2               = stats[2]
-    FBProfilePic1       = stats[3]
-    FBProfilePic2       = stats[4]
-    post1               = stats[5]
-    post2               = stats[6]
-    profile             = stats[7]
-    similarityLow       = stats[8]
-    similarityMedium    = stats[9]
-    similarityVeryHigh  = stats[10]
-    tweets1             = stats[11]
-    tweets2             = stats[12]
-    user1               = stats[13]
-    user2               = stats[14]
-    user1_list          = stats[15]
-    user2_list          = stats[16]
-
-    return render(
-        request,
-        'app/staging_area.html',
-        {
-            'analysis': analysis,
-            'data1': data1,
-            'data2': data2,
-            'FBProfilePic1': FBProfilePic1,
-            'FBProfilePic2': FBProfilePic2,
-            # 'FBCoverPic1': FBCoverPic1,
-            # 'FBCoverPic2': FBCoverPic2,
-            'form': BootstrapAuthenticationForm,
-            'post1': post1,
-            'post2': post2,
-            'profile': profile,
-            'similarityLow': similarityLow,
-            'similarityMedium': similarityMedium,
-            'similarityVeryHigh': similarityVeryHigh,
-            'title': title,
-            'tweets1': tweets1,
-            'tweets2': tweets2,
-            'user1': user1,
-            'user2': user2,
-            'user1_list': user1_list,
-            'user2_list': user2_list,
-        },
-    )
 
 def telnet():
 
