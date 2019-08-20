@@ -29,7 +29,7 @@ def about(request):
         'app/about.html',
         {
             'title': 'What is this?',
-            'message': "This is a proof of concept maneuver to leverage C&C allocation capabilities to aggregate distributed conncectivity, unilaterally binding remote pools of unique nodes and identifiers.",
+            'message': "This is a proof of concept maneuver to leverage Command & Control allocation capabilities to aggregate conncectivity, unilaterally binding remote nodes and unique identifiers.",
         },
     )
 
@@ -136,7 +136,7 @@ def login_form(request):
 
     title = 'You need to login'
 
-    return render(request, 'app/login.html', {'form': form, 'login': login})
+    return render(request, 'app/login.html', {'form': form, 'title': title})
 
 def logout_form(request):
     """
