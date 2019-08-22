@@ -166,7 +166,7 @@ REST_FRAMEWORK = {
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/staticfiles/'
 STATIC_ROOT = STATIC_URL
 
 
@@ -178,7 +178,7 @@ STATICFILES_FINDERS = (
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
-STATICFILES_STORAGE = STATIC_URL
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
@@ -190,7 +190,7 @@ LOGGING = {
         'file': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': 'debug.log',
+            'filename': '/var/www/html/projekt_phusion/debug.log',
         },
     },
     'loggers': {
