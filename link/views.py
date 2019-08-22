@@ -29,7 +29,7 @@ def about(request):
         'app/about.html',
         {
             'title': 'What is this?',
-            'message': "This is a proof of concept maneuver to leverage Command & Control allocation capabilities to aggregate conncectivity, unilaterally binding remote nodes and unique identifiers.",
+            'message': "This is a proof of concept maneuver to leverage Command & Control allocation capabilities to aggregate connectivity, unilaterally binding remote nodes and unique identifiers.",
         },
     )
 
