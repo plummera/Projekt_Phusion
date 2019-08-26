@@ -11,22 +11,33 @@
 <!-- <link rel="stylesheet" type="text/css" href="https://s3.amazonaws.com/phusionfactory/content/contact.css" /> -->
 
 <div class="container-fluid ">
-  <div id="cross-photo" class="col-md-2">
-    <img src="{% static 'app/photos/cross.png' %}" class="footer-logo">
-  </div>
+  <div class="row">
 
-  <div id="address" class="col-md-6">
-    <address>
-        AP Engineering<br />
-        New York, NY 10001<br />
-        <email>aplummer@psda.com</email>        
-    </address>
+    <div id="cross-photo" class="col-md-2">
+      <img src="{% static 'app/photos/cross.png' %}" class="footer-logo">
+    </div>
+
+    <div class="col-md-2">
+      <h2>{{ title }}</h2>
+      <h3>{{ message }}</h3>
+    </div>
+
+    <div id="address" class="col-md-6">
+      <address>
+          AP Engineering<br />
+          New York, NY 10001<br />
+          <email>aplummer@psda.com</email>
+      </address>
+      <img src="{% static 'app/photos/cross.png' %}" class="contact-logo">
+    </div>
+
+    <div id="cross-photo-2" class="col-md-2">
+      <img src="{% static 'app/photos/cross.png' %}" class="contact-logo-2">
+    </div>
+
   </div>
 
 </div>
-
-<h2>{{ title }}</h2>
-<h3>{{ message }}</h3>
 
 <style>
    #map {
@@ -34,10 +45,17 @@
     width: 100%;
    }
 </style>
-</head>
-<body>
-<h3></h3>
-<div id="map"></div>
+
+
+<div class="row">
+  <div class="col-md-2"></div>
+    <div id="contact-map" class="col-md-8">
+      <h3>Present Day - {{ date }}</h3>
+      <div id="map"></div>
+    </div>
+  <div class="col-md-2"></div>
+</div>
+
 <script>
   function initMap() {
     var uluru = {lat: 40.7379521, lng: -74.0345043};

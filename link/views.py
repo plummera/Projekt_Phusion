@@ -69,14 +69,16 @@ def contact(request):
     """
     title = '- Contact Me -'
     message = "Welcome Visitor!"
+    date = datetime.date.today()
 
     assert isinstance(request, HttpRequest)
     return render(
         request,
         'app/contact.html',
         {
-            'title': title,
+            'date': date,
             'message': message,
+            'title': title,
         }
     )
 
