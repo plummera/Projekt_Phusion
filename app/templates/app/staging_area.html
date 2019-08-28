@@ -13,17 +13,14 @@
 {% if request.user.is_authenticated is not True %}
   {% block login %}
     {% include "app/login-2.html" %}
-    Logged Out
   {% endblock %}
 {% endif %}
 
 {% if request.user.is_authenticated is True %}
   {% block launchpad %}
     {% include "app/launchpad.html" %}
-    Logged In
+    <script src="{% static 'app/js/splash.js' %}"></script>
   {% endblock %}
 {% endif %}
 
 {% endblock %}
-
-<script src="{% static 'app/js/splash.js' %}"></script>
