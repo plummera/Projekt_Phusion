@@ -161,6 +161,8 @@ span#netsplit {
 
 #map {
   border-radius: 25px;
+  height: 400px;
+  width: 100%;
 }
 
 #miss {
@@ -979,8 +981,28 @@ span#netsplit {
 @media screen and (max-device-width: 640px){
   /* some CSS here */
 
+  #address {
+    margin: 2rem 4rem;
+    padding: 1.5rem 4rem;
+    text-align: center;
+  }
+
+  #cross-photo {
+    display: none;
+  }
+
+  #cross-photo-2 {
+    display: none;
+  }
+
   #exampleAccordion1 {
     width: 40%;
+  }
+
+  #map {
+    height: 360px;
+    width: 90%;
+    margin: 3rem 2rem;
   }
 
   #Scene2 h1 {
@@ -999,6 +1021,10 @@ span#netsplit {
 
   #theJob {
     margin: 5% 5.5% !important;
+  }
+
+  #title {
+    text-align: center;
   }
 
   #watson {
